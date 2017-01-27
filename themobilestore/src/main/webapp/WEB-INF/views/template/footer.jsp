@@ -2,7 +2,7 @@
 <footer>  
 <div class="container text-center">  
     <p class="pull-right"><a href="#">Back to top</a></p>
-    <center><p>&copy; All Rights Reserved &middot; <a href="/privacy">Privacy</a> &middot;  <a href="ContactUs.jsp">Contact Us</a></p></center>
+    <center><p>&copy; All Rights Reserved &middot; <a href="/privacy">Privacy</a> &middot;  <a href="ContactUs">Contact Us</a></p></center>
     </div>
 </footer>
 <!-- </div><!-- /.container -->
