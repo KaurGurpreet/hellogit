@@ -23,5 +23,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 		 {
 		 return "ContactUs";
 	    }
+	 
+	 @RequestMapping("/AboutUs")
+	 public String AboutUs()
+		 {
+		 return "AboutUs";
+	    }
+	 
+	 @RequestMapping("/Product")
+	 public String Product()
+		 {
+		 return "Product";
+	    }
+	 
 	}
 

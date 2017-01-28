@@ -4,8 +4,7 @@
 <!-- Carousel
 ================================================== -->
 <div class="jumbotron">
-
-<!--  <div class="container"> -->
+  <!--  <div class="container-fluid">  -->
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">

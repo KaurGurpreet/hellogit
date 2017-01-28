@@ -41,12 +41,12 @@ a:link {
     text-decoration: none;
 }
 
-a:visited
+/*a:visited
 {
     color: #E52B50;
     background-color: transparent;
     text-decoration: none;
-}
+}*/
 
  /* Remove the navbar's default margin-bottom and rounded borders */ 
   .navbar 
@@ -73,8 +73,8 @@ a:visited
   {
       width: 100%;
       /* margin: auto;*/
-      max-height:600px;
-      min-height:200px; 
+      max-height:auto;
+      min-height:auto; 
       margin-top: 0;
       margin-bottom: 0;
   }
@@ -117,16 +117,9 @@ a:visited
  
   <div class="collapse navbar-collapse" id="myNavbar"> 
     <ul class="nav navbar-nav">
-       <li class="active"><a href="#">Home</a></li>     
-       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">SAMSUNG</a></li>
-          <li><a href="#">NOKIA</a></li>
-          <li><a href="#">OPPO</a></li>
-        </ul>
-      </li>
-      <li><a href="/">About Us</a></li>
+       <li class="active"><a href="/">Home</a></li>     
+       <li><a href="Product">Products</a></li>
+      <li><a href="AboutUs">About Us</a></li>
      </ul>
      <ul class="nav navbar-nav navbar-right">
       <li><a href="SignUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -136,10 +129,7 @@ a:visited
    </div>
   </div>
   </nav>
- <!--  </div> -->
- <!--  </div> -->
  <%@ include file="/WEB-INF/views/login.jsp" %>    
-
       
       
             
