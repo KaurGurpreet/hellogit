@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 			return "index";
 		}
 		
+		@RequestMapping("/home")
+		public String home()
+		{
+			return "index";
+		}
+		
 	 @RequestMapping("/SignUp")
 	 public String SignUp()
 		 {

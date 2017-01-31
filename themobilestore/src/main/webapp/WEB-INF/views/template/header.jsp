@@ -117,7 +117,7 @@ a:link {
  
   <div class="collapse navbar-collapse" id="myNavbar"> 
     <ul class="nav navbar-nav">
-       <li class="active"><a href="/">Home</a></li>     
+       <li class="active"><a href="home">Home</a></li>     
        <li><a href="Product">Products</a></li>
       <li><a href="AboutUs">About Us</a></li>
      </ul>
