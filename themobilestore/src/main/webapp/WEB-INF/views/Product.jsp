@@ -7,13 +7,17 @@
   <title>All Products</title>
  
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
   
   <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
   
- <!--  <link href="./resources/css/carousel.css" rel="stylesheet">  -->
-  
- <!--   <link href="./resources/css/main.css"  rel="stylesheet"> -->
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    
+    <!-- JS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="./resources/js/app.js">
+ 
   
   <style>
 .jumbotron 
@@ -36,6 +40,13 @@
       border-radius: 0;
  }
   
+
+  body
+  { 
+  padding-top:50px;
+  }
+
+  
   footer 
   {
       background-color: #f2f2f2;
@@ -44,13 +55,13 @@
       margin-bottom: 0;
   }
   
- td,th {
+ /*td,th {
   padding: 25px;
   border: 1px solid black;
-    }
+    }*/
 </style>
   
-  <script>
+ <!--   <script>
            var product = [
                 { "pid": "P001", "name": "Samsung", "price": "30,000", "path": "Samsung", "link": "View More" },
                 { "pid": "P002", "name": "Oppo", "price": "25,000", "path": "Oppo", "link": "View More" },
@@ -73,8 +84,8 @@
                         .append($('<td/>').text(product.link));
                 });
             });
- </script>
-  
+ </script> -->
+ 
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -98,8 +109,9 @@
 <div class="jumbotron text-center">
   <h2>Our Product List</h2> <br>
 	
-<div class="container" align="center"> 
-<div id="somediv">
+<!--  <div class="container" align="center"> -->
+
+<!--  <div id="somediv">
 <table>
 		<tr>
 		<th><strong>Product Id</strong></th>
@@ -119,9 +131,53 @@
         </tr> 
    </c:forEach>
 </table>
+</div> -->
+
+<div class="container" ng-app="sortApp" ng-controller="mainController">
+  
+  <div class="alert alert-info">
+    <p>Sort Type: {{ sortType }}</p>
+    <p>Sort Reverse: {{ sortReverse }}</p>
+    <p>Search Query: {{ searchProduct }}</p>
+  </div>
+  
+  <table class="table table-bordered table-striped">
+    
+    <thead>
+      <tr>
+        <td>
+            Product ID 
+        </td>
+        <td>
+          Name
+        </td>
+        <td>
+          Price 
+        </td>
+        <td>
+          Image 
+        </td>
+        <td>
+          More Features 
+        </td>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr ng-repeat="roll of product">
+        <td>{{ roll.pid }}</td>     
+        <td>{{ roll.name }}</td>
+        <td>{{ roll.price}}</td>
+        <td>{{ roll.path}}</td>
+        <td>{{ roll.link}}</td>
+      </tr>
+    </tbody>
+    
+  </table>
+  
 </div>
 </div>
-</div>
+
 
  <%@ include file="/WEB-INF/views/template/footer.jsp" %>
 

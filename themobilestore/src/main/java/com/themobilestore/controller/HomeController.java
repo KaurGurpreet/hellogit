@@ -36,11 +36,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 		 return "AboutUs";
 	    }
 	 
-	 @RequestMapping("/Product")
+	/* @RequestMapping("/Product")
 	 public String Product()
 		 {
 		 return "Product";
-	    }
 	 
+	    }*/
+	 
+	@RequestMapping("/Products")
+	 public String Products()
+		 {
+		 return "Products";
+	     }
 	}
 
