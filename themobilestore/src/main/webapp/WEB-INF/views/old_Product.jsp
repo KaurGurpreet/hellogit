@@ -126,7 +126,7 @@
         <td>${product.pid}</td>
         <td>${product.name}</td>
         <td>${product.price}</td>      
-        <td><img src="./resources/images/${product.path}.jpg" class="img-thumbnail" alt="image" style="width:100%"/></td>
+        <td> <img src="./resources/images/${product.path}.jpg" class="img-thumbnail" alt="image" style="width:100%"></td>
         <td><a href="#">${product.link}</a></td>
         </tr> 
    </c:forEach>

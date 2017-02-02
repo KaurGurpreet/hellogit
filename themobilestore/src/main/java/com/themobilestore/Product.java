@@ -6,7 +6,7 @@ public class Product
 	   private String name;
 	   private String price;
 	   private String path;
-	   private String link;
+	  // private String link;
 	   
 	public String getPid() 
 	   {
@@ -36,13 +36,13 @@ public class Product
 		this.path = path; 
 	}
 	
-	public String getLink() {
+	/*public String getLink() {
 		return link;
 	}
 
 	public void setLink(String link) {
 		this.link = link;
-	}
+	}*/
 	
 	
 }

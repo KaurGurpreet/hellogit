@@ -17,6 +17,8 @@
   
   <link href="./resources/css/main.css"  rel="stylesheet">
   
+   <link href="./resources/css/login.css"  rel="stylesheet">
+  
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
     
 <style>
@@ -60,6 +62,7 @@ a:link {
 {
   position: relative;
   background: url('./resources/images/backgroundImage.jpg') no-repeat center;
+  color: #fff;
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -124,13 +127,13 @@ a:link {
      </ul>
      <ul class="nav navbar-nav navbar-right">
       <li><a href="SignUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>  -->
-      <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
-    </ul>
+      <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
+      <!--  <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>-->
+    </ul>  
    </div>
   </div>
   </nav>
- <%@ include file="/WEB-INF/views/login.jsp" %>    
+  
       
       
             

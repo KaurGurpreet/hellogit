@@ -12,7 +12,7 @@
   
   <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
 
-     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
+    <!--   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css"> -->
      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"> 
     
     <!-- JS -->
@@ -41,14 +41,10 @@
       margin-bottom: 0;
       border-radius: 0;
  }
-  
 
-  body
-  { 
-  padding-top:50px;
-  }
-
-  
+input, select {
+    color:black;
+}
   footer 
   {
       background-color: #f2f2f2;
@@ -59,7 +55,7 @@
 
 </style>
 </head>
-<body ng-app="myModule">
+<body>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -82,9 +78,14 @@
 <div class="jumbotron text-center">
   <h2>Our Product List</h2> <br>
 
-<div class="container" ng-controller="mainController">
-  Search : <input type="text" placeholder="Search products" ng-model="searchText"/>
+<div class="container" ng-app="myModule" ng-controller="mainController">
+    Search : <input type="text" placeholder="Search products" ng-model="searchText.name"/> 
   <br><br>
+  Order By : <select ng-model="sortColumn">
+              <option value="pid"> Product ID Asc</option>
+              <option value="name"> Name Asc</option>
+              <option value="price"> Price Asc</option>
+             </select> <br> <br> 
  <!--   <div class="alert alert-info">
     <p>Sort Type: {{ sortType }}</p>
     <p>Sort Reverse: {{ sortReverse }}</p>
@@ -95,31 +96,23 @@
     
     <thead>
       <tr>
-        <td>
-            Product ID 
-        </td>
-        <td>
-          Name
-        </td>
-        <td>
-          Price 
-        </td>
-        <td>
-          Image 
-        </td>
-        <td>
-          More Features 
-        </td>
+        <td>Product ID </td>
+        <td>Name</td>
+        <td>Price </td>
+        <td>Image </td>
+        <td>More Features</td>
       </tr>
     </thead>
     
     <tbody>
-      <tr ng-repeat="product in products">
+       <tr ng-repeat="product in products | filter:searchText |orderBy:sortColumn"> 
+        <!--  <tr ng-repeat="product in products | orderBy:sortColumn"> -->
         <td>{{ product.pid }}</td>     
         <td>{{ product.name }}</td>
         <td>{{ product.price}}</td>
-        <td>{{ product.path}}</td>
-        <td>{{ product.link}}</td>
+        <td><img src="./resources/images/{{ product.path}}.jpg" class="img-thumbnail" alt="image" width="80" height="80"/></td>
+       <!--   <td><a href="#">{{ product.link}}</a></td> -->
+       <td><a href="#">View More</a></td>
       </tr>
     </tbody>
     

@@ -36,6 +36,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 		 return "AboutUs";
 	    }
 	 
+	 @RequestMapping("/login")
+		public String login()
+		{
+			return "login";
+		}
+	 
 	/* @RequestMapping("/Product")
 	 public String Product()
 		 {
