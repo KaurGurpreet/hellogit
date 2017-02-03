@@ -31,7 +31,7 @@
  {
     position: relative;
     /*background: #B2FFFF center;*/
-    background: url('./resources/images/backgroundImage.jpg') no-repeat center;
+    background: url('./resources/images/background.jpeg') no-repeat center;
     width: 100%;
     height: 100%;
     background-size:cover;

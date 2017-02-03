@@ -18,12 +18,17 @@
   
   <style>
   .jumbotron 
-  {
-      background: url('./resources/images/backgroundImage.jpg') no-repeat center;
-      color: #fff;
-      margin-top: 0;
-      margin-bottom: 0;
-  }
+{
+  position: relative;
+  background: url('./resources/images/background.jpeg') no-repeat center;
+  color: black;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
+}
   .bg-color {
       background-color: #FFC1CC;
   }
@@ -76,10 +81,10 @@
       </div>
     </div>
   </form>
-</div>
+
 
 <!-- Container (About Section) -->
-<div class="jumbotron">
+<!--  <div class="jumbotron"> -->
   <div class="container">
   <h2><center>About Us</u></center><hr>
   <h3><strong>TheMobileStore</strong></h3>      

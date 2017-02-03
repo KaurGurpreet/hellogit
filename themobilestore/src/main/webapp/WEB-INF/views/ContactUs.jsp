@@ -27,7 +27,7 @@
       border-radius: 0;
     }
     
-    h2
+  /*  h2
   {
    color:#00FFFF;
   }
@@ -35,13 +35,14 @@
   h3
   {
    color:#C9FFE5;
-  }
+  }*/
   
   .jumbotron  
  {
     position: relative;
     /*background: #B2FFFF center;*/
-    background: url('./resources/images/backgroundImage.jpg') no-repeat center;
+    background: url('./resources/images/background.jpeg') no-repeat center;
+    color:black    
     width: 100%;
     height: 100%;
     background-size:cover;
@@ -95,21 +96,21 @@
   <div class="col-sm-4">
     <h3><center>Our Offices</center></h3>
 <hr>
-<address><font color="#FFEBCD">
+<address> <!--  <font color="#FFEBCD"> -->
 <strong><u>Delhi Address:</u></strong><br> Tower-B, Cyber City Complex, South-Extension,<br> New Delhi-110049 <br>
 <strong>Phone:</strong> +91-981-101-5533<br>
 <strong>Email:</strong> support.delhi@tms.com
 </font>
 </address>
 
-<address><font color="#FFEBCD">
+<address><!--  <font color="#FFEBCD"> -->
 <strong><u>Gurgaon Address:</u></strong><br> Tower-A Infotech Hub, DLF, Phase-I, <br>Gurgaon-122001<br>
 <strong>Phone:</strong> +91 991-757-2810 <br>
 <strong>Email:</strong> support.gurgaon@tms.com
 </font>
 </address>
 
-<address><font color="#FFEBCD">
+<address><!--  <font color="#FFEBCD"> -->
 <strong><u>Mubai Address:</u></strong><br> Business Center, Building 10, Worli <br>Mumbai-400018<br>
 <strong>Phone:</strong> +91 888-757-2828 <br>
 <strong>Email:</strong> support.mumbai@tms.com

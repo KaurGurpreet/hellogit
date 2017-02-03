@@ -1,10 +1,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="/WEB-INF/views/template/header.jsp" %>
 
-<!-- Carousel
-================================================== -->
+<!-- Carousel  -->
 <div class="jumbotron">
-  <!--  <div class="container-fluid">  -->
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -86,7 +84,7 @@
       <p id="htype2"><a href="#">Used Products</a></p> 
       </div>
       <div class="col-sm-4">
-      <img class="img-circle" src="./resources/images/mobile accessories 3.jpg" alt="Accessories Image" width="140" height="140"/>
+      <img class="img-circle" src="./resources/images/mobile accessories 1.jpeg" alt="Accessories Image" width="140" height="140"/>
       <!-- <img src="mobile store 2.jpg" class="img-circle" width="304" height="236" alt="Image"> -->
       <p id="htype2"><a href="#">Accessories</a></p> 
       </div>
@@ -104,5 +102,5 @@
     </div>
 </footer> -->
 
-</body>
+
 </html>

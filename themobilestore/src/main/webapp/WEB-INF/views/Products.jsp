@@ -14,6 +14,8 @@
 
     <!--   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css"> -->
      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"> 
+     
+     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
     
     <!-- JS -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
@@ -25,8 +27,8 @@
 .jumbotron 
 {
   position: relative;
-  background: url('./resources/images/backgroundImage.jpg') no-repeat center;
-  color: #fff;
+  background: url('./resources/images/background.jpeg') no-repeat center;
+  color: black;
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -42,9 +44,49 @@
       border-radius: 0;
  }
 
-input, select {
+input, select
+  {
     color:black;
+  }
+  
+  th
+  {
+   cursor:pointer;
+   text-align:center;
+   font-size: 20px;
+  }
+  
+  tr
+  {
+  font-size: 15px;
+  }
+  
+  /*a:link
+  {
+    color: #FFA700;
+    background-color: transparent;
+    text-decoration: none;
+  }*/
+  .arrow-up
+  {
+  width:0;
+  height:0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid black;
+  display: inline-block;
+ }
+
+.arrow-down
+{
+  width:0;
+  height:0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 10px solid black;
+  display: inline-block;
 }
+  
   footer 
   {
       background-color: #f2f2f2;
@@ -81,31 +123,35 @@ input, select {
 <div class="container" ng-app="myModule" ng-controller="mainController">
     Search : <input type="text" placeholder="Search products" ng-model="searchText.name"/> 
   <br><br>
-  Order By : <select ng-model="sortColumn">
+  <!--  Sort By : <select ng-model="sortColumn">
               <option value="pid"> Product ID Asc</option>
               <option value="name"> Name Asc</option>
               <option value="price"> Price Asc</option>
-             </select> <br> <br> 
- <!--   <div class="alert alert-info">
-    <p>Sort Type: {{ sortType }}</p>
-    <p>Sort Reverse: {{ sortReverse }}</p>
-    <p>Search Query: {{ searchProduct }}</p>
-  </div> -->
+             </select> <br> <br> -->
+ 
   
   <table class="table table-bordered">
     
     <thead>
       <tr>
-        <td>Product ID </td>
-        <td>Name</td>
-        <td>Price </td>
-        <td>Image </td>
-        <td>More Features</td>
+        <th ng-click="sortData('pid')">
+        Product ID <div ng-class="getSortClass('pid')"></div>
+        </th>
+        <th ng-click="sortData('name')">
+        Name <div ng-class="getSortClass('name')"></div>
+        </th>
+        <th ng-click="sortData('price')">
+        Price <div ng-class="getSortClass('price')"></div> 
+        </th>
+        <th ng-click="sortData('path')">
+        Image <div ng-class="getSortClass('path')"></div>
+        </th>
+        <th>More Features</th>
       </tr>
     </thead>
     
     <tbody>
-       <tr ng-repeat="product in products | filter:searchText |orderBy:sortColumn"> 
+       <tr ng-repeat="product in products | orderBy:sortColumn:reverseSort | filter:searchText"> 
         <!--  <tr ng-repeat="product in products | orderBy:sortColumn"> -->
         <td>{{ product.pid }}</td>     
         <td>{{ product.name }}</td>

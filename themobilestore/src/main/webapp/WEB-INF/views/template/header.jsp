@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-<head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Project</title>
@@ -37,11 +37,11 @@ h2
    color:#FF033E;font-family:Monotype Corsiva;font-size:25px;
   } 
 
-a:link {
+/*a:link {
     color: #FFA700;
     background-color: transparent;
     text-decoration: none;
-}
+}*/
 
 /*a:visited
 {
@@ -61,8 +61,8 @@ a:link {
 .jumbotron 
 {
   position: relative;
-  background: url('./resources/images/backgroundImage.jpg') no-repeat center;
-  color: #fff;
+  background: url('./resources/images/background.jpeg') no-repeat center;
+  color: black;
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -75,11 +75,11 @@ a:link {
   .carousel-inner > .item > a > img
   {
       width: 100%;
-      /* margin: auto;*/
+      margin: auto;
       max-height:auto;
       min-height:auto; 
-      margin-top: 0;
-      margin-bottom: 0;
+      /*margin-top: 0;
+      margin-bottom: 0;*/
   }
 
 /* Hide the carousel text when the screen is less than 600 pixels wide */
@@ -101,22 +101,19 @@ a:link {
 
  </style>
   
-</head>
-
-<body>
-<!--  <div class="navbar-wrapper"> -->
- <!--  <div class="container-fliuid"> -->
-   <nav class="navbar navbar-inverse">
-   <div class="container-fluid">
-    <div class="navbar-header">
-     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">TheMobileStore</a>
-    </div>
+ <div class="navbar-wrapper"> 
+   <!--  <div class="container"> --> 
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+       <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="#">TheMobileStore</a>
+      </div>
  
   <div class="collapse navbar-collapse" id="myNavbar"> 
     <ul class="nav navbar-nav">
@@ -133,7 +130,9 @@ a:link {
    </div>
   </div>
   </nav>
-  
+ </div>
+
+   
       
       
             
