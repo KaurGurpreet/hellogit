@@ -1,0 +1,10 @@
+.form-control
+  { 
+   margin-bottom: 10px;
+  }
+ 
+@media screen and (max-width:480px)
+ {
+   #sidebar { display: none;}
+ }
+ 

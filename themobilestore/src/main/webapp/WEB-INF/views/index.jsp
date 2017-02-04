@@ -1,7 +1,6 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="/WEB-INF/views/template/header.jsp" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<!-- Carousel  -->
 <div class="jumbotron">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -9,23 +8,22 @@
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
     </ol>
   
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
      <div class="item active">
-      <img class="first-slide home-image" src="./resources/images/image final1.jpg" alt="First slide">
+      <img class="first-slide home-image" src="./resources/images/image final2.jpg" alt="First slide">
        <!-- <img src="image final1.jpg" alt="Product1"> -->
         <div class="container">
         <div class="carousel-caption">
-          <h2 align="left">TheMobileStore</h2>
-          <p align="left" id="htype1">One-Stop-Shop for all latest Smart Phones</p>
+          <h2 align="right">TheMobileStore</h2>
+          <p align="right" id="htype1">One-Stop-Shop for all latest Smart Phones</p>
         </div>
        </div>
       </div>
      <div class="item">
-      <img class="second-slide home-image" src="./resources/images/image final2.jpg" alt="Second slide">
+      <img class="second-slide home-image" src="./resources/images/image final 3.jpg" alt="Second slide">
        <!-- <img src="image final2.jpg" alt="Product2">  -->
        <div class="container">
         <div class="carousel-caption">
@@ -35,27 +33,16 @@
        </div>
       </div>
      <div class="item">
-      <img class="third-slide home-image " src="./resources/images/image final 3.jpg" alt="Third slide">
+      <img class="third-slide home-image " src="./resources/images/mobile store 1.jpg" alt="Third slide">
         <!-- <img src="image final 3.jpg" alt="Product3">  -->
        <div class="container">
         <div class="carousel-caption">
-        <h2 align="center" id ="#htype2">TheMobileStore</h2>
-        <p align="center" id="htype1">One-Stop-Shop for all latest Smart Phones</p>
-      </div>
-     </div>
-     </div>
-    <div class="item">
-      <img class="fourth-slide home-image " src="./resources/images/mobile store 1.jpg" alt="Forth slide">
-        <!-- <img src="mobile store 1.jpg" alt="Product4">  -->
-       <div class="container">
-        <div class="carousel-caption">
-        <h2 align="right">TheMobileStore</h2>
+        <h2 align="right" id ="#htype2">TheMobileStore</h2>
         <p align="right" id="htype1">One-Stop-Shop for all latest Smart Phones</p>
-       </div>
       </div>
      </div>
-   </div>
-
+     </div>
+ 
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -65,6 +52,7 @@
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
     </a>
+ </div>
  </div>
 
 <br>
@@ -102,5 +90,5 @@
     </div>
 </footer> -->
 
-
+</body>
 </html>

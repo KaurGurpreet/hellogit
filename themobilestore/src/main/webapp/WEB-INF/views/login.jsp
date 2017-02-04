@@ -3,9 +3,8 @@
 <div class="jumbotron text-center">
 <div class="container">
     <div class="row">
-        <!--  <div class="col-sm-6 col-md-4 col-md-offset-4" well>  -->
         <div class="col-xs-4 col-sm-4 col-md-4 col-sm-offset-4 col-md-offset-4 well">
-            <h3 class="text-center login-title">Welcome Back! Please Login</h3>
+            <h2>Please Log In!</h2>
             <div class="account-wall">
                 <img class="profile-img" src="./resources/images/img_avatar2.png"
                     alt="">

@@ -89,17 +89,17 @@
 
 }
 
-.login-title
+.text-center login-title
 {
+    color: #32127A;
 
-    color: #555;
-
-    font-size: 18px;
+    font-size: 200px;
 
     font-weight: 400;
+    
+    font-family: Monotype Corsiva;
 
     display: block;
-
 }
 
 .profile-img
