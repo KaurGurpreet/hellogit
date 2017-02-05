@@ -1,5 +1,6 @@
 <%@ include file="/WEB-INF/views/template/header.jsp" %>
 
+
 <div class="jumbotron text-center">
   <h2><strong><u>Our Product List</u></strong></h2>
   <br>

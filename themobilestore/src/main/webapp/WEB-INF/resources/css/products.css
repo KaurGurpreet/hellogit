@@ -16,6 +16,7 @@ input, select
    cursor:pointer;
    text-align:center;
    font-size: 20px;
+   background-color: #FF6961;
   }
   
   tr

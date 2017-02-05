@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -10,19 +11,19 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
-  <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<c:url value="./resources/css/bootstrap.min.css" />" rel="stylesheet">
   
-  <link href="./resources/css/index.css" rel="stylesheet">
+  <link href="<c:url value="./resources/css/index.css" />" rel="stylesheet">
   
-  <link href="./resources/css/main.css" rel="stylesheet"> 
+  <link href="<c:url value="./resources/css/main.css" />" rel="stylesheet"> 
   
-   <link href="./resources/css/about.css" rel="stylesheet">
+   <link href="<c:url value="./resources/css/about.css" />" rel="stylesheet">
    
-   <link href="./resources/css/contact.css" rel="stylesheet"> 
+   <link href="<c:url value="./resources/css/contact.css" />" rel="stylesheet"> 
     
-   <link href="./resources/css/login.css" rel="stylesheet">
+   <link href="<c:url value="./resources/css/login.css" />" rel="stylesheet">
    
-   <link href="./resources/css/products.css" rel="stylesheet">
+   <link href="<c:url value="./resources/css/products.css" />" rel="stylesheet">
   
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
   
@@ -64,14 +65,14 @@
  
       <div class="collapse navbar-collapse" id="myNavbar"> 
         <ul class="nav navbar-nav">
-         <li class="active"><a href="home">Home</a></li>     
+         <li class="active"><a href="<c:url value="home" />">Home</a></li>     
           <!--  <li><a href="Product">Products</a></li>  -->
-         <li><a href="Products">Products</a></li>
-         <li><a href="AboutUs">About Us</a></li>
+         <li><a href="<c:url value="Products" />">Products</a></li>
+         <li><a href="<c:url value="AboutUs" />">About Us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-         <li><a href="SignUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-         <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
+         <li><a href="<c:url value="SignUp" />"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+         <li><a href="<c:url value="login" />"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
           <!--  <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>-->
        </ul>  
      </div>
