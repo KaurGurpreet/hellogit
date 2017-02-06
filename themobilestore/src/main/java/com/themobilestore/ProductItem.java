@@ -1,6 +1,6 @@
 package com.themobilestore;
 
-public class Product 
+public class ProductItem 
 {
        private String pid;
 	   private String name;

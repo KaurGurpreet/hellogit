@@ -2,8 +2,7 @@ package com.themobilestore.model;
 
 public class Product
 {
-
-	   private String pid;
+       private String pid;
 	   private String name;
 	   private double price;
 	   private int qty;
