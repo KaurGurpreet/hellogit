@@ -5,8 +5,8 @@ public class Product
        private String pid;
 	   private String name;
 	   private double price;
-	   private int qty;
-	   private String desc;
+	   private int quantity;
+	   private String description;
 	   
 	public String getPid() {
 		return pid;
@@ -26,17 +26,17 @@ public class Product
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public int getQty() {
-		return qty;
+	public int getQuantity() {
+		return quantity;
 	}
-	public void setQty(int qty) {
-		this.qty = qty;
+	public void setQty(int quantity) {
+		this.quantity = quantity;
 	}
-	public String getDesc() {
-		return desc;
+	public String getDescription() {
+		return description;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDesc(String description) {
+		this.description = description;
 	}
 	   
 	

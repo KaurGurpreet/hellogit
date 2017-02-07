@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.themobilestore.model.Product;
 import com.themobilestore.service.ProductService;
 
-@Controller
+ @Controller
 public class ProductController {
 
   @Autowired
@@ -20,7 +20,6 @@ public class ProductController {
 		System.out.println("CREATING INSTANCE FOR PRODUCTCONTROLLER");
 	}
 
-	//http://localhost:8080/project1/admin/product/productform
 	@RequestMapping("/productform")
 	public String getProductForm(Model model){
 		//Product product = new Product();
