@@ -49,10 +49,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 	 
 	    }*/
 	 
-	@RequestMapping("/Products")
+	/*@RequestMapping("/Products")
 	 public String Products()
 		 {
 		 return "Products";
-	     }
+	     }*/
 	}
 
