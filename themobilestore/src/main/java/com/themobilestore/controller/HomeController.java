@@ -42,12 +42,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 			return "login";
 		}
 	 
-	/* @RequestMapping("/Product")
+	 @RequestMapping("/Product")
 	 public String Product()
 		 {
-		 return "Product";
+		 return "ProductForm";
 	 
-	    }*/
+	    }
 	 
 	/*@RequestMapping("/Products")
 	 public String Products()

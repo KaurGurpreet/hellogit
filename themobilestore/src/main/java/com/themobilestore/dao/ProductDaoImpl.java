@@ -1,5 +1,8 @@
 package com.themobilestore.dao;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,15 @@ public class ProductDaoImpl implements ProductDao {
 		session.close();
 		System.out.println(product.getPid());
 		return product;
+	}
+  
+  public List<Product> getAllProducts()
+  {
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("from Product");
+		List<Product> products=query.list();
+		session.close();
+		return products;
 	}
 
 }

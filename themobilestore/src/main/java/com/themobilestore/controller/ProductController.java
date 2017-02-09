@@ -1,8 +1,11 @@
 package com.themobilestore.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -28,22 +31,24 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/addProduct")
-	public ModelAndView saveProduct(@ModelAttribute(value="product") Product product)
+	/*public ModelAndView saveProduct(@ModelAttribute(value="product") Product product)
 	{
 		Product newProduct=productService.saveProduct(product);
-	//NOT A FINAL VERSION.. 
-		return new ModelAndView("productList","product",newProduct);
+		//return new ModelAndView("productList","product",newProduct);*/
+	public String saveProduct(@Valid @ModelAttribute("product") Product product,BindingResult result)
+		{
+		if(result.hasErrors())
+			return "ProductForm";
+		productService.saveProduct(product);
+		return "index";
+		}
+	
+	@RequestMapping("/productlist")
+	public String getProductList(Model model)
+		{
+			model.addAttribute("Product", new Product());
+			return "ProductForm";
 		
-	}
-	
-	
-	
-/*@RequestMapping("/productlist")
-public String getProductList(Model model)
-	{
-		model.addAttribute("Product", new Product());
-		return "productform";
-	
-	}*/
+		}
 
 }
