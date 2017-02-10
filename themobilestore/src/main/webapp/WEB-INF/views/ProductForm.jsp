@@ -53,6 +53,18 @@ footer
 <form:errors path="description" cssStyle="color:#ff0000"></form:errors>
 </div>
 
+<div class="form-group">
+<label for="category">Category</label>
+<!-- List<Category> c =model.getAttribute("categories");
+out.println(c.cid)
+out.println(c.categoryDetails);
+ -->
+<c:forEach var="c" items="${categories}">
+<form:radiobutton path="category.cid" value="${c.cid}"/>${c.categoryDetails }
+</c:forEach>
+<form:errors path="category" cssStyle="color:#ff0000"></form:errors>
+</div>
+
 <input type="submit" value="Add Product" class="btn btn-default">
 </form:form> 
 

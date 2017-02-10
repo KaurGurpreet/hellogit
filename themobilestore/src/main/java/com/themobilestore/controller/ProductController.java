@@ -1,5 +1,7 @@
 package com.themobilestore.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,4 +53,12 @@ public class ProductController {
 		
 		}
 
+	
+	@RequestMapping("/getAllProducts")
+	public String getAllProducts(Model model){
+		List<Product> products=productService.getAllProducts();
+		//Assigning list of products to model attribute products
+		model.addAttribute("productList",products);
+		return "Product";
+	}
 }
