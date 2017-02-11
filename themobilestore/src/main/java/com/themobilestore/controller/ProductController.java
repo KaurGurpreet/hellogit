@@ -45,13 +45,13 @@ public class ProductController {
 		return "index";
 		}
 	
-	@RequestMapping("/productlist")
+	/*@RequestMapping("/productlist")
 	public String getProductList(Model model)
 		{
 			model.addAttribute("Product", new Product());
 			return "ProductForm";
 		
-		}
+		}*/
 
 	
 	@RequestMapping("/getAllProducts")
