@@ -31,11 +31,11 @@ public class ProductServiceImpl implements ProductService
 		return productDao.getAllProducts();
 	}
 
-	public Product getProductById(int id) 
+	/*public Product getProductById(int id) 
 	{
 		return productDao.getProductById(id);
 		
-	}
+	}*/
 	
 }
 	

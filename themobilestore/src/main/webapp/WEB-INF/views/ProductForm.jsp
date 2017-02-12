@@ -67,6 +67,8 @@ out.println(c.categoryDetails);
 
 <input type="submit" value="Add Product" class="btn btn-default">
 </form:form> 
+<br>
+<a href="getAllProducts" class="text-center new-account">View Product List</a>
 
 </div>
 </div>

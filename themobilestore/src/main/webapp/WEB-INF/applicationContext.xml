@@ -22,7 +22,7 @@
     
         <property name="packagesToScan">
         <list>
-                <value> com.themobilestore.model</value>
+                <value>com.themobilestore.model</value>
         </list>
       </property>             
     </bean>

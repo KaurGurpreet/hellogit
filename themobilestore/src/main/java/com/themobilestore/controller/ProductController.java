@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.themobilestore.model.Product;
+import com.themobilestore.service.CategoryService;
 import com.themobilestore.service.ProductService;
 
  @Controller
@@ -20,6 +21,9 @@ public class ProductController {
 
   @Autowired
   private ProductService productService;
+  
+  @Autowired
+  private CategoryService categoryService;
 		
 	public ProductController(){
 		System.out.println("CREATING INSTANCE FOR PRODUCTCONTROLLER");
@@ -59,6 +63,6 @@ public class ProductController {
 		List<Product> products=productService.getAllProducts();
 		//Assigning list of products to model attribute products
 		model.addAttribute("productList",products);
-		return "Product";
+		return "ProductList";
 	}
 }
