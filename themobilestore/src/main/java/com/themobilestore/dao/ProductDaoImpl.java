@@ -40,7 +40,7 @@ public class ProductDaoImpl implements ProductDao {
 		return products;
 	}
 
-public Product getProductById(int id)
+/*public Product getProductById(int id)
 {
 	Session session=sessionFactory.openSession();
 	//select * from product where id=34
@@ -48,6 +48,6 @@ public Product getProductById(int id)
 	session.close();
 	return product;
 
-}
+}*/
 
 }

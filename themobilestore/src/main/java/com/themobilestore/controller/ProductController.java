@@ -17,15 +17,16 @@ import com.themobilestore.service.CategoryService;
 import com.themobilestore.service.ProductService;
 
  @Controller
-public class ProductController {
-
+public class ProductController
+{
   @Autowired
   private ProductService productService;
   
   @Autowired
   private CategoryService categoryService;
 		
-	public ProductController(){
+	public ProductController()
+	{
 		System.out.println("CREATING INSTANCE FOR PRODUCTCONTROLLER");
 	}
 
@@ -33,6 +34,7 @@ public class ProductController {
 	public String getProductForm(Model model){
 		//Product product = new Product();
 		model.addAttribute("product",new Product());
+		model.addAttribute("categories",categoryService.getCategories());
 		return "ProductForm";
 	}
 	
@@ -41,6 +43,7 @@ public class ProductController {
 	{
 		Product newProduct=productService.saveProduct(product);
 		//return new ModelAndView("productList","product",newProduct);*/
+	
 	public String saveProduct(@Valid @ModelAttribute("product") Product product,BindingResult result)
 		{
 		if(result.hasErrors())

@@ -10,6 +10,8 @@ import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Product
 {
@@ -27,6 +29,7 @@ public class Product
 	   
 	   @ManyToOne
 	   @JoinColumn(name="cid")
+	   @JsonIgnore
 	   private Category category;
 	   
 	public int getPid() {
