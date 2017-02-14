@@ -68,7 +68,7 @@
         <ul class="nav navbar-nav">
          <li class="active"><a href="<c:url value="home" />">Home</a></li>     
           <!--  <li><a href="Product">Products</a></li>  -->
-         <li><a href="<c:url value="productform" />">Products</a></li>
+         <li><a href="<c:url value="getAllProducts" />">Products</a></li>
          <li><a href="<c:url value="AboutUs" />">About Us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">

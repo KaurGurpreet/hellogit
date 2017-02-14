@@ -40,14 +40,14 @@ public class ProductDaoImpl implements ProductDao {
 		return products;
 	}
 
-/*public Product getProductById(int id)
+public Product getProductById(int pid)
 {
 	Session session=sessionFactory.openSession();
 	//select * from product where id=34
-	Product product=(Product)session.get(Product.class,id);
+	Product product=(Product)session.get(Product.class, pid);
 	session.close();
 	return product;
 
-}*/
+}
 
 }
