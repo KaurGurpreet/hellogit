@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.themobilestore.model.Product;
 import com.themobilestore.service.CategoryService;
 import com.themobilestore.service.ProductService;
+import com.themobilestore.service.SupplierService;
 
  @Controller
 public class ProductController
@@ -24,6 +25,9 @@ public class ProductController
   
   @Autowired
   private CategoryService categoryService;
+  
+  @Autowired
+	private SupplierService sse;
 		
 	public ProductController()
 	{
@@ -31,10 +35,12 @@ public class ProductController
 	}
 
 	@RequestMapping("/productform")
-	public String getProductForm(Model model){
+	public String getProductForm(Model model)
+	{
 		//Product product = new Product();
 		model.addAttribute("product",new Product());
 		model.addAttribute("categories",categoryService.getCategories());
+		model.addAttribute("supplier",sse.list());
 		return "ProductForm";
 	}
 	
@@ -44,8 +50,10 @@ public class ProductController
 		Product newProduct=productService.saveProduct(product);
 		//return new ModelAndView("productList","product",newProduct);*/
 	
-	public String saveProduct(@Valid @ModelAttribute("product") Product product,BindingResult result)
+	public String saveProduct(@Valid @ModelAttribute("product") Product product,BindingResult result,Model model)
 		{
+		model.addAttribute("categories",categoryService.getCategories());
+		model.addAttribute("supplier",sse.list());
 		if(result.hasErrors())
 			return "ProductForm";
 		productService.saveProduct(product);

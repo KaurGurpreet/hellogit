@@ -65,11 +65,19 @@ out.println(c.categoryDetails);
 <form:errors path="category" cssStyle="color:#ff0000"></form:errors>
 </div>
 
+<div class="form-group">
+<label for="supplier">Supplier</label>
+<c:forEach var="s" items="${suppliers}">
+<form:radiobutton path="supplier.sid" value="${s.sid}"/>${s.supname }
+</c:forEach>
+<form:errors path="category" cssStyle="color:#ff0000"></form:errors>
+</div>
+
 <input type="submit" value="Add Product" class="btn btn-default">
 </form:form> 
 <br>
 <a href="getAllProducts" class="text-center new-account">View Product List</a>
-
+<br>
 </div>
 </div>
 </div>

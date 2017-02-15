@@ -22,6 +22,7 @@ public class Product
 	   private String name;
 	@Min(value=10)
 	   private double price;
+	
 	@Min(value=1)
 	   private int quantity;
 	   @NotEmpty(message="Description is mandatory")
@@ -31,6 +32,11 @@ public class Product
 	   @JoinColumn(name="cid")
 	   @JsonIgnore
 	   private Category category;
+	   
+	   @ManyToOne
+	   @JoinColumn(name = "sid")
+	   @JsonIgnore
+	    private Supplier supplier;
 	   
 	public int getPid() {
 		return pid;
@@ -68,6 +74,13 @@ public class Product
 	}
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+	
+	public Supplier getSupplier() {
+		return supplier;
+	}
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
 	}
 	
 }

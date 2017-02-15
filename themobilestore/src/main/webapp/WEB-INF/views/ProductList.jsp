@@ -9,11 +9,12 @@ background-color: #800020;
 }
 </style>
 
-<div class="jumbotron text-center">
-  <h2><strong><u>Our Product List</u></strong></h2>
-  <br>
+<div class="jumbotron">
     <div class="container">
- 
+    <a href="productform" class="btn btn-success pull-right" role="button">Add New Product</a></right>
+    <br>
+    <h2><strong><center><u>Our Product List</u></center></strong></h2>
+     <br>
     <div class="table-responsive">
     <table class="table table-bordered"> 
     <thead>
@@ -47,7 +48,7 @@ background-color: #800020;
   </table>
  </div> 
  <br> <br>
- <center><a href="productform" class="btn btn-success" role="button">Add New Product</a></center>
+ 
 </div>
 </div> 
 
