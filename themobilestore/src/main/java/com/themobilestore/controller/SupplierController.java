@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.themobilestore.model.Product;
 import com.themobilestore.model.Supplier;
 import com.themobilestore.service.SupplierService;
 
@@ -22,10 +24,19 @@ public class SupplierController
 	public SupplierController() {
 		System.out.println("CREATING INSTANCE FOR SUPPLIERCONTROLLER");
 	}
-	@RequestMapping(value = "/addSupplier", method = RequestMethod.GET)
+	
+	/*@RequestMapping(value = "/addSupplier", method = RequestMethod.GET)
 	public ModelAndView list() {
 		List<Supplier> list = sse.list();
-		return new ModelAndView("Supplier", "Supplier", list);
+		return new ModelAndView("supplier", "Supplier", list);
+	}*/
+	
+	@RequestMapping("/addSupplier")
+	public String list(Model model) {
+		List<Supplier> list = sse.list();
+		model.addAttribute("supplier",list);
+		/*return new ModelAndView("supplier", "Supplier", list);*/
+		return "Supplier";
 	}
 	
 	@ModelAttribute("suppliercommand")
@@ -49,4 +60,10 @@ public class SupplierController
 		return "redirect:/addSupplier";
 	}
 	
+	/*@RequestMapping("/getAllProducts")
+	public String getAllProducts(Model model){
+		List<Product> products=productService.getAllProducts();
+		//Assigning list of products to model attribute products
+		model.addAttribute("productList",products);
+		return "ProductList";*/
 }

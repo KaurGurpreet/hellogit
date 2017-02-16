@@ -1,5 +1,6 @@
 <%@ include file="/WEB-INF/views/template/header.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<link href="<c:url value="./resources/css/index.css" />" rel="stylesheet">
 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -12,7 +13,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
      <div class="item active" id="slide1">
-       <img class="first-slide home-image" src="./resources/images/image final.jpg" alt="First slide">  
+       <img class="first-slide home-image" src="./resources/images/image final.jpeg" alt="First slide">  
     <!--    <img src="./resources/images/image final2.jpg" alt="Product1"> -->
         <div class="container-fluid">
         <div class="carousel-caption">

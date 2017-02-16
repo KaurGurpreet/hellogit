@@ -3,11 +3,13 @@ package com.themobilestore.dao;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.themobilestore.model.Product;
 import com.themobilestore.model.Supplier;
 
 @Repository
@@ -22,23 +24,31 @@ public class SupplierDaoImpl implements SupplierDao
 		@Autowired
 		private SessionFactory sessionFactory;
 		
-		public SupplierDaoImpl(SessionFactory sessionFactory)
+		/*public SupplierDaoImpl(SessionFactory sessionFactory)
 		{
 
 			this.sessionFactory = sessionFactory;
 
-		}
+		}*/
+		
+		@SuppressWarnings("unchecked")
 		public List<Supplier> list()
 		{
-			@SuppressWarnings("unchecked")
-			List<Supplier> listSupplier  = (List<Supplier>) sessionFactory.getCurrentSession().createQuery("from Supplier").list();
-			return listSupplier;
+			/*@SuppressWarnings("unchecked")
+			List<Supplier> listSupplier  = (List<Supplier>) sessionFactory.openSession().createQuery("from Supplier").list();
+			return listSupplier;*/
+			
+			Session session=sessionFactory.openSession();
+			Query query=session.createQuery("from Supplier");
+			List<Supplier> supplier=query.list();
+			session.close();
+			return supplier;
 	    }
 		
-		public Supplier get(String id)
+		/*public Supplier get(String id)
 		{
 			String hql = "from Supplier where sid=?";
-			Query query = sessionFactory.getCurrentSession().createQuery(hql);
+			Query query = sessionFactory.openSession().createQuery(hql);
 			query.setString(0, id);
 			
 			List<Supplier> listSupplier = (List<Supplier>) query.list();
@@ -50,12 +60,17 @@ public class SupplierDaoImpl implements SupplierDao
 				return null;			
 			}
 
-		}
+		}*/
 		
-		public void saveOrUpdate(Supplier supplier)
+		public Supplier saveOrUpdate(Supplier supplier)
 		{
-			sessionFactory.openSession().saveOrUpdate(supplier);
-			
+			System.out.println(supplier.getSid());
+			Session session=sessionFactory.openSession();
+			session.saveOrUpdate(supplier);
+			session.flush();
+			session.close();
+			System.out.println(supplier.getSid());
+			return supplier;	
 		}
 
 }

@@ -19,7 +19,7 @@ footer
   <h2><strong><u>Add Product Form</u></strong></h2>
   <br>
 <div class="row">
-   <div class="col-xs-4 col-sm-4 col-md-4 col-sm-offset-4 col-md-offset-4 well">
+   <div class="col-xs-6 col-sm-6 col-md-6 col-sm-offset-4 col-md-offset-3 well">
 <div class="container">
 <c:url value="addProduct" var="url"></c:url>
 <form:form action="${url }"  commandName="product">
@@ -67,7 +67,7 @@ out.println(c.categoryDetails);
 
 <div class="form-group">
 <label for="supplier">Supplier</label>
-<c:forEach var="s" items="${suppliers}">
+<c:forEach var="s" items="${supplier}">
 <form:radiobutton path="supplier.sid" value="${s.sid}"/>${s.supname }
 </c:forEach>
 <form:errors path="category" cssStyle="color:#ff0000"></form:errors>
@@ -76,8 +76,7 @@ out.println(c.categoryDetails);
 <input type="submit" value="Add Product" class="btn btn-default">
 </form:form> 
 <br>
-<a href="getAllProducts" class="text-center new-account">View Product List</a>
-<br>
+<!-- <a href="getAllProducts" class="text-center new-account">View Product List</a>  -->
 </div>
 </div>
 </div>

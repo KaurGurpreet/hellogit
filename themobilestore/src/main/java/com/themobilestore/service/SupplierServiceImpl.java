@@ -19,10 +19,10 @@ public class SupplierServiceImpl implements SupplierService
 		return sdo.list();
 	}
 
-	public Supplier get(String id)
+	/*public Supplier get(String id)
 	{
 		return sdo.get(id);
-	}
+	}*/
 
 	public void saveOrUpdate(Supplier supplier)
 	{

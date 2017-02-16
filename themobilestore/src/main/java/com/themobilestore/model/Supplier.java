@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -12,7 +14,8 @@ import javax.persistence.OneToMany;
 public class Supplier
 {
    @Id
-	private String sid;
+   @GeneratedValue(strategy=GenerationType.AUTO)
+	private int sid;
 	private String supname;
 	private String supaddress;
 	private String supnumber;
@@ -23,11 +26,11 @@ public class Supplier
     @OneToMany(mappedBy="supplier", cascade=CascadeType.ALL, fetch = FetchType.EAGER) 
 	private List<Product> products;
 	
-	public String getSid() {
+	public int getSid() {
 		return sid;
 	}
 
-	public void setSid(String sid) {
+	public void setSid(int sid) {
 		this.sid = sid;
 	}
 

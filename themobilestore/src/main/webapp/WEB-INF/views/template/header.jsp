@@ -14,7 +14,7 @@
   
   <link href="<c:url value="./resources/css/bootstrap.min.css" />" rel="stylesheet">
   
-  <link href="<c:url value="./resources/css/index.css" />" rel="stylesheet">
+  <!--  <link href="<c:url value="./resources/css/index.css" />" rel="stylesheet"> -->
   
   <link href="<c:url value="./resources/css/main.css" />" rel="stylesheet"> 
   
@@ -24,7 +24,7 @@
     
    <link href="<c:url value="./resources/css/login.css" />" rel="stylesheet">
    
-   <link href="<c:url value="./resources/css/products.css" />" rel="stylesheet">
+   <!--  <link href="<c:url value="./resources/css/products.css" />" rel="stylesheet">  -->
   
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
   

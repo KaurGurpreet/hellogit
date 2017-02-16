@@ -1,17 +1,16 @@
-<%@ include file="/WEB-INF/views/template/header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+<title>Product List</title>
 
-<style>
-.btn btn-info
-{
-background-color: #800020;
-}
-</style>
+<%@ include file="/WEB-INF/views/template/header.jsp" %>
+<link href="<c:url value="./resources/css/products.css" />" rel="stylesheet">
 
 <div class="jumbotron">
     <div class="container">
-    <a href="productform" class="btn btn-success pull-right" role="button">Add New Product</a></right>
+    <a href="productform" class="btn btn-primary btn-lg active pull-right" role="button">Add New Product</a></right>
     <br>
     <h2><strong><center><u>Our Product List</u></center></strong></h2>
      <br>
@@ -53,6 +52,4 @@ background-color: #800020;
 </div> 
 
  <%@ include file="/WEB-INF/views/template/footer.jsp" %> 
-  
-</body>
 </html>
