@@ -1,4 +1,6 @@
-<%@ include file="/WEB-INF/views/template/header.jsp" %> 
+<%@ include file="/WEB-INF/views/template/header.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %> 
 
 <div class="jumbotron text-center">
 <div class="container">
@@ -8,11 +10,22 @@
             <div class="account-wall">
                 <img class="profile-img" src="./resources/images/img_avatar2.png"
                     alt="">
-                <form class="form-signin">
+                    <c:if test="${not empty msg}">
+                    <div class="msg">${msg}</div>
+                     </c:if>
+  
+                     <!--j_spring_security_check"--> 
+               <!-- <form name="loginForm" action="<c:url value="/j_spring_security_check"/>" method="post"> -->
+                <form class="form-signin" action="<c:url value="/j_spring_security_check"/>" method="post">
+                   
+                   <c:if test="${not empty error}">
+                   <div class="error"style="color: #ff0000;">${error}</div>
+                   </c:if>
+                
                 <input type="text" class="form-control" placeholder="Email" required autofocus>
                 <input type="password" class="form-control" placeholder="Password" required>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    Sign in</button>
+                <a href="login"><button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button></a>
+                  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>  
                 <label class="checkbox pull-left">
                     <input type="checkbox" value="remember-me">
                     Remember me

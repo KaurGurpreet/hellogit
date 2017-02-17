@@ -39,7 +39,7 @@
   .jumbotron 
  {
   position: relative;
-  background: url('./resources/images/background.jpeg') no-repeat center;
+  background: url('./resources/images/background 4.jpg') no-repeat center;
   color: black;
   width: 100%;
   height: 100%;
@@ -73,8 +73,18 @@
          <li><a href="<c:url value="AboutUs" />">About Us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-         <li><a href="<c:url value="SignUp" />"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+         
+         <c:if test="${pageContext.request.userPrincipal.name != null}">
+         <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
+         <li><a href="<c:url value="/j_spring_security_logout"/>">Logout</a></li>
+         <c:if test="${pageContext.request.userPrincipal.name == 'admin'}"> 
+         <li><a href="<c:url value="/admin"/>">Admin</a></li> 
+         </c:if> 
+         </c:if>
+         <c:if test="${pageContext.request.userPrincipal.name == null}">
          <li><a href="<c:url value="login" />"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
+         <li><a href="<c:url value="SignUp" />"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+         </c:if>
           <!--  <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>-->
        </ul>  
      </div>

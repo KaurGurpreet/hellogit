@@ -13,8 +13,8 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
      <div class="item active" id="slide1">
-       <img class="first-slide home-image" src="./resources/images/image final.jpeg" alt="First slide">  
-    <!--    <img src="./resources/images/image final2.jpg" alt="Product1"> -->
+       <img class="first-slide home-image" src="./resources/images/mobile store3.jpg" alt="First slide">  
+    <!--    <img src="./resources/images/mobile store3.jpg" alt="Product1"> -->
         <div class="container-fluid">
         <div class="carousel-caption">
           <h2 align="right">TheMobileStore</h2>
@@ -23,8 +23,8 @@
        </div>
       </div>
      <div class="item" id="slide2">
-      <img class="second-slide home-image" src="./resources/images/mobile store3.jpg" alt="Second slide"> 
-    <!--     <img src="./resources/images/image final 3.jpg" alt="Product2">   -->
+      <img class="second-slide home-image" src="./resources/images/Mobile 1.jpg" alt="Second slide"> 
+    <!--     <img src="./resources/images/image final.jpeg" alt="Product2">   -->
        <div class="container-fluid">
         <div class="carousel-caption">
         <h2 align="right">TheMobileStore</h2>

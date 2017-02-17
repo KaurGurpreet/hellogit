@@ -24,7 +24,7 @@ footer
   
   .table th, .table td
   {
-  border: red solid 1px !important;
+  border: #800040 solid 1px !important;
   }
   
   th
@@ -32,7 +32,7 @@ footer
    cursor:pointer;
    text-align:center;
    font-size: 15px;
-   background-color: #FF6961;
+   background-color: #92A1CF;
   }
   
 </style>
