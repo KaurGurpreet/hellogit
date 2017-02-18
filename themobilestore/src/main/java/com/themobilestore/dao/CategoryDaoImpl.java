@@ -15,6 +15,11 @@ import com.themobilestore.model.Category;
 @Transactional
 public class CategoryDaoImpl implements CategoryDao
 {
+	public CategoryDaoImpl()
+	{
+		System.out.println("CREATING INSTANCE FOR CATEGORYDAOIMPL");
+	}
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -24,6 +29,18 @@ public class CategoryDaoImpl implements CategoryDao
 		List<Category> categories=query.list();
 		session.close();
 		return categories;
+	}
+
+	public Category saveOrUpdate(Category category)
+	{
+		System.out.println(category.getCid());
+		Session session=sessionFactory.openSession();
+		session.saveOrUpdate(category);
+		session.flush();
+		session.close();
+		System.out.println(category.getCid());
+		return category;
+		
 	}
 
 }

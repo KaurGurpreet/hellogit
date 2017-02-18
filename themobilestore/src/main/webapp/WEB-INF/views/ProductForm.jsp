@@ -60,7 +60,7 @@ out.println(c.cid)
 out.println(c.categoryDetails);
  -->
 <c:forEach var="c" items="${categories}">
-<form:radiobutton path="category.cid" value="${c.cid}"/>${c.categoryDetails }
+<form:radiobutton path="category.cid" value="${c.cid}"/>${c.cname }
 </c:forEach>
 <form:errors path="category" cssStyle="color:#ff0000"></form:errors>
 </div>

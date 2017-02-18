@@ -69,6 +69,7 @@
          <li class="active"><a href="<c:url value="home" />">Home</a></li>     
           <!--  <li><a href="Product">Products</a></li>  -->
          <li><a href="<c:url value="getAllProducts" />">Products</a></li>
+         <li><a href="<c:url value="addCategory" />">Category</a></li>
          <li><a href="<c:url value="addSupplier" />">Supplier</a></li>
          <li><a href="<c:url value="AboutUs" />">About Us</a></li>
         </ul>

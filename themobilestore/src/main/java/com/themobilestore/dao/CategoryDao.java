@@ -6,5 +6,7 @@ import com.themobilestore.model.Category;
 
 public interface CategoryDao
 {
+	public Category saveOrUpdate(Category category);
+	
 	List<Category> getCategories();
 }

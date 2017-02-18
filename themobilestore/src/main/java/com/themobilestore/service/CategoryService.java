@@ -6,5 +6,7 @@ import com.themobilestore.model.Category;
 
 public interface CategoryService
 {
+	public void saveOrUpdate(Category category);
+	
 	List<Category> getCategories();
 }

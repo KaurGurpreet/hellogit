@@ -24,7 +24,7 @@ public class ProductController
   private ProductService productService;
   
   @Autowired
-  private CategoryService categoryService;
+  private CategoryService cse;
   
   @Autowired
 	private SupplierService sse;
@@ -39,7 +39,7 @@ public class ProductController
 	{
 		//Product product = new Product();
 		model.addAttribute("product",new Product());
-		model.addAttribute("categories",categoryService.getCategories());
+		model.addAttribute("categories",cse.getCategories());
 		model.addAttribute("supplier",sse.list());
 		return "ProductForm";
 	}
@@ -52,7 +52,7 @@ public class ProductController
 	
 	public String saveProduct(@Valid @ModelAttribute("product") Product product,BindingResult result,Model model)
 		{
-		model.addAttribute("categories",categoryService.getCategories());
+		model.addAttribute("categories",cse.getCategories());
 		model.addAttribute("supplier",sse.list());
 		if(result.hasErrors())
 			return "ProductForm";
