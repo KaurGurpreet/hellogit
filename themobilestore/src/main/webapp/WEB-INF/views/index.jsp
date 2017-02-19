@@ -13,17 +13,17 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
      <div class="item active" id="slide1">
-       <img class="first-slide home-image" src="./resources/images/mobile store3.jpg" alt="First slide">  
+       <img class="first-slide home-image" src="./resources/images/mstore1.jpg" alt="First slide">  
     <!--    <img src="./resources/images/mobile store3.jpg" alt="Product1"> -->
         <div class="container-fluid">
         <div class="carousel-caption">
-          <h2 align="right">TheMobileStore</h2>
-          <p align="right" id="htype1">One-Stop-Shop for all latest Smart Phones</p>
+         <!--  <h2 align="right">TheMobileStore</h2>
+          <p align="right" id="htype1">One-Stop-Shop for all latest Smart Phones</p> -->
         </div>
        </div>
       </div>
      <div class="item" id="slide2">
-      <img class="second-slide home-image" src="./resources/images/Mobile 1.jpg" alt="Second slide"> 
+      <img class="second-slide home-image" src="./resources/images/Mobile 4.jpg" alt="Second slide"> 
     <!--     <img src="./resources/images/image final.jpeg" alt="Product2">   -->
        <div class="container-fluid">
         <div class="carousel-caption">
@@ -33,12 +33,12 @@
        </div>
       </div>
      <div class="item" id="slide3">
-        <img class="third-slide home-image " src="./resources/images/mobile store.jpeg" alt="Third slide">
+        <img class="third-slide home-image " src="./resources/images/image2.jpg" alt="Third slide">
        <!--   <img src="./resources/images/mobile store 1.jpg" alt="Product3">  -->
        <div class="container-fluid">
         <div class="carousel-caption">
         <h2 align="right">TheMobileStore</h2>
-        <p align="right" id="htype1">One-Stop-Shop for all latest Smart Phones</p>
+        <!-- <p align="right" id="htype1">One-Stop-Shop for all latest Smart Phones</p> -->
       </div>
      </div>
      </div>

@@ -39,7 +39,7 @@
   .jumbotron 
  {
   position: relative;
-  background: url('./resources/images/background 4.jpg') no-repeat center;
+  background: url('./resources/images/background img.jpg') no-repeat center;
   color: black;
   width: 100%;
   height: 100%;

@@ -1,7 +1,7 @@
 h2
   {
-   color:#0000FF;
-   /*#360CCC
+   color:#00FFEF;
+   /*#360CCC #FF007C
    #4B0082
    #00009C
    *#00008B
@@ -11,7 +11,9 @@ h2
 
  #htype1
   {
-   color:#FF0038;
+   color:#ff4040;
+    /*#FF2800
+     #FD0E35 #FF0038 #FF007C #F70D1A #FF0000 #FF0090 #FF0800; */
    font-family:Monotype Corsiva;
    font-size:25px;
   } 

@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <title>Add Supplier</title>
 
@@ -38,12 +39,13 @@ footer
 <div class="container" id="categoryTable" align="center">
   <h2><strong><u>Add Category</u></strong></h2>
 <c:url value="/category/add" var="url"></c:url>
-<form:form action="${url }"  commandName="catogorycommand">
-     <div class="table-responsive">
+<form:form action="${url }"  commandName="categorycommand">
+   
+   <div class="table-responsive">
      <table id="editcategory">   
                <tr>
                  <td><label for="cid"></label></td>
-                 <td><form:hidden  path="cid"/></td>
+                 <td><form:hidden path="cid"/></td>
                </tr>
                 <tr>
 					<td>Category Name</td>
@@ -72,7 +74,7 @@ footer
 					<th width="80">Delete</th> -->
 				</tr>
 				<tbody>
-					<c:forEach var="c" items="${supplier}">
+					<c:forEach var="c" items="${category}">
 						<tr>
 							<td>${c.cid}</td>
 							<td>${c.cname}</td>

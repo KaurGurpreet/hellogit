@@ -9,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.themobilestore.model.Product;
 import com.themobilestore.service.CategoryService;
@@ -39,7 +39,7 @@ public class ProductController
 	{
 		//Product product = new Product();
 		model.addAttribute("product",new Product());
-		model.addAttribute("categories",cse.getCategories());
+		model.addAttribute("category",cse.getCategories());
 		model.addAttribute("supplier",sse.list());
 		return "ProductForm";
 	}
@@ -76,4 +76,38 @@ public class ProductController
 		model.addAttribute("productList",products);
 		return "ProductList";
 	}
+	
+	@RequestMapping("/product/viewproduct/{id}")
+	public String viewProduct(@PathVariable int id,Model model){
+		Product product=productService.getProductById(id);
+		model.addAttribute("product",product);
+	return "viewproduct";
+	}
+
+	@RequestMapping("/product/deleteproduct/{id}")
+	public String deleteProduct(@PathVariable int id){
+		productService.deleteProduct(id);
+		return "redirect:getAllProducts";
+	}
+
+
+	/**
+	 *    to display the form to edit product details
+	 */
+	@RequestMapping("/product/editform/{id}")
+	public String editProductForm(@PathVariable int id,Model model){
+		Product product=productService.getProductById(id);
+		model.addAttribute("product",product);
+		model.addAttribute("category",cse.getCategories());
+		return "editproductform";
+	}
+	@RequestMapping("/product/editProduct")
+	public String editProductDetails(@Valid @ModelAttribute("product") Product product,
+			BindingResult result){
+		if(result.hasErrors())
+			return "productform";
+		productService.updateProduct(product);
+		return "redirect:/product/getAllProducts";
+	}
+	
 }

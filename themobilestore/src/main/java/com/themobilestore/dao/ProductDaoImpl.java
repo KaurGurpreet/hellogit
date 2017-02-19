@@ -49,5 +49,23 @@ public Product getProductById(int pid)
 	return product;
 
 }
+public void deleteProduct(int id) {
+	Session session=sessionFactory.openSession();
+	//Make the object persistent[read the data from the table and add it to session]
+	Product product=(Product)session.get(Product.class, id);
+	session.delete(product);
+	session.flush();
+	session.close();
+	
+}
+
+public void updateProduct(Product product) {
+	Session session=sessionFactory.openSession();
+	System.out.println("Id of the product in dao is " + product.getPid());
+	session.update(product); //update product set ..... where id=?
+	session.flush();
+	session.close();
+	
+}
 
 }
