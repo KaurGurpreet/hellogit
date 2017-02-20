@@ -2,8 +2,6 @@ package com.themobilestore.service;
 
 import java.util.List;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,18 +29,18 @@ public class ProductServiceImpl implements ProductService
 		return productDao.getAllProducts();
 	}
 
-	/*public Product getProductById(int id) 
+	/*public Product getProductById(int pid) 
 	{
-		return productDao.getProductById(id);
+		return productDao.getProductById(pid);
 		
 	}*/
 	
-	public Product getProductById(int id) {
-		return productDao.getProductById(id);
+	public Product getProductById(int pid) {
+		return productDao.getProductById(pid);
 	}
 
-	public void deleteProduct(int id) {
-		productDao.deleteProduct(id);
+	public void deleteProduct(int pid) {
+		productDao.deleteProduct(pid);
 	}
 
 	public void updateProduct(Product product) {

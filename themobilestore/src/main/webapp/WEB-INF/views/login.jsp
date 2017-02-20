@@ -22,10 +22,10 @@
                    <div class="error"style="color: #ff0000;">${error}</div>
                    </c:if>
                 
-                <input type="text" class="form-control" placeholder="Email" required autofocus>
-                <input type="password" class="form-control" placeholder="Password" required>
+                <input type="text" class="form-control" name="email" placeholder="Email" required autofocus>
+                <input type="password" class="form-control" name="password" placeholder="Password" required>
                 <a href="login"><button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button></a>
-                  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>  
+                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 <label class="checkbox pull-left">
                     <input type="checkbox" value="remember-me">
                     Remember me

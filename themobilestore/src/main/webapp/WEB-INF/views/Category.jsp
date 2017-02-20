@@ -30,7 +30,8 @@ footer
    cursor:pointer;
    text-align:center;
    font-size: 15px;
-   background-color: #92A1CF;
+   background-color:#FE6F5E;
+   /* #92A1CF; */
   }
   
 </style>

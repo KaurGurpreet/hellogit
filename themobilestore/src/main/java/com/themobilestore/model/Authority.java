@@ -1,5 +1,6 @@
 package com.themobilestore.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,12 +9,14 @@ import javax.persistence.Id;
 @Entity
 public class Authority
 {
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
 	private int authorityId;
+	@Column(unique=true)
     private String username;
     private String role;
     
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    
 	public int getAuthorityId() {
 		return authorityId;
 	}
@@ -23,7 +26,8 @@ public class Authority
 	public String getUsername() {
 		return username;
 	}
-	public void setUsername(String username) {
+	public void setUsername(String username)
+	{
 		this.username = username;
 	}
 	public String getRole() {

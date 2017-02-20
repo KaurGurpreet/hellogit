@@ -43,16 +43,16 @@ public class ProductDaoImpl implements ProductDao {
 public Product getProductById(int pid)
 {
 	Session session=sessionFactory.openSession();
-	//select * from product where id=34
+	//select * from product where pid=34
 	Product product=(Product)session.get(Product.class, pid);
 	session.close();
 	return product;
 
 }
-public void deleteProduct(int id) {
+public void deleteProduct(int pid) {
 	Session session=sessionFactory.openSession();
 	//Make the object persistent[read the data from the table and add it to session]
-	Product product=(Product)session.get(Product.class, id);
+	Product product=(Product)session.get(Product.class, pid);
 	session.delete(product);
 	session.flush();
 	session.close();
@@ -62,7 +62,7 @@ public void deleteProduct(int id) {
 public void updateProduct(Product product) {
 	Session session=sessionFactory.openSession();
 	System.out.println("Id of the product in dao is " + product.getPid());
-	session.update(product); //update product set ..... where id=?
+	session.update(product); //update product set ..... where pid=?
 	session.flush();
 	session.close();
 	

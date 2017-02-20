@@ -8,9 +8,7 @@
 			<div class="col-xs-3 col-sm-4 col-md-5 col-sm-offset-4 col-md-offset-4 well">
 
 				<h2>
-					<center>
-						<a href="#"><span class="glyphicon glyphicon-globe"></span></a>SIGNUP here!
-					</center>
+					<center><a href="#"><span class="glyphicon glyphicon-globe"></span></a>Please SIGN-UP!</center>
 				</h2>
 				<br>
 

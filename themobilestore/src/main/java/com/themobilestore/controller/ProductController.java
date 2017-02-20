@@ -52,7 +52,7 @@ public class ProductController
 	
 	public String saveProduct(@Valid @ModelAttribute("product") Product product,BindingResult result,Model model)
 		{
-		model.addAttribute("categories",cse.getCategories());
+		model.addAttribute("category",cse.getCategories());
 		model.addAttribute("supplier",sse.list());
 		if(result.hasErrors())
 			return "ProductForm";
@@ -77,16 +77,17 @@ public class ProductController
 		return "ProductList";
 	}
 	
-	@RequestMapping("/product/viewproduct/{id}")
-	public String viewProduct(@PathVariable int id,Model model){
-		Product product=productService.getProductById(id);
+	@RequestMapping("/viewproduct/{id}")
+	public String viewProduct(@PathVariable int pid,Model model){
+		Product product=productService.getProductById(pid);
 		model.addAttribute("product",product);
-	return "viewproduct";
+	/*return "ViewProduct";*/
+		return "ProductList";
 	}
 
-	@RequestMapping("/product/deleteproduct/{id}")
-	public String deleteProduct(@PathVariable int id){
-		productService.deleteProduct(id);
+	@RequestMapping("/deleteproduct/{id}")
+	public String deleteProduct(@PathVariable int pid){
+		productService.deleteProduct(pid);
 		return "redirect:getAllProducts";
 	}
 
@@ -94,20 +95,21 @@ public class ProductController
 	/**
 	 *    to display the form to edit product details
 	 */
-	@RequestMapping("/product/editform/{id}")
-	public String editProductForm(@PathVariable int id,Model model){
-		Product product=productService.getProductById(id);
+	@RequestMapping("/editform/{id}")
+	public String editProductForm(@PathVariable int pid,Model model)
+	{
+		Product product=productService.getProductById(pid);
 		model.addAttribute("product",product);
 		model.addAttribute("category",cse.getCategories());
-		return "editproductform";
+		return "EditProductForm";
 	}
-	@RequestMapping("/product/editProduct")
+	@RequestMapping("/editProduct")
 	public String editProductDetails(@Valid @ModelAttribute("product") Product product,
 			BindingResult result){
 		if(result.hasErrors())
 			return "productform";
 		productService.updateProduct(product);
-		return "redirect:/product/getAllProducts";
+		return "redirect:getAllProducts";
 	}
 	
 }

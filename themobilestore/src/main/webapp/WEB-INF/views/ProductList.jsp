@@ -28,7 +28,9 @@
         
        <!--  <th>Image</th>  -->
         
-        <th>More Features</th>
+        <!-- <th>More Features</th> -->
+        <th>View/Edit/Delete</th>
+        
       </tr>
     </thead>
     
@@ -41,19 +43,17 @@
 			<td>${p.category.cname}</td>
             <!--  <td><img src="./resources/images/{{ product.path}}.jpg" class="img-thumbnail" alt="image" width="80" height="80"/></td> -->
             <!-- <td><a href="#">View More</a></td> -->
-            </tr>
-            <tr>
-					<c:url var="url" value="/product/viewproduct/${p.id }"></c:url>
-					<td>
-					<a href="${url }"><span class="glyphicon glyphicon-info-sign"></span></a> 
-					<c:url var="delete" value="/product/deleteproduct/${p.id }"></c:url>
-					<a href="${delete }"><span class="glyphicon glyphicon-remove"></span></a>
+            <td>
+                   <%--  <c:url var="url" value="viewproduct/${p.id}"></c:url>  --%>
+					<a href="${url}"><span class="glyphicon glyphicon-info-sign"></span></a> 
 					
-					<c:url var="edit" value="/product/editform/${p.id }"></c:url>
-					<a href="${edit }"><span class="glyphicon glyphicon-pencil"></span></a>
-				    </td>
-				</tr>
-            </tr>
+					<%-- <c:url var="delete" value="deleteproduct/${p.id}"></c:url> --%> 
+					<a href="${delete}"><span class="glyphicon glyphicon-remove"></span></a>
+					
+				    <%-- <c:url var="edit" value="editform/${p.id}"></c:url> --%>
+					<a href="${edit}"><span class="glyphicon glyphicon-pencil"></span></a>
+			</td>
+		   </tr>
        </c:forEach>     
     </tbody>   
   </table>
