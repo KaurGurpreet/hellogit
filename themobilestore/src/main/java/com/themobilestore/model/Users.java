@@ -1,10 +1,13 @@
 package com.themobilestore.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Users
@@ -16,6 +19,9 @@ public class Users
 	private String username;
 	private String password;;
 	private boolean enabled;
+	
+	@OneToOne(mappedBy="users", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	private Customer customer;
 	
 	public int getUserid() {
 		return userid;

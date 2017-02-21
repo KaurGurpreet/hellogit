@@ -18,6 +18,7 @@ footer
   
   .table td{
   background-color: #f1f1c1;
+  text-align:center;
   }
   
   .table th, .table td
@@ -49,12 +50,12 @@ footer
                  <td><form:hidden path="cid"/></td>
                </tr>
                 <tr>
-					<td>Category Name</td>
+					<td><b>Category Name</b></td>
 					<td><form:input path="cname" id="cname" required="true"/></td>
 					<td><form:errors path="cname" cssClass="error">Name</form:errors></td>
 				</tr>
 				<tr>
-					<td>Stock Details</td>
+					<td><b>Stock Details</b></td>
 					<td><form:input path="stock" required="true"/></td>
 					<td><form:errors path="stock" cssClass="error"></form:errors></td>
 				</tr>

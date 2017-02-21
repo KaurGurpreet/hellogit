@@ -9,6 +9,7 @@ input, select
   .table th, .table td
   {
   border: #800040 solid 1px !important;
+  text-align:center;
   }
   
   th

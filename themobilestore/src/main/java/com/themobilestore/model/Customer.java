@@ -17,9 +17,18 @@ public class Customer
 	private String lastname;
 	private String email;
 	private String phonenumber;
+	
 	@OneToOne
 	@JoinColumn(name="user_id")
 	private Users users;
+	
+	@OneToOne
+	@JoinColumn(name="ba_id")
+	private BillingAddress billingAddress;
+	
+	@OneToOne
+	@JoinColumn(name="sa_id")
+	private ShippingAddress shippingAddress;
 	
 	public int getId() {
 		return id;

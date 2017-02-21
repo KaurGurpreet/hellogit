@@ -20,6 +20,7 @@ footer
   
   .table td{
   background-color: #f1f1c1;
+  text-align:center;
   }
   
   .table th, .table td
@@ -50,32 +51,32 @@ footer
                  <td><form:hidden  path="sid"/></td>
                </tr>
                 <tr>
-					<td>Supplier Name</td>
+					<td><b>Supplier Name</b></td>
 					<td><form:input path="supname" id="supname" required="true"/></td>
 					<td><form:errors path="supname" cssClass="error">Name</form:errors></td>
 				</tr>
 				<tr>
-					<td>Supplier Address</td>
+					<td><b>Supplier Address</b></td>
 					<td><form:input path="supaddress" required="true"/></td>
 					<td><form:errors path="supaddress" cssClass="error"></form:errors></td>
 				</tr>
 				<tr>
-					<td>Contact No.</td>
+					<td><b>Contact No.</b></td>
 					<td><form:input type="tel" path="supnumber" title="id should contains 10 digit" required="true" placeholder=" "/></td>
 					<td><form:errors path="supnumber">*</form:errors></td>
 				</tr>
 				<tr>
-					<td>Email</td>
+					<td><b>Email</b></td>
 					<td><form:input path="supemail" type="email" required="true"/></td>
 					<td><form:errors path="supemail" cssClass="error"></form:errors></td>
 				</tr>
 				<tr>
-					<td>Product</td>
+					<td><b>Product</b></td>
 					<td><form:input path="supproduct" required="true"/></td>
 					<td><form:errors path="supproduct" cssClass="error"></form:errors></td>
 				</tr>
 				<tr>
-					<td>Brand</td>
+					<td><b>Brand</b></td>
 					<td><form:input path="brand" required="true"/></td>
 					<td><form:errors path="brand" cssClass="error"></form:errors></td>
 				</tr>				
