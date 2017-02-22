@@ -57,7 +57,7 @@ public class ProductController
 		if(result.hasErrors())
 			return "ProductForm";
 		productService.saveProduct(product);
-		return "index";
+		return "redirect:/getAllProducts";
 		}
 	
 	/*@RequestMapping("/productlist")

@@ -1,5 +1,7 @@
 package com.themobilestore.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Customer
+public class Customer implements Serializable
 {
    @Id
    @GeneratedValue(strategy=GenerationType.AUTO)
@@ -19,17 +21,20 @@ public class Customer
 	private String phonenumber;
 	
 	@OneToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name="userid")
 	private Users users;
 	
 	@OneToOne
-	@JoinColumn(name="ba_id")
+	@JoinColumn(name="bid")
 	private BillingAddress billingAddress;
 	
 	@OneToOne
 	@JoinColumn(name="sa_id")
 	private ShippingAddress shippingAddress;
 	
+	public Customer() {
+		// TODO Auto-generated constructor stub
+	}
 	public int getId() {
 		return id;
 	}
@@ -77,5 +82,21 @@ public class Customer
 	public void setUsers(Users users) {
 		this.users = users;
 	}
+
+	public BillingAddress getBillingAddress() {
+		return billingAddress;
+	}
+
+	public void setBillingAddress(BillingAddress billingAddress) {
+		this.billingAddress = billingAddress;
+	}
+
+	public ShippingAddress getShippingAddress() {
+		return shippingAddress;
+	}
+
+	public void setShippingAddress(ShippingAddress shippingAddress) {
+		this.shippingAddress = shippingAddress;
+	}	
 	
 }

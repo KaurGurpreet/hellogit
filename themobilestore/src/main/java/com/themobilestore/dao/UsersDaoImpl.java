@@ -8,36 +8,38 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.themobilestore.model.Customer;
+import com.themobilestore.model.Users;
 
 @Repository
 @Transactional
-public class CustomerDaoImpl implements CustomerDao {
-    
-	@Autowired
-	private SessionFactory sessionFactory;
-	public CustomerDaoImpl()
-    {
-		System.out.println("CREATING INSTANCE FOR CUSTOMERDAOIMPL");
+public class UsersDaoImpl implements UsersDao
+{
+
+	public UsersDaoImpl()
+	{
+		System.out.println("CREATING INSTANCE FOR USERSDAOIMPL");
 	}
 	
-	public Customer saveCustomer(Customer customer) {
-		System.out.println(customer.getId());
-		Session session=sessionFactory.openSession();
-		session.save(customer);
-		session.flush();
-		session.close();
-		System.out.println(customer.getId());
-		return customer;
-	}
-
-	public List<Customer> getAllCustomer()
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	public List<Users> getUsers()
 	{
 		Session session=sessionFactory.openSession();
-		Query query=session.createQuery("from Customer");
-		List<Customer> customers=query.list();
+		Query query = session.createQuery("from Users");
+		List<Users> users=query.list();
 		session.close();
-		return customers;
+		return users;
 	}
+
+	public Users saveOrUpdate(Users users) {
+		System.out.println(users.getUserid());
+		Session session=sessionFactory.openSession();
+		session.saveOrUpdate(users);
+		session.flush();
+		session.close();
+		System.out.println(users.getUserid());
+		return users;
+	}
+
 }

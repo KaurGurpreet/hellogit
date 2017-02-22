@@ -1,13 +1,17 @@
 package com.themobilestore.model;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class BillingAddress
+public class BillingAddress implements Serializable
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -19,9 +23,12 @@ public class BillingAddress
     private String country;
     private String zipcode;
     
-    @OneToOne
-    private Users user;
+    @OneToOne(mappedBy="billingAddress", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	private Customer customer;
     
+    public BillingAddress() {
+		// TODO Auto-generated constructor stub
+	}
     public int getBid() {
 		return bid;
 	}
@@ -66,10 +73,13 @@ public class BillingAddress
 		this.zipcode = zipcode;
 	}
 
-	public Users getUser() {
-		return user;
+	public Customer getCustomer() {
+		return customer;
 	}
-	public void setUser(Users user) {
-		this.user = user;
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
+
+	
 }

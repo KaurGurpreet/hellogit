@@ -1,13 +1,17 @@
 package com.themobilestore.model;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class ShippingAddress
+public class ShippingAddress implements Serializable
 {
 
 	@Id
@@ -20,9 +24,12 @@ public class ShippingAddress
     private String country;
     private String zipcode;
     
-    @OneToOne
-    private Users user;
+    @OneToOne(mappedBy="shippingAddress", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	private Customer customer;
     
+    public ShippingAddress() {
+		// TODO Auto-generated constructor stub
+	}
     public int getShipId() {
 		return shipId;
 	}
@@ -67,12 +74,14 @@ public class ShippingAddress
 		this.zipcode = zipcode;
 	}
 
-	public Users getUser() {
-		return user;
+	public Customer getCustomer() {
+		return customer;
 	}
-	public void setUser(Users user) {
-		this.user = user;
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
+	
 }
 
 	
