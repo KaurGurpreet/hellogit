@@ -18,7 +18,7 @@
 
 				<c:url var="url" value="addCustomer"></c:url>
 
-				<form:form action="${url }" commandName="customer">
+				<form:form action="${url }" commandName="customerCommand">
 
 					<div class="row">
 
@@ -71,6 +71,7 @@
 								<form:errors path="users.username" cssStyle="color:#ff0000"></form:errors>
 							</div>
 						</div>
+						
 						<!-- <input class="form-control" name="username" placeholder="Username" type="username"/> -->
 
 						<div class="col-xs-6 col-md-6">

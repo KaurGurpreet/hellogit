@@ -23,8 +23,11 @@ public class BillingAddress implements Serializable
     private String country;
     private String zipcode;
     
+    /*@OneToOne(mappedBy="billingAddress")*/
     @OneToOne(mappedBy="billingAddress", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-	private Customer customer;
+    private Customer customer;
+    
+    //private List<Customer> customer;
     
     public BillingAddress() {
 		// TODO Auto-generated constructor stub
@@ -69,9 +72,18 @@ public class BillingAddress implements Serializable
 	public String getZipcode() {
 		return zipcode;
 	}
+	
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
+	
+	/*public List<Customer> getCustomer() {
+		return customer;
+	}
+	public void setCustomer(List<Customer> customer) {
+		this.customer = customer;
+	}*/
+
 
 	public Customer getCustomer() {
 		return customer;

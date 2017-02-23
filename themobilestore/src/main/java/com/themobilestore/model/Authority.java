@@ -1,10 +1,13 @@
 package com.themobilestore.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Authority
@@ -16,6 +19,8 @@ public class Authority
     private String username;
     private String role;
     
+    /*@OneToOne(mappedBy="authority", cascade=CascadeType.ALL, fetch = FetchType.EAGER)*/
+    private Customer customer;
     
 	public int getAuthorityId() {
 		return authorityId;

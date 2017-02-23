@@ -20,7 +20,7 @@ public class Users
 	private String password;;
 	private boolean enabled;
 	
-	@OneToOne(mappedBy="users", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	/*@OneToOne(mappedBy="users", cascade=CascadeType.ALL, fetch = FetchType.EAGER)*/
 	private Customer customer;
 	
 	public int getUserid() {

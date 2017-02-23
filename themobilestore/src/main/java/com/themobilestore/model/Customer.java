@@ -20,21 +20,26 @@ public class Customer implements Serializable
 	private String email;
 	private String phonenumber;
 	
-	@OneToOne
+	/*@OneToOne
 	@JoinColumn(name="userid")
-	private Users users;
-	
+	private Users users;*/
+
 	@OneToOne
 	@JoinColumn(name="bid")
 	private BillingAddress billingAddress;
 	
 	@OneToOne
-	@JoinColumn(name="sa_id")
+	@JoinColumn(name="shipId")
 	private ShippingAddress shippingAddress;
+	
+	/*@OneToOne
+	@JoinColumn(name="authorityId")
+	private Authority authority;*/
 	
 	public Customer() {
 		// TODO Auto-generated constructor stub
 	}
+	
 	public int getId() {
 		return id;
 	}
@@ -75,13 +80,13 @@ public class Customer implements Serializable
 		this.phonenumber = phonenumber;
 	}
 
-	public Users getUsers() {
+	/*public Users getUsers() {
 		return users;
 	}
 
 	public void setUsers(Users users) {
 		this.users = users;
-	}
+	}*/
 
 	public BillingAddress getBillingAddress() {
 		return billingAddress;
@@ -98,5 +103,12 @@ public class Customer implements Serializable
 	public void setShippingAddress(ShippingAddress shippingAddress) {
 		this.shippingAddress = shippingAddress;
 	}	
+	
+	/*public Authority getAuthority() {
+		return authority;
+	}
+	public void setAuthority(Authority authority) {
+		this.authority = authority;
+	}*/
 	
 }

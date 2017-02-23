@@ -24,8 +24,9 @@ public class ShippingAddress implements Serializable
     private String country;
     private String zipcode;
     
+    /*@OneToOne(mappedBy="shippingAddress")*/
     @OneToOne(mappedBy="shippingAddress", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-	private Customer customer;
+    private Customer customer;
     
     public ShippingAddress() {
 		// TODO Auto-generated constructor stub
