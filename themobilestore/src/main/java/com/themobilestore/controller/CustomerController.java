@@ -1,7 +1,5 @@
 package com.themobilestore.controller;
 
-import java.security.Principal;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,14 +34,14 @@ public class CustomerController {
 	@ModelAttribute("customerCommand")
 	public Customer createCustomer() {
 		Customer customer = new Customer();
-		BillingAddress billing = new BillingAddress();
+		/*BillingAddress billing = new BillingAddress();
 		ShippingAddress shipping = new ShippingAddress();
-		/*Users users = new Users();
+		Users users = new Users();
 		Authority authority = new Authority();
 		customer.setUsers(users);
-		customer.setAuthority(authority);*/
+		customer.setAuthority(authority);
 		customer.setBillingAddress(billing);
-		customer.setShippingAddress(shipping);
+		customer.setShippingAddress(shipping);*/
 		return customer;
 	}
 
@@ -51,24 +49,24 @@ public class CustomerController {
 	public String getCustomers(Model model)
 	{
 		Customer customer = new Customer();
-		BillingAddress billing = new BillingAddress();
-		ShippingAddress shipping = new ShippingAddress();
+		/*BillingAddress billing = new BillingAddress();
+		ShippingAddress shipping = new ShippingAddress();*/
 		/*Users users = new Users();
 		Authority authority = new Authority();
 		customer.setUsers(users);
 		customer.setAuthority(authority);*/
-		customer.setBillingAddress(billing);
-		customer.setShippingAddress(shipping);
-		model.addAttribute("customers", custService.getAllCustomer());
+		/*customer.setBillingAddress(billing);
+		customer.setShippingAddress(shipping);*/
+		model.addAttribute("customers", new Customer());
 		return "SignUpForm";
 	}
 
 	@RequestMapping("/addCustomer")
 	public String saveCustomer(@Valid @ModelAttribute("customerCommand") Customer customer, BindingResult result,
 			Model model) {
-		model.addAttribute("customer", custService.getAllCustomer());
+		/*model.addAttribute("customer", custService.getAllCustomer());
 		if (result.hasErrors())
-			return "SignUpForm";
+			return "SignUpForm";*/
 		//String unm=principal.getName();
 		//customer.getUsers().setUsername(unm);
 		//customer.getUsers().setEnabled(true);
@@ -76,6 +74,6 @@ public class CustomerController {
 		//customer.getAuthority().setUsername(unm);
 		custService.saveCustomer(customer);
 		
-		return "SignUpForm";
+		return "redirect:/login";
 	}
 }

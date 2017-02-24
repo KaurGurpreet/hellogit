@@ -1,4 +1,4 @@
-package com.themobilestore.service;
+/*package com.themobilestore.service;
 
 import java.util.List;
 
@@ -24,3 +24,4 @@ public class BillingServiceImpl implements BillingService
 	}
 
 }
+*/

@@ -24,8 +24,8 @@ public class BillingAddress implements Serializable
     private String zipcode;
     
     /*@OneToOne(mappedBy="billingAddress")*/
-    @OneToOne(mappedBy="billingAddress", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-    private Customer customer;
+    /*@OneToOne(mappedBy="billingAddress", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+    private Customer customer;*/
     
     //private List<Customer> customer;
     
@@ -77,21 +77,14 @@ public class BillingAddress implements Serializable
 		this.zipcode = zipcode;
 	}
 	
-	/*public List<Customer> getCustomer() {
-		return customer;
-	}
-	public void setCustomer(List<Customer> customer) {
-		this.customer = customer;
-	}*/
 
-
-	public Customer getCustomer() {
+	/*public Customer getCustomer() {
 		return customer;
 	}
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
-	}
+	}*/
 
 	
 }

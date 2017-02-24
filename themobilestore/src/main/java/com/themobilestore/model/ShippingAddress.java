@@ -25,8 +25,8 @@ public class ShippingAddress implements Serializable
     private String zipcode;
     
     /*@OneToOne(mappedBy="shippingAddress")*/
-    @OneToOne(mappedBy="shippingAddress", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-    private Customer customer;
+   /* @OneToOne(mappedBy="shippingAddress", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+    private Customer customer;*/
     
     public ShippingAddress() {
 		// TODO Auto-generated constructor stub
@@ -75,13 +75,13 @@ public class ShippingAddress implements Serializable
 		this.zipcode = zipcode;
 	}
 
-	public Customer getCustomer() {
+	/*public Customer getCustomer() {
 		return customer;
 	}
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
-	}
+	}*/
 	
 }
 

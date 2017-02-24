@@ -7,7 +7,7 @@ import com.themobilestore.model.Users;
 public interface UsersDao
 {
 
-	List<Users> getUsers();
+	/*List<Users> getUsers();*/
 	public Users saveOrUpdate(Users users);
 	
 }

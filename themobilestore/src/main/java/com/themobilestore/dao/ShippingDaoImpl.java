@@ -1,4 +1,4 @@
-package com.themobilestore.dao;
+/*package com.themobilestore.dao;
 
 import java.util.List;
 
@@ -40,4 +40,4 @@ public class ShippingDaoImpl implements ShippingDao {
 		return shipping;
 	}
 
-}
+}*/

@@ -15,12 +15,10 @@ public class Authority
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private int authorityId;
-	@Column(unique=true)
+	//@Column(unique=true)
     private String username;
     private String role;
     
-    /*@OneToOne(mappedBy="authority", cascade=CascadeType.ALL, fetch = FetchType.EAGER)*/
-    private Customer customer;
     
 	public int getAuthorityId() {
 		return authorityId;

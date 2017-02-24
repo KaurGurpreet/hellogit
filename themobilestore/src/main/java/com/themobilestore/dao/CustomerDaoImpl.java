@@ -10,7 +10,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.themobilestore.model.Authority;
+import com.themobilestore.model.BillingAddress;
 import com.themobilestore.model.Customer;
+import com.themobilestore.model.ShippingAddress;
 import com.themobilestore.model.Users;
 
 @Repository
@@ -28,62 +30,32 @@ public class CustomerDaoImpl implements CustomerDao
 	
 	public Customer saveCustomer(Customer customer) 
 	{
-	    Users users = new Users();
-	    users.setUserid(customer.getId());
-		//Users newUsers = customer.getUsers();
-		users.setUsername(customer.getFirstname());
-		users.setPassword(customer.getFirstname());
+		
+		Users users = new Users();
+		users.setUserid(customer.getId());
+		users.setUsername(customer.getUsername());
+		users.setPassword(customer.getPassword());
 		users.setEnabled(true);
 		
-		
 		Authority authority = new Authority();
-		authority.setUsername(customer.getFirstname());
-		authority.setRole("ROLE_USER");
-		sessionFactory.getCurrentSession().saveOrUpdate(users);;
-		sessionFactory.getCurrentSession().saveOrUpdate(authority);
+		authority.setUsername(customer.getUsername());
+		authority.setRole("Role_USER");
 		
+		//customer.getAuthority().setRole("ROLE_USER");
+	   /*customer.getAuthority().setUsername(users.getUsername());*/
 		
-		System.out.println(customer.getId());
+	   //customer.getUsers().setEnabled(true);
+	   //customer.getAuthority().setRole("ROLE_USER");
 		Session session=sessionFactory.openSession();
+		System.out.println(customer.getId());
 		session.save(customer);
+		session.saveOrUpdate(users);
+		session.saveOrUpdate(authority);
 		session.flush();
 		session.close();
 		System.out.println(customer.getId());
 		return customer;
 	}
 
-	public List<Customer> getAllCustomer()
-	{
-		Session session=sessionFactory.openSession();
-		Query query=session.createQuery("from Customer");
-		List<Customer> customers=query.list();
-		session.close();
-		return customers;
-	}
-	
-	/*public void addUser(Users user) {
-		            System.out.println(user.getBillingAddress().getCity());
-		              BillingAddress billingAddress = user.getBillingAddress();
-		              ShippingAddress shippingAddress = user.getShippingAddress();
-		              user.setBillingAddress(billingAddress);
-		              user.setShippingAddress(shippingAddress);
-		                  sessionFactory.getCurrentSession().saveOrUpdate(billingAddress);
-		                  sessionFactory.getCurrentSession().saveOrUpdate(shippingAddress);
-		                  //sessionFactory.getCurrentSession().saveOrUpdate(user);
-		                  System.out.println("inside daoimpl"+user.getUserid());
-		                  UserLogin newUser = new UserLogin();
-		                  newUser.setUsersId(user.getUserid());
-		                  newUser.setUsername(user.getUserloginname());
-		                  newUser.setPassword(user.getUserloginpassword());
-		                  newUser.setEnabled(true);
-		                  newUser.setCustomerId(user.getUserid());
-		                  
-		                  Authority authority = new Authority();
-		                  authority.setUsername(newUser.getUsername());
-		                  authority.setAuthority("ROLE_USER");
-		                  
-		                  sessionFactory.getCurrentSession().saveOrUpdate(newUser);
-		                  sessionFactory.getCurrentSession().saveOrUpdate(authority);*/
-	
 	
 }

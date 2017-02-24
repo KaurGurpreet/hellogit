@@ -21,9 +21,9 @@ public class UsersServiceImpl implements UsersService
 
 	}
 
-	public List<Users> getUsers()
+	/*public List<Users> getUsers()
 	{
 		return usersDao.getUsers();
-	}
+	}*/
 
 }

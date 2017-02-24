@@ -7,5 +7,5 @@ import com.themobilestore.model.Customer;
 public interface CustomerService
 {
 	Customer saveCustomer(Customer customer);
-	  List<Customer> getAllCustomer();
+	 /* List<Customer> getAllCustomer();*/
 }

@@ -15,13 +15,14 @@ public class Users
    @Id
    @GeneratedValue(strategy=GenerationType.AUTO)
 	private int userid;
-   @Column(unique=true)
+   //@Column(unique=true)
 	private String username;
 	private String password;;
 	private boolean enabled;
 	
-	/*@OneToOne(mappedBy="users", cascade=CascadeType.ALL, fetch = FetchType.EAGER)*/
-	private Customer customer;
+	/*@OneToOne(mappedBy="users", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(mappedBy="users", cascade=CascadeType.ALL)
+	private Customer customer;*/
 	
 	public int getUserid() {
 		return userid;

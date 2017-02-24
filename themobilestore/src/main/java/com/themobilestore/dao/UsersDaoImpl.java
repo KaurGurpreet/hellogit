@@ -23,14 +23,14 @@ public class UsersDaoImpl implements UsersDao
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public List<Users> getUsers()
+	/*public List<Users> getUsers()
 	{
 		Session session=sessionFactory.openSession();
 		Query query = session.createQuery("from Users");
 		List<Users> users=query.list();
 		session.close();
 		return users;
-	}
+	}*/
 
 	public Users saveOrUpdate(Users users) {
 		System.out.println(users.getUserid());

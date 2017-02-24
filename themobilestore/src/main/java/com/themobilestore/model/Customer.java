@@ -2,7 +2,9 @@ package com.themobilestore.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,20 +21,22 @@ public class Customer implements Serializable
 	private String lastname;
 	private String email;
 	private String phonenumber;
+	private String username;
+	private String password;
 	
 	/*@OneToOne
 	@JoinColumn(name="userid")
 	private Users users;*/
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="bid")
 	private BillingAddress billingAddress;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="shipId")
 	private ShippingAddress shippingAddress;
 	
-	/*@OneToOne
+	/*@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="authorityId")
 	private Authority authority;*/
 	
@@ -90,6 +94,22 @@ public class Customer implements Serializable
 
 	public BillingAddress getBillingAddress() {
 		return billingAddress;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public void setBillingAddress(BillingAddress billingAddress) {
