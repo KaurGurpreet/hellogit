@@ -8,6 +8,16 @@
 <%@ include file="/WEB-INF/views/template/header.jsp" %>
 <link href="<c:url value="./resources/css/products.css" />" rel="stylesheet">
 
+<script>
+$(document).ready(function(){
+	var searchCondition='${searchCondition}';
+	$('.table').DataTable({
+		"lengthMenu":[[3,5,7,-1],[3,5,7,"All"]],
+		"oSearch":{"sSearch":searchCondition}
+	})
+});
+</script>
+
 <div class="jumbotron">
     <div class="container">
     <a href="productform" class="btn btn-primary btn-lg active pull-right" role="button">Add New Product</a></right>
@@ -29,7 +39,9 @@
        <!--  <th>Image</th>  -->
         
         <!-- <th>More Features</th> -->
-        <th>View/Edit/Delete</th>
+        <th>View</th>
+        <th>Delete</th>
+        <th>Edit</th>
         
       </tr>
     </thead>
@@ -44,13 +56,15 @@
             <!--  <td><img src="./resources/images/{{ product.path}}.jpg" class="img-thumbnail" alt="image" width="80" height="80"/></td> -->
             <!-- <td><a href="#">View More</a></td> -->
             <td>
-                   <%--  <c:url var="url" value="viewproduct/${p.id}"></c:url>  --%>
+                    <c:url var="url" value="viewproduct/${p.pid}"></c:url>  
 					<a href="${url}"><span class="glyphicon glyphicon-info-sign"></span></a> 
-					
-					<%-- <c:url var="delete" value="deleteproduct/${p.id}"></c:url> --%> 
+			</td>
+			<td>		
+				    <c:url var="delete" value="deleteproduct/${p.pid}"></c:url> 
 					<a href="${delete}"><span class="glyphicon glyphicon-remove"></span></a>
-					
-				    <%-- <c:url var="edit" value="editform/${p.id}"></c:url> --%>
+			 </td>
+			 <td>		
+				    <c:url var="edit" value="editform/${p.pid}"></c:url>
 					<a href="${edit}"><span class="glyphicon glyphicon-pencil"></span></a>
 			</td>
 		   </tr>

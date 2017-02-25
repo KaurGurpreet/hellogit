@@ -77,7 +77,7 @@ public class ProductController
 		return "ProductList";
 	}
 	
-	@RequestMapping("/viewproduct/{id}")
+	@RequestMapping("/viewproduct/{pid}")
 	public String viewProduct(@PathVariable int pid,Model model){
 		Product product=productService.getProductById(pid);
 		model.addAttribute("product",product);
@@ -85,7 +85,7 @@ public class ProductController
 		return "ProductList";
 	}
 
-	@RequestMapping("/deleteproduct/{id}")
+	@RequestMapping("/deleteproduct/{pid}")
 	public String deleteProduct(@PathVariable int pid){
 		productService.deleteProduct(pid);
 		return "redirect:getAllProducts";
@@ -95,7 +95,7 @@ public class ProductController
 	/**
 	 *    to display the form to edit product details
 	 */
-	@RequestMapping("/editform/{id}")
+	@RequestMapping("/editform/{pid}")
 	public String editProductForm(@PathVariable int pid,Model model)
 	{
 		Product product=productService.getProductById(pid);
