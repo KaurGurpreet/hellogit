@@ -22,7 +22,7 @@ footer {
 			class="col-xs-6 col-sm-6 col-md-6 col-sm-offset-4 col-md-offset-3 well">
 			<div class="container">
 				<c:url value="addProduct" var="url"></c:url>
-				<form:form action="${url }" commandName="product">
+				<form:form action="${url }" commandName="productCommand" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="pid"></label>
 						<form:hidden path="pid" />
@@ -56,12 +56,12 @@ footer {
 					<div class="form-group">
 						<label for="category">Category</label>
 						<!-- List<Category> c =model.getAttribute("categories");
-out.println(c.cid)
-out.println(c.cname);
- -->
+                         out.println(c.cid)
+                         out.println(c.cname);-->
+                         
 						<c:forEach var="c" items="${category}">
 							<form:radiobutton path="category.cid" value="${c.cid}" />${c.cname }
-</c:forEach>
+                        </c:forEach>
 						<form:errors path="category" cssStyle="color:#ff0000"></form:errors>
 					</div>
 
@@ -69,10 +69,15 @@ out.println(c.cname);
 						<label for="supplier">Supplier</label>
 						<c:forEach var="s" items="${supplier}">
 							<form:radiobutton path="supplier.sid" value="${s.sid}" />${s.supname }
-</c:forEach>
+                        </c:forEach>
 						<form:errors path="supplier" cssStyle="color:#ff0000"></form:errors>
 					</div>
-
+                    
+                    <div class="form-group">
+                   <label for="image">Image</label>
+                   <form:input path="image" type="file"/>
+                   </div>
+                    
 					<input type="submit" value="Add Product" class="btn btn-default">
 				</form:form>
 				<br>

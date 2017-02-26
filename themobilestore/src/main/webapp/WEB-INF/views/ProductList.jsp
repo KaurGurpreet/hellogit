@@ -28,6 +28,9 @@ $(document).ready(function(){
     <table class="table table-bordered"> 
     <thead>
       <tr>
+        
+        <th>Image</th>
+        
         <th>Product Name</th>
         
         <th>Description</th>
@@ -49,6 +52,8 @@ $(document).ready(function(){
     <tbody>
        <c:forEach var="p" items="${productList}">
 		    <tr>
+		    <td><c:url var="src" value="./resources/images/AppleIphone.jpg"></c:url>
+		    <img src="${src }" class="img-thumbnail" alt="image" width="80" height="80"/></td>
 			<td>${p.name }</td>
 			<td>${p.description }</td>
 			<td>${p.price }</td>

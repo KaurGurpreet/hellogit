@@ -1,14 +1,18 @@
 package com.themobilestore.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -20,24 +24,35 @@ public class Product
        private int pid;
 	@NotEmpty(message="Product Name is mandatory")
 	   private String name;
-	@Min(value=10)
+	@Min(value=10,message="Minimum value of price must be 10Rs")
 	   private double price;
 	
-	@Min(value=1)
+	@Min(value=1,message="minimum qantity must be 1")
 	   private int quantity;
 	   @NotEmpty(message="Description is mandatory")
 	   private String description;
 	   
-	   @ManyToOne
+	   @ManyToOne(cascade=CascadeType.ALL)
 	   @JoinColumn(name="cid")
 	   @JsonIgnore
+	   @NotNull(message="Category is mandatory")
 	   private Category category;
 	   
-	   @ManyToOne
+	   @ManyToOne(cascade=CascadeType.ALL)
 	   @JoinColumn(name = "sid")
 	   @JsonIgnore
+	   @NotNull(message="Supplier is mandatory")
 	    private Supplier supplier;
 	   
+	   @Transient 
+	   private MultipartFile image;
+	   
+	public MultipartFile getImage() {
+		return image;
+	}
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
 	public int getPid() {
 		return pid;
 	}
