@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.themobilestore.model.Authority;
 import com.themobilestore.model.BillingAddress;
+import com.themobilestore.model.Cart;
 import com.themobilestore.model.Customer;
 import com.themobilestore.model.ShippingAddress;
 import com.themobilestore.model.Users;
@@ -40,6 +41,10 @@ public class CustomerDaoImpl implements CustomerDao
 		Authority authority = new Authority();
 		authority.setUsername(customer.getUsername());
 		authority.setRole("Role_USER");
+		
+		Cart cart=new Cart();
+		customer.setCart(cart);
+		cart.setCustomer(customer);//update cart set customer_id=? , grandtotal=? where cart_id=?
 		
 		//customer.getAuthority().setRole("ROLE_USER");
 	   /*customer.getAuthority().setUsername(users.getUsername());*/

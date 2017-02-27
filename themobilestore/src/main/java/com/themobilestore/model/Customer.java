@@ -40,6 +40,10 @@ public class Customer implements Serializable
 	@JoinColumn(name="authorityId")
 	private Authority authority;*/
 	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="cart_id")
+	private Cart cart;
+	
 	public Customer() {
 		// TODO Auto-generated constructor stub
 	}
@@ -122,6 +126,14 @@ public class Customer implements Serializable
 
 	public void setShippingAddress(ShippingAddress shippingAddress) {
 		this.shippingAddress = shippingAddress;
+	}
+
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}	
 	
 	/*public Authority getAuthority() {
@@ -130,5 +142,7 @@ public class Customer implements Serializable
 	public void setAuthority(Authority authority) {
 		this.authority = authority;
 	}*/
+	
+	
 	
 }
