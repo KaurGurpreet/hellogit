@@ -68,8 +68,8 @@
 							<div class="form-group">
 								<form:label path="username">USERNAME</form:label>
 								<form:input path="username"></form:input>
-								<form:errors path="username" cssStyle="color:#ff0000"></form:errors>
-								
+								${duplicateUsername }
+								<form:errors path="username" cssStyle="color:#ff0000"></form:errors>	
 							</div>
 						</div>
 						
@@ -95,16 +95,14 @@
 							<div class="form-group">
 								<form:label path="billingAddress.aptNo">Apt No</form:label>
 								<form:input path="billingAddress.aptNo"></form:input>
-								<form:errors path="billingAddress.aptNo"
-									cssStyle="color:#ff0000"></form:errors>
+								<form:errors path="billingAddress.aptNo" cssStyle="color:#ff0000"></form:errors>
 							</div>
 						</div>
 						<div class="col-xs-6 col-md-6">
 							<div class="form-group">
 								<form:label path="billingAddress.streetName">Street Name</form:label>
 								<form:input path="billingAddress.streetName"></form:input>
-								<form:errors path="billingAddress.streetName"
-									cssStyle="color:#ff0000"></form:errors>
+								<form:errors path="billingAddress.streetName" cssStyle="color:#ff0000"></form:errors>
 							</div>
 						</div>
 					</div>
@@ -121,8 +119,7 @@
 							<div class="form-group">
 								<form:label path="billingAddress.zipcode">Zip Code</form:label>
 								<form:input path="billingAddress.zipcode"></form:input>
-								<form:errors path="billingAddress.zipcode"
-									cssStyle="color:#ff0000"></form:errors>
+								<form:errors path="billingAddress.zipcode" cssStyle="color:#ff0000"></form:errors>
 							</div>
 						</div>
 					</div>
@@ -132,8 +129,7 @@
 							<div class="form-group">
 								<form:label path="billingAddress.state">State</form:label>
 								<form:input path="billingAddress.state"></form:input>
-								<form:errors path="billingAddress.state"
-									cssStyle="color:#ff0000"></form:errors>
+								<form:errors path="billingAddress.state" cssStyle="color:#ff0000"></form:errors>
 							</div>
 						</div>
 						<div class="col-xs-6 col-md-6">

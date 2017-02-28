@@ -3,6 +3,7 @@ package com.themobilestore.model;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,18 +12,31 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class Customer implements Serializable
 {
    @Id
    @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+   @NotEmpty(message="Please enter firstname")
 	private String firstname;
+   @NotEmpty(message="Please enter lastname")
 	private String lastname;
+   @NotEmpty(message="Please enter email")
+   @Email(message="Please enter valid email address")
 	private String email;
+   @NotEmpty(message="Please enter phone number")
+   @Length(max=10,min=10)
 	private String phonenumber;
+   @NotEmpty(message="Please enter username")
+   @Column(unique=true)
 	private String username;
-	private String password;
+   @NotEmpty(message="Please enter password")
+   	private String password;
 	
 	/*@OneToOne
 	@JoinColumn(name="userid")

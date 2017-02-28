@@ -64,15 +64,24 @@ public class CustomerController {
 	@RequestMapping("/addCustomer")
 	public String saveCustomer(@Valid @ModelAttribute("customerCommand") Customer customer, BindingResult result,
 			Model model) {
-		/*model.addAttribute("customer", custService.getAllCustomer());
+		/*model.addAttribute("customer", custService.getAllCustomer());*/
 		if (result.hasErrors())
-			return "SignUpForm";*/
+			return "SignUpForm";
 		//String unm=principal.getName();
 		//customer.getUsers().setUsername(unm);
 		//customer.getUsers().setEnabled(true);
 		//customer.getAuthority().setRole("ROLE_USER");
 		//customer.getAuthority().setUsername(unm);
+		try{
 		custService.saveCustomer(customer);
+		}
+		catch(Exception e)
+		{
+        model.addAttribute("duplicateUsername", "Username already exists. Please enter different username");
+        System.out.println("Exception is " + e.getMessage());
+        return "SignUpForm";
+		}
+
 		
 		return "redirect:/login";
 	}
