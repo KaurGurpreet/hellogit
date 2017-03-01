@@ -33,7 +33,7 @@
      <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
     <!-- JS -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
-    <script src="./resources/js/app.js"></script> 
+   <!--  <script src="./resources/js/app.js"></script>  -->
     
     <!-- JQuery -->
     <!-- <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script> -->
@@ -67,7 +67,7 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="#">TheMobileStore</a>
+         <a class="navbar-brand" href="<c:url value="home" />">TheMobileStore</a>
        </div>
  
       <div class="collapse navbar-collapse" id="myNavbar"> 
@@ -93,7 +93,6 @@
          <li><a href="<c:url value="login" />"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
          <li><a href="<c:url value="SignUp" />"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
          </c:if>
-          <!--  <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>-->
        </ul>  
      </div>
   </div>

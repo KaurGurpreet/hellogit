@@ -18,11 +18,11 @@ footer {
 	</h2>
 	<br>
 	<div class="row">
-		<div
-			class="col-xs-6 col-sm-6 col-md-6 col-sm-offset-4 col-md-offset-3 well">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-sm-offset-4 col-md-offset-3 well">
 			<div class="container">
 				<c:url value="addProduct" var="url"></c:url>
-				<form:form action="${url }" commandName="productCommand" enctype="multipart/form-data">
+				<form:form action="${url }" commandName="product" enctype="multipart/form-data">
+				
 					<div class="form-group">
 						<label for="pid"></label>
 						<form:hidden path="pid" />
@@ -59,7 +59,7 @@ footer {
                          out.println(c.cid)
                          out.println(c.cname);-->
                          
-						<c:forEach var="c" items="${category}">
+						<c:forEach var="c" items="${categories}">
 							<form:radiobutton path="category.cid" value="${c.cid}" />${c.cname }
                         </c:forEach>
 						<form:errors path="category" cssStyle="color:#ff0000"></form:errors>
@@ -67,18 +67,18 @@ footer {
 
 					<div class="form-group">
 						<label for="supplier">Supplier</label>
-						<c:forEach var="s" items="${supplier}">
-							<form:radiobutton path="supplier.sid" value="${s.sid}" />${s.supname }
+						<c:forEach var="s" items="${suppliers }">
+							<form:radiobutton path="supplier.sid"/>${s.supname}			
                         </c:forEach>
 						<form:errors path="supplier" cssStyle="color:#ff0000"></form:errors>
 					</div>
                     
                     <div class="form-group">
                    <label for="image">Image</label>
-                   <form:input path="image" type="file"/>
+                  <center><form:input path="image" type="file"/></center>
                    </div>
                     
-					<input type="submit" value="Add Product" class="btn btn-default">
+					<input type="submit" value="Add Product" class="btn btn-primary">
 				</form:form>
 				<br>
 				<!-- <a href="getAllProducts" class="text-center new-account">View Product List</a>  -->

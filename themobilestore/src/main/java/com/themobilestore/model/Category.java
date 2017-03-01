@@ -19,7 +19,7 @@ public class Category
 	private String cname;
 	private int stock;
 	
-	@OneToMany(mappedBy="category", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="category")
 	private List<Product> products;
 		
 	public int getCid() {

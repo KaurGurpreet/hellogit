@@ -1,9 +1,15 @@
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ include file="/WEB-INF/views/template/header.jsp"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page isELIgnored="false"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ page isELIgnored="false" %>
+    <%@ include file="template/header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Edit Product Form</title>
+
 <style>
 footer
 {
@@ -13,7 +19,7 @@ footer
 	margin-bottom: 0;
 }
 </style>
-
+     
 <div class="jumbotron text-center">
 	<h2>
 		<strong><u>Edit Product</u></strong>
@@ -23,8 +29,8 @@ footer
 		<div class="col-xs-6 col-sm-6 col-md-6 col-sm-offset-4 col-md-offset-3 well">
 			<div class="container">
 				<c:url value="editProduct" var="url"></c:url>
-				<form:form action="${url }" commandName="productCommand">
-
+				<form:form action="${url }" commandName="product">
+				
 					<div class="form-group">
 						<label for="pid"></label>
 						<form:hidden path="pid" />
@@ -60,20 +66,19 @@ footer
                                 out.println(c.id)
                                 out.println(c.categoryDetails);
                          -->
-						<c:forEach var="c" items="${category}">
-							<form:radiobutton path="category.cid" value="${c.cid}" />${c.cname }
+						<c:forEach var="c" items="${categories }">
+							<form:radiobutton path="category.cid" value="${c.cid }" />${c.cname }
                         </c:forEach>
 						<form:errors path="category" cssStyle="color:#ff0000"></form:errors>
 					</div>
 
-					<input type="submit" value="Edit Product" class="btn btn-default">
+					<input type="submit" value="Edit Product" class="btn btn-primary">
 				</form:form>
 
 			</div>
 		</div>
 	</div>
 </div>
-<br>
-<%@ include file="/WEB-INF/views/template/footer.jsp"%>
 
+<%@ include file="/WEB-INF/views/template/footer.jsp"%>
 </html>

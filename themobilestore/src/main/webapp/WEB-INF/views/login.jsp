@@ -24,6 +24,7 @@
                 
                 <input type="text" class="form-control" name="email" placeholder="Email" required autofocus>
                 <input type="password" class="form-control" name="password" placeholder="Password" required>
+                
                 <a href="login"><button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button></a>
                  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 <label class="checkbox pull-left">

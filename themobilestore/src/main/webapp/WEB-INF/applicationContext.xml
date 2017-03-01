@@ -39,10 +39,13 @@
     </bean>
     
 <security:http auto-config="true">
+
 <security:intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
 <security:intercept-url pattern="/customer/**" access="ROLE_USER" />
-<security:form-login
-login-page="/login" default-target-url="/" authentication-failure-url="/login?error"
+
+<security:form-login login-page="/login" 
+default-target-url="/" 
+authentication-failure-url="/login?error"
 username-parameter="email"
 password-parameter="password"/>
 <security:logout

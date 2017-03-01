@@ -38,11 +38,12 @@ public class ProductController {
 	}
 
 	@RequestMapping("/productform")
-	public String getProductForm(Model model) {
+	public String getProductForm(Model model)
+	{
 		// Product product = new Product();
 		model.addAttribute("product", new Product());
-		model.addAttribute("category", cse.getCategories());
-		model.addAttribute("supplier", sse.list());
+		model.addAttribute("categories", cse.getCategories());
+		model.addAttribute("suppliers", sse.list());
 		return "ProductForm";
 	}
 
@@ -53,28 +54,26 @@ public class ProductController {
 	 * //return new ModelAndView("productList","product",newProduct);
 	 */
 
-	public String saveProduct(@Valid @ModelAttribute("productCommand") Product product, BindingResult result,
+	public String saveProduct(@Valid @ModelAttribute("product") Product product, BindingResult result,
 			Model model) {
-		model.addAttribute("category", cse.getCategories());
-		model.addAttribute("supplier", sse.list());
+		model.addAttribute("categories", cse.getCategories());
+		model.addAttribute("suppliers", sse.list());
 		if (result.hasErrors())
 			return "ProductForm";
 		productService.saveProduct(product);
 
 		MultipartFile prodImage = product.getImage();
 		if (!prodImage.isEmpty()) {
-			Path paths = Paths.get("C:/DT_Training/workspace/themobilestore/src/main/webapp/WEB-INF/resources/images/"
+			Path paths = Paths.get("C:/Users/gurpr_000/git/hellogit/themobilestore/src/main/webapp/WEB-INF/resources/images/"
 							+ product.getPid() + ".png");
 			try
 			{
 				prodImage.transferTo(new File(paths.toString()));
 			} catch (IllegalStateException e)
 			{
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e)
 			{
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -90,7 +89,8 @@ public class ProductController {
 	 */
 
 	@RequestMapping("/getAllProducts")
-	public String getAllProducts(Model model) {
+	public String getAllProducts(Model model)
+	{
 		List<Product> products = productService.getAllProducts();
 		// Assigning list of products to model attribute products
 		model.addAttribute("productList", products);
@@ -98,11 +98,12 @@ public class ProductController {
 	}
 
 	@RequestMapping("/viewproduct/{pid}")
-	public String viewProduct(@PathVariable int pid, Model model) {
+	public String viewProduct(@PathVariable int pid, Model model)
+	{
 		Product product = productService.getProductById(pid);
-		model.addAttribute("productCommand", product);
-		/* return "ViewProduct"; */
-		return "ProductList";
+		model.addAttribute("product", product);
+	 return "ViewProduct";
+		/*return "ProductList";*/
 	}
 
 	@RequestMapping("/deleteproduct/{pid}")
@@ -117,13 +118,13 @@ public class ProductController {
 	@RequestMapping("/editform/{pid}")
 	public String editProductForm(@PathVariable int pid, Model model) {
 		Product product = productService.getProductById(pid);
-		model.addAttribute("productCommand", product);
-		model.addAttribute("category", cse.getCategories());
+		model.addAttribute("product", product);
+		model.addAttribute("categories", cse.getCategories());
 		return "EditProductForm";
 	}
-
+	
 	@RequestMapping("/editProduct")
-	public String editProductDetails(@Valid @ModelAttribute("productCommand") Product product, BindingResult result) {
+	public String editProductDetails(@Valid @ModelAttribute("product") Product product, BindingResult result) {
 		if (result.hasErrors())
 			return "productform";
 		productService.updateProduct(product);

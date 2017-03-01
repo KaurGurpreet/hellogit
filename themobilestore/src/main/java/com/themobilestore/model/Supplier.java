@@ -23,7 +23,7 @@ public class Supplier
 	private String brand;
     private String supproduct;
 	
-    @OneToMany(mappedBy="supplier", cascade=CascadeType.ALL, fetch = FetchType.EAGER) 
+    @OneToMany(mappedBy="supplier") 
 	private List<Product> products;
 	
 	public int getSid() {

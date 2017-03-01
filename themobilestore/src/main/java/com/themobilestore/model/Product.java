@@ -32,13 +32,13 @@ public class Product
 	   @NotEmpty(message="Description is mandatory")
 	   private String description;
 	   
-	   @ManyToOne(cascade=CascadeType.ALL)
+	   @ManyToOne
 	   @JoinColumn(name="cid")
 	   @JsonIgnore
 	   @NotNull(message="Category is mandatory")
 	   private Category category;
 	   
-	   @ManyToOne(cascade=CascadeType.ALL)
+	   @ManyToOne
 	   @JoinColumn(name = "sid")
 	   @JsonIgnore
 	   @NotNull(message="Supplier is mandatory")
