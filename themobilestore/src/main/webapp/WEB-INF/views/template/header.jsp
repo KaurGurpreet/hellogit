@@ -12,19 +12,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
   
-  <link href="<c:url value="./resources/css/bootstrap.min.css" />" rel="stylesheet">
-  
-  <!--  <link href="<c:url value="./resources/css/index.css" />" rel="stylesheet"> -->
-  
-  <link href="<c:url value="./resources/css/main.css" />" rel="stylesheet"> 
-  
-   <link href="<c:url value="./resources/css/about.css" />" rel="stylesheet">
-   
-   <link href="<c:url value="./resources/css/contact.css" />" rel="stylesheet"> 
+  <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
     
-   <link href="<c:url value="./resources/css/login.css" />" rel="stylesheet">
+  <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet"> 
+  
+   <link href="<c:url value="/resources/css/about.css" />" rel="stylesheet">
    
-   <!--  <link href="<c:url value="./resources/css/products.css" />" rel="stylesheet">  -->
+   <link href="<c:url value="/resources/css/contact.css" />" rel="stylesheet"> 
+    
+   <link href="<c:url value="/resources/css/login.css" />" rel="stylesheet">
+   
   
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
   
@@ -41,11 +38,11 @@
 
     <link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
   
-<style type="text/css">
+<style>
   .jumbotron 
  {
   position: relative;
-  background: url('./resources/images/background 1.jpg') no-repeat center;
+  background: url('./resources/images/bg4.jpg') no-repeat center;
   color: black;
   width: 100%;
   height: 100%;

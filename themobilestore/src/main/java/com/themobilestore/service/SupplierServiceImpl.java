@@ -14,9 +14,9 @@ public class SupplierServiceImpl implements SupplierService
 	@Autowired
 	SupplierDao sdo;
 	
-	public List<Supplier> list()
+	public List<Supplier> getSuppliers()
 	{
-		return sdo.list();
+		return sdo.getSuppliers();
 	}
 
 	/*public Supplier get(String id)
@@ -24,9 +24,9 @@ public class SupplierServiceImpl implements SupplierService
 		return sdo.get(id);
 	}*/
 
-	public void saveOrUpdate(Supplier supplier)
+	public Supplier saveOrUpdate(Supplier supplier)
 	{
-		sdo.saveOrUpdate(supplier);
+		return sdo.saveOrUpdate(supplier);
 		
 	}
 

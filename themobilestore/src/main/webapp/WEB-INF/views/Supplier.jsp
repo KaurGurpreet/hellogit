@@ -18,14 +18,17 @@ footer
       margin-bottom: 0;
   }
   
-  .table td{
-  background-color: #f1f1c1;
+  .table td
+  {
+  border: #800040 solid 1px !important;
+  background-color: white;
   text-align:center;
   }
   
-  .table th, .table td
+  .table th
   {
   border: #800040 solid 1px !important;
+  text-align:center;
   }
   
   th
@@ -33,7 +36,7 @@ footer
    cursor:pointer;
    text-align:center;
    font-size: 15px;
-   background-color:#FE6F5E; 
+   background-color: #EFBBCC; 
    /* #92A1CF; */
   }
   
@@ -100,7 +103,7 @@ footer
 					<th width="80">Delete</th> -->
 				</tr>
 				<tbody>
-					<c:forEach var="sup" items="${supplier}">
+					<c:forEach var="sup" items="${supplierList}">
 						<tr>
 							<td>${sup.sid}</td>
 							<td>${sup.supname}</td>

@@ -32,7 +32,7 @@ public class SupplierDaoImpl implements SupplierDao
 		}*/
 		
 		@SuppressWarnings("unchecked")
-		public List<Supplier> list()
+		public List<Supplier> getSuppliers()
 		{
 			/*@SuppressWarnings("unchecked")
 			List<Supplier> listSupplier  = (List<Supplier>) sessionFactory.openSession().createQuery("from Supplier").list();
@@ -40,9 +40,9 @@ public class SupplierDaoImpl implements SupplierDao
 			
 			Session session=sessionFactory.openSession();
 			Query query=session.createQuery("from Supplier");
-			List<Supplier> supplier=query.list();
+			List<Supplier> suppliers=query.list();
 			session.close();
-			return supplier;
+			return suppliers;
 	    }
 		
 		/*public Supplier get(String id)

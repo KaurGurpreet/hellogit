@@ -27,9 +27,9 @@ public class CategoryServiceImpl implements CategoryService
 		return sdo.get(id);
 	}*/
 
-	public void saveOrUpdate(Category category)
+	public Category saveOrUpdate(Category category)
 	{
-		categoryDao.saveOrUpdate(category);
+		return categoryDao.saveOrUpdate(category);
 		
 	}
 	

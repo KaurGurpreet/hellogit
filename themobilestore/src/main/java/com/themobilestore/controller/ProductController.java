@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,40 +37,43 @@ public class ProductController {
 	public ProductController() {
 		System.out.println("CREATING INSTANCE FOR PRODUCTCONTROLLER");
 	}
-
 	@RequestMapping("/productform")
 	public String getProductForm(Model model)
 	{
-		// Product product = new Product();
 		model.addAttribute("product", new Product());
-		model.addAttribute("categories", cse.getCategories());
-		model.addAttribute("suppliers", sse.list());
+		model.addAttribute("categoryList", cse.getCategories());
+		model.addAttribute("supplierList", sse.getSuppliers());
 		return "ProductForm";
+	}
+	
+	   @ModelAttribute("product")
+		public Product newProduct()
+	{
+			return new Product();
+	
 	}
 
 	@RequestMapping("/addProduct")
-	/*
-	 * public ModelAndView saveProduct(@ModelAttribute(value="product") Product
-	 * product) { Product newProduct=productService.saveProduct(product);
-	 * //return new ModelAndView("productList","product",newProduct);
-	 */
-
-	public String saveProduct(@Valid @ModelAttribute("product") Product product, BindingResult result,
-			Model model) {
-		model.addAttribute("categories", cse.getCategories());
-		model.addAttribute("suppliers", sse.list());
+	public String saveProduct(@Valid @ModelAttribute("product") Product product, BindingResult result, Model model)
+	{
+	 
+		model.addAttribute(cse.getCategories());
+		model.addAttribute(sse.getSuppliers());
 		if (result.hasErrors())
 			return "ProductForm";
 		productService.saveProduct(product);
+		
 
 		MultipartFile prodImage = product.getImage();
-		if (!prodImage.isEmpty()) {
-			Path paths = Paths.get("C:/Users/gurpr_000/git/hellogit/themobilestore/src/main/webapp/WEB-INF/resources/images/"
-							+ product.getPid() + ".png");
+		if (!prodImage.isEmpty())
+		{
+			Path paths = 
+				Paths.get("C:/Users/gurpr_000/git/hellogit/themobilestore/src/main/webapp/WEB-INF/resources/images/" + product.getPid() + ".jpg");
 			try
 			{
 				prodImage.transferTo(new File(paths.toString()));
-			} catch (IllegalStateException e)
+			} 
+			catch (IllegalStateException e)
 			{
 				e.printStackTrace();
 			} catch (IOException e)
@@ -119,7 +123,7 @@ public class ProductController {
 	public String editProductForm(@PathVariable int pid, Model model) {
 		Product product = productService.getProductById(pid);
 		model.addAttribute("product", product);
-		model.addAttribute("categories", cse.getCategories());
+		model.addAttribute("categoryList", cse.getCategories());
 		return "EditProductForm";
 	}
 	

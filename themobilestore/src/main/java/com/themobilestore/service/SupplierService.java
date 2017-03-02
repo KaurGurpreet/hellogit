@@ -6,8 +6,8 @@ import com.themobilestore.model.Supplier;
 
 public interface SupplierService
 {
-	public List<Supplier> list();
+	public List<Supplier> getSuppliers();
 	/*public Supplier get(String id);*/
-	public void saveOrUpdate(Supplier supplier);
+	public Supplier saveOrUpdate(Supplier supplier);
 
 }

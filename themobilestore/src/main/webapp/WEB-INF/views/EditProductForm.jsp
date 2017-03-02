@@ -1,16 +1,37 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    <%@ page isELIgnored="false" %>
-    <%@ include file="template/header.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ include file="template/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Edit Product Form</title>
 
+<%-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+<script src="<c:url value="/js/bootstrap.min.js" />"></script>  --%>
+
 <style>
+
+ /* .jumbotron 
+ {
+  position: relative;
+  background-image: url('images/bg4.jpg') no-repeat center;
+  color: black;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
+ }  */
+
 footer
 {
 	background-color: #f2f2f2;
@@ -19,18 +40,18 @@ footer
 	margin-bottom: 0;
 }
 </style>
-     
+
 <div class="jumbotron text-center">
 	<h2>
 		<strong><u>Edit Product</u></strong>
 	</h2>
 	<br>
 	<div class="row">
-		<div class="col-xs-6 col-sm-6 col-md-6 col-sm-offset-4 col-md-offset-3 well">
+		<div class="col-xs-6 col-sm-4 col-md-6 col-sm-offset-4 col-md-offset-3 well">
 			<div class="container">
 				<c:url value="editProduct" var="url"></c:url>
 				<form:form action="${url }" commandName="product">
-				
+
 					<div class="form-group">
 						<label for="pid"></label>
 						<form:hidden path="pid" />
@@ -66,7 +87,7 @@ footer
                                 out.println(c.id)
                                 out.println(c.categoryDetails);
                          -->
-						<c:forEach var="c" items="${categories }">
+						<c:forEach var="c" items="${categoryList}">
 							<form:radiobutton path="category.cid" value="${c.cid }" />${c.cname }
                         </c:forEach>
 						<form:errors path="category" cssStyle="color:#ff0000"></form:errors>
@@ -79,6 +100,5 @@ footer
 		</div>
 	</div>
 </div>
-
-<%@ include file="/WEB-INF/views/template/footer.jsp"%>
+<%@ include file="template/footer.jsp"%>
 </html>

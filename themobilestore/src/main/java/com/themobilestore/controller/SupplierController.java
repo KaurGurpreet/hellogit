@@ -1,6 +1,6 @@
 package com.themobilestore.controller;
 
-import java.util.List;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,10 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.themobilestore.model.Product;
 import com.themobilestore.model.Supplier;
 import com.themobilestore.service.SupplierService;
 
@@ -32,10 +28,10 @@ public class SupplierController
 	}*/
 	
 	@RequestMapping("/addSupplier")
-	public String list(Model model) {
-		List<Supplier> list = sse.list();
-		model.addAttribute("supplier",list);
-		/*return new ModelAndView("supplier", "Supplier", list);*/
+	public String getSupplier(Model model) 
+	{
+		model.addAttribute("supplier", new Supplier());
+		model.addAttribute("supplierList", sse.getSuppliers());
 		return "Supplier";
 	}
 	
@@ -45,17 +41,17 @@ public class SupplierController
 		return new Supplier();
 	}
 
-	@RequestMapping(value = "/supplier/add", method = RequestMethod.POST)
-	public String addProduct(@ModelAttribute("suppliercommand") Supplier s, BindingResult result) {
+	@RequestMapping("/supplier/add")
+	public String addSupplier(@Valid @ModelAttribute("suppliercommand") Supplier supplier, BindingResult result) {
 
 		if (result.hasErrors()) 
 		{
 			return "addSupplier";
 		}
 		
-		System.out.println(s.getSid());
+		System.out.println(supplier.getSid());
 		
-		sse.saveOrUpdate(s);
+		sse.saveOrUpdate(supplier);
 
 		return "redirect:/addSupplier";
 	}

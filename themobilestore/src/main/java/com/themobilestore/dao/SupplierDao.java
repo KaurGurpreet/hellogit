@@ -7,7 +7,7 @@ import com.themobilestore.model.Supplier;
 public interface SupplierDao
 {
 
-public List<Supplier> list();
+public List<Supplier> getSuppliers();
 /*public Supplier get(String id);*/
 public Supplier saveOrUpdate(Supplier supplier);
 	

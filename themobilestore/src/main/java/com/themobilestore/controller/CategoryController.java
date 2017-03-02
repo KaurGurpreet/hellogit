@@ -2,6 +2,8 @@ package com.themobilestore.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,17 +26,21 @@ public class CategoryController
 			System.out.println("CREATING INSTANCE FOR CATEGORYCONTROLLER");
 		}
 		
-		/*@RequestMapping(value = "/addSupplier", method = RequestMethod.GET)
-		public ModelAndView list() {
-			List<Supplier> list = sse.list();
-			return new ModelAndView("supplier", "Supplier", list);
-		}*/
-		
-		@RequestMapping("/addCategory")
+			
+		/*@RequestMapping("/addCategory")
 		public String list(Model model) {
 			List<Category> list = cse.getCategories();
 			model.addAttribute("category",list);
-			/*return new ModelAndView("supplier", "Supplier", list);*/
+			return new ModelAndView("supplier", "Supplier", list);
+			return "Category";
+		}*/
+		
+		@RequestMapping("/addCategory")
+		public String getCategory(Model model) 
+		{
+			
+			model.addAttribute("category", new Category());
+			model.addAttribute("categoryList", cse.getCategories());
 			return "Category";
 		}
 		
@@ -44,7 +50,7 @@ public class CategoryController
 			return new Category();
 		}
 
-		@RequestMapping(value = "/category/add", method = RequestMethod.POST)
+		/*@RequestMapping(value = "/category/add", method = RequestMethod.POST)
 		public String addProduct(@ModelAttribute("categorycommand") Category c, BindingResult result) {
 
 			if (result.hasErrors()) 
@@ -57,8 +63,34 @@ public class CategoryController
 			cse.saveOrUpdate(c);
 
 			return "redirect:/addCategory";
-		}
+		}*/
+		
+		/*@RequestMapping("/category/add")
+		public String getCategories(Model model)
+		{
+			List<Category> categories = cse.getCategories();
+			model.addAttribute("categoryList", categories);
+			return "redirect:/addCategory";
+		}*/
 
+		
+		@RequestMapping("/category/add")
+		public String addCategories(@Valid @ModelAttribute("categorycommand") Category category, BindingResult result)
+		{
+
+			if (result.hasErrors()) 
+			{
+				return "addCategory";
+			}
+			
+			System.out.println(category.getCid());
+			
+			cse.saveOrUpdate(category);
+
+			return "redirect:/addCategory";
+		}
+		
+		
 }
 
 
