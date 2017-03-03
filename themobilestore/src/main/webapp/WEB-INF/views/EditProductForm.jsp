@@ -19,10 +19,10 @@
 
 <style>
 
- /* .jumbotron 
+ .jumbotron 
  {
   position: relative;
-  background-image: url('images/bg4.jpg') no-repeat center;
+  background-image: url("./../resources/images/bg4.jpg") no-repeat center;
   color: black;
   width: 100%;
   height: 100%;
@@ -30,7 +30,7 @@
   overflow: hidden;
   margin-top: 0;
   margin-bottom: 0;
- }  */
+ }  
 
 footer
 {
@@ -49,13 +49,15 @@ footer
 	<div class="row">
 		<div class="col-xs-6 col-sm-4 col-md-6 col-sm-offset-4 col-md-offset-3 well">
 			<div class="container">
-				<c:url value="editProduct" var="url"></c:url>
+				<c:url value="/editProduct" var="url"></c:url>
 				<form:form action="${url }" commandName="product">
-
+					
 					<div class="form-group">
-						<label for="pid"></label>
-						<form:hidden path="pid" />
+						<label for="pid">Product ID</label>
+						<form:input path="pid" class="form-control" disabled="true"/>
+						<form:errors path="pid" cssStyle="color:#ff0000"></form:errors>
 					</div>
+					
 
 					<div class="form-group">
 						<label for="name">Product Name</label>

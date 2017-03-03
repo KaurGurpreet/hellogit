@@ -64,17 +64,17 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="<c:url value="home" />">TheMobileStore</a>
+         <a class="navbar-brand" href="<c:url value="/" />">TheMobileStore</a>
        </div>
  
       <div class="collapse navbar-collapse" id="myNavbar"> 
         <ul class="nav navbar-nav">
-         <li class="active"><a href="<c:url value="home" />">Home</a></li>     
+         <li class="active"><a href="<c:url value="/" />">Home</a></li>     
           <!--  <li><a href="Product">Products</a></li>  -->
-         <li><a href="<c:url value="getAllProducts" />">Products</a></li>
-         <li><a href="<c:url value="addCategory" />">Category</a></li>
-         <li><a href="<c:url value="addSupplier" />">Supplier</a></li>
-         <li><a href="<c:url value="AboutUs" />">About Us</a></li>
+         <li><a href="<c:url value="/getAllProducts" />">Products</a></li>
+         <li><a href="<c:url value="/addCategory" />">Category</a></li>
+         <li><a href="<c:url value="/addSupplier" />">Supplier</a></li>
+         <li><a href="<c:url value="/AboutUs" />">About Us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
          
@@ -87,8 +87,8 @@
          </c:if> 
          </c:if>
          <c:if test="${pageContext.request.userPrincipal.name == null}">
-         <li><a href="<c:url value="login" />"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
-         <li><a href="<c:url value="SignUp" />"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+         <li><a href="<c:url value="/login" />"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
+         <li><a href="<c:url value="/SignUp" />"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
          </c:if>
        </ul>  
      </div>

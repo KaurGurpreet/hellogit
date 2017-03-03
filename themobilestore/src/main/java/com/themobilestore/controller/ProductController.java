@@ -103,15 +103,47 @@ public class ProductController {
 
 	@RequestMapping("/viewproduct/{pid}")
 	public String viewProduct(@PathVariable int pid, Model model)
-	{
+	{			
 		Product product = productService.getProductById(pid);
 		model.addAttribute("product", product);
-	 return "ViewProduct";
+	    return "ViewProduct";
 		/*return "ProductList";*/
 	}
+	
+	@RequestMapping("/viewProduct")
+	public String viewProductDetails(@Valid @ModelAttribute("product") Product product, BindingResult result)
+	{
 
+		if (result.hasErrors())
+		{
+			return "ProductForm";
+		}
+			
+		MultipartFile prodImage = product.getImage();
+		if (!prodImage.isEmpty())
+		{
+			Path paths = 
+				Paths.get("C:/Users/gurpr_000/git/hellogit/themobilestore/src/main/webapp/WEB-INF/resources/images/" + product.getPid() + ".jpg");
+			try
+			{
+				prodImage.transferTo(new File(paths.toString()));
+			} 
+			catch (IllegalStateException e)
+			{
+				e.printStackTrace();
+			} catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		productService.getAllProducts();
+		return "redirect:/getAllProducts";
+	}
+		
 	@RequestMapping("/deleteproduct/{pid}")
-	public String deleteProduct(@PathVariable int pid) {
+	public String deleteProduct(@PathVariable int pid)
+	{
 		productService.deleteProduct(pid);
 		return "redirect:/getAllProducts";
 	}
@@ -128,9 +160,33 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/editProduct")
-	public String editProductDetails(@Valid @ModelAttribute("product") Product product, BindingResult result) {
+	public String editProductDetails(@Valid @ModelAttribute("product") Product product, BindingResult result)
+	{
+		
 		if (result.hasErrors())
-			return "productform";
+		{
+			System.out.println(result.getFieldError());
+			return "EditProductForm";
+		}
+			
+		MultipartFile prodImage = product.getImage();
+		if (!prodImage.isEmpty())
+		{
+			Path paths = 
+				Paths.get("C:/Users/gurpr_000/git/hellogit/themobilestore/src/main/webapp/WEB-INF/resources/images/" + product.getPid() + ".jpg");
+			try
+			{
+				prodImage.transferTo(new File(paths.toString()));
+			} 
+			catch (IllegalStateException e)
+			{
+				e.printStackTrace();
+			} catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
 		productService.updateProduct(product);
 		return "redirect:/getAllProducts";
 	}
