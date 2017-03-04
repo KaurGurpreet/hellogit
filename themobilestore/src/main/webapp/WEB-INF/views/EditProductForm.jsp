@@ -22,7 +22,7 @@
  .jumbotron 
  {
   position: relative;
-  background-image: url("./../resources/images/bg4.jpg") no-repeat center;
+  background: url("./../resources/images/bg5.jpg") no-repeat center;
   color: black;
   width: 100%;
   height: 100%;

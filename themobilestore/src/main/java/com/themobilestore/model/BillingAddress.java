@@ -27,8 +27,6 @@ public class BillingAddress implements Serializable
     /*@OneToOne(mappedBy="billingAddress", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     private Customer customer;*/
     
-    //private List<Customer> customer;
-    
     public BillingAddress() {
 		// TODO Auto-generated constructor stub
 	}

@@ -24,6 +24,7 @@ import com.themobilestore.service.ProductService;
 import com.themobilestore.service.SupplierService;
 
 @Controller
+/*@RequestMapping("/admin")*/
 public class ProductController {
 	@Autowired
 	private ProductService productService;
@@ -37,7 +38,7 @@ public class ProductController {
 	public ProductController() {
 		System.out.println("CREATING INSTANCE FOR PRODUCTCONTROLLER");
 	}
-	@RequestMapping("/productform")
+	@RequestMapping("/admin/productform")
 	public String getProductForm(Model model)
 	{
 		model.addAttribute("product", new Product());

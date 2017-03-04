@@ -64,17 +64,17 @@
   <br>
    <div class="row">
       <div class="col-sm-4">
-      <img class="img-circle" src="./resources/images/images (1).jpeg" alt="New Products Image" width="140" height="140"/>
+      <img class="img-circle" src="./resources/images/new.jpg" alt="New Products Image" width="140" height="140"/>
       <!-- <img src="images (1).jpeg"  class="img-circle" width="304" height="236" alt="Image">  -->
       <p id="htype2"><a href="#">New Products</a></p>
       </div>
       <div class="col-sm-4"> 
-      <img class="img-circle" src="./resources/images/o_mdgdfylhg-ng.jpg" alt="Used Products Image" width="140" height="140"/>
+      <img class="img-circle" src="./resources/images/used.jpg" alt="Used Products Image" width="140" height="140"/>
       <!-- <img src="images.jpeg" class="img-circle" width="304" height="236" alt="Image">  -->
       <p id="htype2"><a href="#">Used Products</a></p> 
       </div>
       <div class="col-sm-4">
-      <img class="img-circle" src="./resources/images/mobile accessories 1.jpeg" alt="Accessories Image" width="140" height="140"/>
+      <img class="img-circle" src="./resources/images/accessory.jpg" alt="Accessories Image" width="140" height="140"/>
       <!-- <img src="mobile store 2.jpg" class="img-circle" width="304" height="236" alt="Image"> -->
       <p id="htype2"><a href="#">Accessories</a></p> 
       </div>

@@ -13,7 +13,7 @@
 <style>
 .jumbotron {
 	position: relative;
-	background-image: url("./../resources/images/bg4.jpg") no-repeat center;
+	background: url("./../resources/images/bg5.jpg") no-repeat center;
 	color: black;
 	width: 100%;
 	height: 100%;
@@ -23,16 +23,10 @@
 	margin-bottom: 0;
 } 
 
-footer {
-	background-color: #f2f2f2;
-	padding: 15px;
-	margin-top: 0;
-	margin-bottom: 0;
-}
 </style>
 
 <div class="jumbotron text-center">
-<h3><u><strong>Product Detail</strong></u></h3>
+<h2><u><strong>Product Details</strong></u></h2>
 <div class="container">
 <br><br>
 
@@ -57,10 +51,7 @@ footer {
         <a href="#"  class="btn btn-success btn-lg active">Continue Shopping</a>
 </div>
 </div>
-
+<br>
 </div>
-<br>
-<br>
-<br>
 <%@ include file="template/footer.jsp"%>
 </html>

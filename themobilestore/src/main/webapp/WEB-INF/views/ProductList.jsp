@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <head>   
 <title>Product List</title>
 
@@ -20,7 +20,14 @@ $(document).ready(function(){
 </head>
 <div class="jumbotron">
     <div class="container">
-    <a href="productform" class="btn btn-primary btn-lg active pull-right" role="button">Add New Product</a>
+    
+    
+   <c:if test="${pageContext.request.userPrincipal.name !=null }">
+    <c:url var="url" value="productform"></c:url>  
+   <security:authorize access="ROLE_ADMIN"> 
+    <a href="${url }" class="btn btn-primary btn-lg active pull-right" role="button">Add New Product</a>
+    </security:authorize>
+   </c:if>	
     <br>
     <h2><strong><center><u>Our Product List</u></center></strong></h2>
      <br>
