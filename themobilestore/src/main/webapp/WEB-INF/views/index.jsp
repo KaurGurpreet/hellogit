@@ -60,21 +60,21 @@
 
 <br>
 
- <h2><a href="#">See All Features</a></h2>
+ <h3><a href="<c:url value="/getAllProducts" />">See All Products</a></h3>
   <br>
    <div class="row">
       <div class="col-sm-4">
-      <img class="img-circle" src="./resources/images/new.jpg" alt="New Products Image" width="140" height="140"/>
+      <img class="img-circle" src="./resources/images/new2.jpg" alt="New Products Image" width="140" height="140"/>
       <!-- <img src="images (1).jpeg"  class="img-circle" width="304" height="236" alt="Image">  -->
       <p id="htype2"><a href="#">New Products</a></p>
       </div>
       <div class="col-sm-4"> 
-      <img class="img-circle" src="./resources/images/used.jpg" alt="Used Products Image" width="140" height="140"/>
+      <img class="img-circle" src="./resources/images/used1.jpg" alt="Used Products Image" width="140" height="140"/>
       <!-- <img src="images.jpeg" class="img-circle" width="304" height="236" alt="Image">  -->
       <p id="htype2"><a href="#">Used Products</a></p> 
       </div>
       <div class="col-sm-4">
-      <img class="img-circle" src="./resources/images/accessory.jpg" alt="Accessories Image" width="140" height="140"/>
+      <img class="img-circle" src="./resources/images/a1.jpeg" alt="Accessories Image" width="140" height="140"/>
       <!-- <img src="mobile store 2.jpg" class="img-circle" width="304" height="236" alt="Image"> -->
       <p id="htype2"><a href="#">Accessories</a></p> 
       </div>

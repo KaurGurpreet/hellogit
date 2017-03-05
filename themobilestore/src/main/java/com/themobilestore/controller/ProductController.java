@@ -38,7 +38,7 @@ public class ProductController {
 	public ProductController() {
 		System.out.println("CREATING INSTANCE FOR PRODUCTCONTROLLER");
 	}
-	@RequestMapping("/admin/productform")
+	@RequestMapping("/productform")
 	public String getProductForm(Model model)
 	{
 		model.addAttribute("product", new Product());

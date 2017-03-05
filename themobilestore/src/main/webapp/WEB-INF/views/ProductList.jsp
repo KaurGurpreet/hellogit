@@ -22,11 +22,9 @@ $(document).ready(function(){
     <div class="container">
     
     
-   <c:if test="${pageContext.request.userPrincipal.name !=null }">
+   <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
     <c:url var="url" value="productform"></c:url>  
-   <security:authorize access="ROLE_ADMIN"> 
     <a href="${url }" class="btn btn-primary btn-lg active pull-right" role="button">Add New Product</a>
-    </security:authorize>
    </c:if>	
     <br>
     <h2><strong><center><u>Our Product List</u></center></strong></h2>
@@ -46,12 +44,12 @@ $(document).ready(function(){
         
         <th>Category</th>
         
-       <!--  <th>Image</th>  -->
-        
-        <!-- <th>More Features</th> -->
         <th>View</th>
+        
+        <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
         <th>Delete</th>
         <th>Edit</th>
+        </c:if>
         
       </tr>
     </thead>
@@ -71,14 +69,17 @@ $(document).ready(function(){
                     <c:url var="url" value="/viewproduct/${p.pid }"></c:url>  
 					<a href="${url }"><span class="glyphicon glyphicon-info-sign"></span></a> 
 			</td>
-			<td>		
+			<c:if test="${pageContext.request.userPrincipal.name == 'admin'}">	
+			<td>
 				    <c:url var="delete" value="/deleteproduct/${p.pid }"></c:url> 
 					<a href="${delete }"><span class="glyphicon glyphicon-remove"></span></a>
+					
 			 </td>
-			 <td>		
+			 <td>	
 				    <c:url var="edit" value="/editform/${p.pid }"></c:url>
 					<a href="${edit }"><span class="glyphicon glyphicon-pencil"></span></a>
 			</td>
+			</c:if>
 		   </tr>
        </c:forEach>     
     </tbody>   

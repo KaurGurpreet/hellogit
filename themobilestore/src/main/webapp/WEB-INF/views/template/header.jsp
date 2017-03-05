@@ -74,11 +74,9 @@
           <!--  <li><a href="Product">Products</a></li>  -->
          <li><a href="<c:url value="/getAllProducts" />">Products</a></li>
          
-        <c:if test="${pageContext.request.userPrincipal.name !=null }"> 
-        <security:authorize access="ROLE_ADMIN">
+        <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
          <li><a href="<c:url value="/addCategory" />">Category</a></li>
          <li><a href="<c:url value="/addSupplier" />">Supplier</a></li>
-         </security:authorize>
          </c:if>
          
          <li><a href="<c:url value="/AboutUs" />">About Us</a></li>

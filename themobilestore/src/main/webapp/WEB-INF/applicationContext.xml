@@ -38,12 +38,12 @@
         <property name="sessionFactory" ref="sessionFactory"></property> 
     </bean>
     
-    <bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+    <!-- <bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
         <constructor-arg name="strength" value="11" />
-    </bean>
+    </bean> -->
 
     <!-- <bean id="daoAuthenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
-                <property name="UserServiceImpl" ref="CustomerServiceImpl"/>
+                <property name="UserService" ref="CustomerService"/>
                <property name="passwordEncoder" ref="encoder"/>
     </bean> -->
     
@@ -63,11 +63,17 @@ logout-success-url="/login?logout"/>
  
 <security:authentication-manager>
 <security:authentication-provider>
-    <!--  <password-encoder hash="bcrypt" /> --> 
+   <security:password-encoder ref="encoder" /> 
 <security:jdbc-user-service
 data-source-ref="dataSource" authorities-by-username-query="SELECT username, role FROM authority WHERE username = ?"
 users-by-username-query="SELECT username, password, enabled FROM users WHERE username = ?"/>
+
 </security:authentication-provider>
 </security:authentication-manager>
+
+<bean id="encoder"
+  class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+  <constructor-arg name="strength" value="10" />
+ </bean>
     
  </beans>

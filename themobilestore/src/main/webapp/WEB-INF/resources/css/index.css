@@ -8,6 +8,13 @@ h2
    #00008B*/
    font-family:Monotype Corsiva;
   }
+  
+  h3
+  {
+   color:#FD0E35;
+   font-family:Monotype Corsiva;
+   font-size:35px;
+  }
 
  #htype1
   {
@@ -20,7 +27,7 @@ h2
 
 #htype2
   {
-   color:#000000;
+   color:#001C3D;
    font-family:Monotype Corsiva;
    font-size:25px;
   } 
