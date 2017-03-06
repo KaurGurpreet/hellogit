@@ -63,7 +63,9 @@ logout-success-url="/login?logout"/>
  
 <security:authentication-manager>
 <security:authentication-provider>
-   <security:password-encoder ref="encoder" /> 
+<security:password-encoder hash="bcrypt" />
+
+   <!-- <security:password-encoder ref="encoder" />  -->
 <security:jdbc-user-service
 data-source-ref="dataSource" authorities-by-username-query="SELECT username, role FROM authority WHERE username = ?"
 users-by-username-query="SELECT username, password, enabled FROM users WHERE username = ?"/>

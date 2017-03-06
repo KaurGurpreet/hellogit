@@ -1,9 +1,14 @@
 package com.themobilestore.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -11,17 +16,28 @@ public class Cart {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private int cart_id;
 	private double grandTotal;
 	@OneToOne
 	private Customer customer;
 
-	public int getId() {
-		return id;
+	@OneToMany(mappedBy="cart",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	private List<CartItem> cartItems;
+	
+	public List<CartItem> getCartItems() {
+		return cartItems;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setCartItems(List<CartItem> cartItems) {
+		this.cartItems = cartItems;
+	}
+
+	public int getCart_id() {
+		return cart_id;
+	}
+
+	public void setCart_id(int cart_id) {
+		this.cart_id = cart_id;
 	}
 
 	public double getGrandTotal() {

@@ -64,7 +64,7 @@ public void deleteProduct(int pid) {
 public void updateProduct(Product product) {
 	Session session=sessionFactory.openSession();
 	System.out.println("Id of the product in dao is " + product.getPid());
-	session.update(product); //update product set ..... where pid=?
+	session.update(product);
 	session.flush();
 	session.close();
 	

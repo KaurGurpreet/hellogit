@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,12 +36,13 @@ public class CustomerDaoImpl implements CustomerDao
 		Users users = new Users();
 		users.setUserid(customer.getId());
 		users.setUsername(customer.getUsername());
-		users.setPassword(customer.getPassword());
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		users.setPassword(encoder.encode(customer.getPassword()));
 		users.setEnabled(true);
 		
 		Authority authority = new Authority();
 		authority.setUsername(customer.getUsername());
-		authority.setRole("Role_USER");
+		authority.setRole("ROLE_USER");
 		
 		Cart cart=new Cart();
 		customer.setCart(cart);

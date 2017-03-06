@@ -16,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.themobilestore.model.Product;
@@ -154,13 +155,16 @@ public class ProductController {
 	 */
 	@RequestMapping("/editform/{pid}")
 	public String editProductForm(@PathVariable int pid, Model model) {
+		System.out.println("Product Id Cobtroller = "+pid);
 		Product product = productService.getProductById(pid);
+		System.out.println("Product called after service  = "+product.getPid());
 		model.addAttribute("product", product);
 		model.addAttribute("categoryList", cse.getCategories());
+		model.addAttribute("supplierList", sse.getSuppliers());
 		return "EditProductForm";
 	}
 	
-	@RequestMapping("/editProduct")
+	@RequestMapping(value="/editProduct", method=RequestMethod.POST)
 	public String editProductDetails(@Valid @ModelAttribute("product") Product product, BindingResult result)
 	{
 		
@@ -187,7 +191,6 @@ public class ProductController {
 				e.printStackTrace();
 			}
 		}
-		
 		productService.updateProduct(product);
 		return "redirect:/getAllProducts";
 	}

@@ -1,4 +1,4 @@
-package com.themobilestore.hash;
+/*package com.themobilestore.hash;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -12,3 +12,4 @@ public String getHashPassword(String password)
 	return hashedPassword;
 }
 }
+*/

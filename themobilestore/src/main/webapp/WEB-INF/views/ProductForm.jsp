@@ -61,20 +61,21 @@ footer {
 						<form:errors path="category.cid" cssStyle="color:#ff0000"></form:errors>
 					</div>
 
-					<%-- <div class="form-group">
+					<div class="form-group">
 						<label for="supplier">Supplier</label>
 					   <c:forEach var="s" items="${supplierList}"> 
 						 <form:radiobutton path="supplier.sid" value="${s.sid }"/>${s.supname}
-						 </c:forEach>  --%>
-						 
-					 <div class="form-group">
+						 </c:forEach> 
+						<form:errors path="supplier.sid" cssStyle="color:#ff0000"></form:errors>
+					</div> 
+					<%--  <div class="form-group">
 						<label for="supplier.supname">Supplier</label> 
 						<form:select path="supplier.supname">
 						    <form:option value="None">--Select Supplier--</form:option>
 							<form:options items="${supplierList }" />
 						</form:select> 
 						<form:errors path="supplier.supname" cssStyle="color:#ff0000"></form:errors>
-					</div>
+					</div> --%>
                     
                     <div class="form-group">
                    <label for="image">Image</label>
