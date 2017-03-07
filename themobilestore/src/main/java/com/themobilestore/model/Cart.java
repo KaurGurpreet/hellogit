@@ -21,7 +21,7 @@ public class Cart {
 	@OneToOne
 	private Customer customer;
 
-	@OneToMany(mappedBy="cart",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="cart",cascade=CascadeType.ALL)
 	private List<CartItem> cartItems;
 	
 	public List<CartItem> getCartItems() {

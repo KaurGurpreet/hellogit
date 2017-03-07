@@ -9,4 +9,5 @@ public interface CustomerDao
 {
 	Customer saveCustomer(Customer customer);
 	/*List<Customer> getAllCustomer();*/
+	public Customer getCustomerByUsername(String username);
 }

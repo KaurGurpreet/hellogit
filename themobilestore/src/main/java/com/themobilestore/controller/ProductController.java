@@ -112,7 +112,7 @@ public class ProductController {
 		/*return "ProductList";*/
 	}
 	
-	@RequestMapping("/viewProduct")
+	/*@RequestMapping("/viewProduct")
 	public String viewProductDetails(@Valid @ModelAttribute("product") Product product, BindingResult result)
 	{
 
@@ -141,7 +141,7 @@ public class ProductController {
 		
 		productService.getAllProducts();
 		return "redirect:/getAllProducts";
-	}
+	}*/
 		
 	@RequestMapping("/deleteproduct/{pid}")
 	public String deleteProduct(@PathVariable int pid)
@@ -155,10 +155,12 @@ public class ProductController {
 	 */
 	@RequestMapping("/editform/{pid}")
 	public String editProductForm(@PathVariable int pid, Model model) {
-		System.out.println("Product Id Cobtroller = "+pid);
+		System.out.println("Product Id Controller = "+pid);
 		Product product = productService.getProductById(pid);
-		System.out.println("Product called after service  = "+product.getPid());
+		System.out.println("Product called after service  = "+ product.getPid());
 		model.addAttribute("product", product);
+		
+		/*model.addAttribute("product",productService.getProductById(pid));*/
 		model.addAttribute("categoryList", cse.getCategories());
 		model.addAttribute("supplierList", sse.getSuppliers());
 		return "EditProductForm";

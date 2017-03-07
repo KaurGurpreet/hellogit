@@ -26,9 +26,15 @@ public class Users
 	private boolean enabled;
 	
 	/*@OneToOne(mappedBy="users", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-	@OneToOne(mappedBy="users", cascade=CascadeType.ALL)
-	private Customer customer;*/
+	@OneToOne(mappedBy="users", cascade=CascadeType.ALL)*/
+	private Customer customer;
 	
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 	public int getUserid() {
 		return userid;
 	}

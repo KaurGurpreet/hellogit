@@ -12,7 +12,7 @@ public class CartItem
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int cart_id;
+	private int ct_id;
 	private int quantity;
 	private double totalPrice;
     
@@ -24,12 +24,12 @@ public class CartItem
 	@JoinColumn(name="cart_id")
 	private Cart cart;
 	
-	public int getCart_id() {
-		return cart_id;
+	public int getCt_id() {
+		return ct_id;
 	}
 
-	public void setCart_id(int cart_id) {
-		this.cart_id = cart_id;
+	public void setCt_id(int ct_id) {
+		this.ct_id = ct_id;
 	}
 
 	public int getQuantity() {

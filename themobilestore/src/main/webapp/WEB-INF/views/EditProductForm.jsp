@@ -94,28 +94,36 @@ footer {
 						<form:errors path="category" cssStyle="color:#ff0000"></form:errors>
 					</div>
 
-					<div class="form-group">
+					<%-- <div class="form-group">
 						<label for="supplier">Supplier</label>
 						<c:forEach var="s" items="${supplierList }">
 							<form:radiobutton path="supplier.sid" value="${s.sid }" />${s.supname}
 						 </c:forEach>
 						<form:errors path="supplier.sid" cssStyle="color:#ff0000"></form:errors>
-					</div>
-
+					</div> --%>
+					
 					<%-- <div class="form-group">
 						<label for="supplier.supname">Supplier</label> 
 						 <form:select path="supplier.supname">
 						    <form:option value="None">--Select Supplier--</form:option>
-						    <c:forEach var="s" items="${supplierList }">
-							 <form:options value="${s.supname }" /> 
-							 </c:forEach>
-						</form:select>
-					<form:errors path="supplier.supname" cssStyle="color:#ff0000"></form:errors> --%>
-					
-						<%-- <form:select path="supplier" items="${supplierList }" itemValue="sup.sid" itemLabel="sup.sname" /> --%>
-					<!-- </div>  -->
+						     <form:options var="sup" items="${supplierList }" />  
+						 </form:select>
+					     <form:errors path="supplier.supname" cssStyle="color:#ff0000"></form:errors> 
+					     </div> --%>
 
-					<div class="form-group">
+				    <div class="form-group">
+						<label for="supplier">Supplier</label> 
+						 <form:select path="supplier">
+						    <form:option value="None">--Select Supplier--</form:option>
+						     
+						     <c:forEach var="sup" items="${supplierList }">
+							 <form:options value="${sup.supname }" /> 
+							 </c:forEach> 
+						</form:select>
+					<form:errors path="supplier" cssStyle="color:#ff0000"></form:errors> 
+					</div> 
+					
+					 <div class="form-group">
 						<label for="image">Image</label>
 						<center>
 							<form:input path="image" type="file" />

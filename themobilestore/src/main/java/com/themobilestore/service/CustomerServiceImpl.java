@@ -21,11 +21,10 @@ public class CustomerServiceImpl implements CustomerService
 	{
 		return customerDao.saveCustomer(customer);
 	}
-
-	/*public List<Customer> getAllCustomer()
+	
+	public Customer getCustomerByUsername(String username)
 	{
-		
-		return customerDao.getAllCustomer();
-	}*/
+		return customerDao.getCustomerByUsername(username);
+	}
 
 }
