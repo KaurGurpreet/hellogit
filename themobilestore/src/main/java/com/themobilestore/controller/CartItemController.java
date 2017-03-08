@@ -3,10 +3,13 @@ package com.themobilestore.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.themobilestore.model.Cart;
 import com.themobilestore.model.CartItem;
@@ -26,12 +29,14 @@ public class CartItemController
 	@Autowired
 	private ProductService productService;
 	
+	@RequestMapping("/cart/addCartItem/{pid}")
+	@ResponseStatus(value=HttpStatus.NO_CONTENT	)
 	public void addCartItem(@PathVariable(value="pid")int productId)
 	{
 		User user= (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String username = user.getUsername();
 		Customer customer=custService.getCustomerByUsername(username);//from Users where username=?
-		Cart cart=customer.getCart();
+		Cart cart =customer.getCart();
 		List<CartItem> cartItems= cart.getCartItems();
 		
 		Product  product = productService.getProductById(productId);

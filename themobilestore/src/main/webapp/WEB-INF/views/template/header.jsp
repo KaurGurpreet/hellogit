@@ -23,15 +23,19 @@
     
    <link href="<c:url value="/resources/css/login.css" />" rel="stylesheet">
    
+   <link href="<c:url value="/resources/images/icon.ico" />" rel="icon">
+   
   
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
   
   <!--   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css"> -->
      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"> 
      <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-    <!-- JS -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
-   <!--  <script src="./resources/js/app.js"></script>  -->
+    
+    <!-- <script src="./resources/js/app.js"></script>  -->
+   
+   <!-- Angular Js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
     
     <!-- JQuery -->
     <!-- <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script> -->
@@ -78,6 +82,8 @@
          <li><a href="<c:url value="/addCategory" />">Category</a></li>
          <li><a href="<c:url value="/addSupplier" />">Supplier</a></li>
          </c:if>
+         
+         <li><a href="<c:url value="/cart/getCartId"></c:url>">Cart</a></li>
          
          <li><a href="<c:url value="/AboutUs" />">About Us</a></li>
         </ul>

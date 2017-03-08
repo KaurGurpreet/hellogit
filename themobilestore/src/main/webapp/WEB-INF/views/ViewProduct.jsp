@@ -26,6 +26,7 @@
 </style>
 
 <div class="jumbotron text-center">
+<div ng-app="app" ng-controller="ProductController">
 <h2><u><strong>Product Details</strong></u></h2>
 <div class="container">
 <br><br>
@@ -46,12 +47,18 @@
 </div>
 <br><br>
 <div class="container">
-<a href="#"  class="btn btn-warning btn-lg active">
+<%-- <c:url value="/cart/addCartItem/${product.pid }" var="url"></c:url> --%>
+<a href="" ng-click="addToCart(${product.pid })"  class="btn btn-warning btn-lg active">
           <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a>
-        <a href="#"  class="btn btn-success btn-lg active">Continue Shopping</a>
+          
+        <a href="<c:url value="/getAllProducts" />"  class="btn btn-success btn-lg active">Continue Shopping</a>
 </div>
 </div>
 <br>
 </div>
+</div>
+<script src="<c:url value="/resources/js/controller.js"></c:url>"></script>
+
 <%@ include file="template/footer.jsp"%>
+
 </html>
