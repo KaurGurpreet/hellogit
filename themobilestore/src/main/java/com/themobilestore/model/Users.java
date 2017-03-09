@@ -27,6 +27,7 @@ public class Users
 	
 	/*@OneToOne(mappedBy="users", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@OneToOne(mappedBy="users", cascade=CascadeType.ALL)*/
+	/*@OneToOne(mappedBy="users")*/
 	private Customer customer;
 	
 	public Customer getCustomer() {

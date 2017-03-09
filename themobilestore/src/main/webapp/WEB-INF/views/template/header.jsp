@@ -35,8 +35,10 @@
     <!-- <script src="./resources/js/app.js"></script>  -->
    
    <!-- Angular Js -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
-    
+     <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script> -->
+     
+     <%-- <script src="<c:url value="/resources/js/controller.js"></c:url>"></script> --%>
+     
     <!-- JQuery -->
     <!-- <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script> -->
     <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>

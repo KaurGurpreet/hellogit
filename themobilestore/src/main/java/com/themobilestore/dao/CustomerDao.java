@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.themobilestore.model.Customer;
 
-
 public interface CustomerDao
 {
 	Customer saveCustomer(Customer customer);

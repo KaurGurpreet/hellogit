@@ -41,7 +41,7 @@ public class Customer implements Serializable
 	/*@OneToOne
 	@JoinColumn(name="userid")
 	private Users users;*/
-
+ 
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="bid")
 	private BillingAddress billingAddress;
