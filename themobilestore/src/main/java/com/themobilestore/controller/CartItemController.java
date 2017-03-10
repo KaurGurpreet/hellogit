@@ -39,9 +39,9 @@ public class CartItemController
 		return cartService.getCart(cart_id);
 	}
 
-	@RequestMapping(value="/addCartItem/{productId}",method=RequestMethod.PUT)
+	@RequestMapping(value="/addCartItem/{pid}",method=RequestMethod.POST)
 	@ResponseStatus(value=HttpStatus.NO_CONTENT	)
-	public void addCartItem(@PathVariable(value="productId")int productId)
+	public void addCartItem(@PathVariable(value="pid")int productId)
 	{
 		User user= (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String username = user.getUsername();
@@ -63,11 +63,26 @@ public class CartItemController
 				return;
 			}	
 		}
-		CartItem cartItem = new CartItem();
-		cartItem.setProduct(product);
+		
+		CartItem cartItem=new CartItem();
 		cartItem.setQuantity(1);
-		cartItem.setTotalPrice(product.getPrice()*cartItem.getQuantity());
-		cartItem.setCart(cart);
-		cartItemService.addCartItem(cartItem);
+		cartItem.setTotalPrice(cartItem.getQuantity() * product.getPrice());
+		cartItem.setProduct(product); //set product id
+		cartItem.setCart(cart);//set cart id
+		cartItemService.addCartItem(cartItem); //insert query
+		
+	}
+	
+	@RequestMapping("/cart/removeCartItem/{cartItemId}")
+	@ResponseStatus(value=HttpStatus.NO_CONTENT)
+	public void removeCartItem(@PathVariable int cartItemId){
+	CartItem cartItem=cartItemService.getCartItem(cartItemId);
+	cartItemService.removeCartItem(cartItem);
+	}
+	@RequestMapping("/cart/removeAllCartItems/{cartId}")
+	@ResponseStatus(value=HttpStatus.NO_CONTENT)
+	public void removeAllCartItems(@PathVariable int cartId){
+	Cart cart=cartService.getCart(cartId);
+	cartItemService.removeAllCartItems(cart);
 	}
 }

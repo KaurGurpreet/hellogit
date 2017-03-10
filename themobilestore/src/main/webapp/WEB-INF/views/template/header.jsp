@@ -23,7 +23,7 @@
     
    <link href="<c:url value="/resources/css/login.css" />" rel="stylesheet">
    
-   <link href="<c:url value="/resources/images/icon.ico" />" rel="icon">
+   <link href="<c:url value="/resources/images/icon2.ico" />" rel="icon">
    
   
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
@@ -35,7 +35,7 @@
     <!-- <script src="./resources/js/app.js"></script>  -->
    
    <!-- Angular Js -->
-     <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script> -->
+     <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script> -->
      
      <%-- <script src="<c:url value="/resources/js/controller.js"></c:url>"></script> --%>
      

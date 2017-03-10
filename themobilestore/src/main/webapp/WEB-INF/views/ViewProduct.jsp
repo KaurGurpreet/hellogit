@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Edit Product Form</title>
 
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script> -->
+
 <style>
 .jumbotron {
 	position: relative;
@@ -42,7 +44,7 @@
 </div>
 <br><br>
 <div class="container" ng-controller="ProductController">
- <%-- <c:url value="/cart/addCartItem/${product.pid }" var="url"></c:url> --%>
+ <%-- <c:url value="/addCartItem/${product.pid }" var="url"></c:url> --%>
 <a href="#" ng-click="addToCart(${product.pid })"  class="btn btn-warning btn-lg active">
           <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a>
           
@@ -52,8 +54,8 @@
 <br>
 </div>
 </div>
-<script src="<c:url value="./../resources/js/angular.min.js" />"></script> 
-<script src="<c:url value="./../resources/js/controller.js"></c:url>"></script>
+<script src="<c:url value="/resources/js/angular.js" />"></script> 
+<script src="<c:url value="/resources/js/controller.js"></c:url>"></script>
 
 <%@ include file="template/footer.jsp"%>
 
