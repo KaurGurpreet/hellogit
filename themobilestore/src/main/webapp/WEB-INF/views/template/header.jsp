@@ -10,7 +10,7 @@
   <title>My Project</title>
   
    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
  <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
   
   <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
@@ -35,12 +35,12 @@
     <!-- <script src="./resources/js/app.js"></script>  -->
    
    <!-- Angular Js -->
-     <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script> -->
+     <%-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script> 
      
-     <%-- <script src="<c:url value="/resources/js/controller.js"></c:url>"></script> --%>
+     <script src="<c:url value="/resources/js/controller.js"></c:url>"></script> --%>
      
     <!-- JQuery -->
-    <!-- <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script> -->
+     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
 
     <link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">

@@ -3,9 +3,7 @@ package com.themobilestore.model;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,37 +21,49 @@ public class Customer implements Serializable
    @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
    @NotEmpty(message="Please enter firstname")
+   
 	private String firstname;
    @NotEmpty(message="Please enter lastname")
 	private String lastname;
+   
    @NotEmpty(message="Please enter email")
    @Email(message="Please enter valid email address")
 	private String email;
+   
    @NotEmpty(message="Please enter phone number")
    @Length(max=10,min=10)
 	private String phonenumber;
-   @NotEmpty(message="Please enter username")
+   
+   /*@NotEmpty(message="Please enter username")
    @Column(unique=true)
 	private String username;
    @NotEmpty(message="Please enter password")
-   	private String password;
+   	private String password;*/
 	
 	/*@OneToOne
 	@JoinColumn(name="userid")
 	private Users users;*/
- 
-	@OneToOne(cascade=CascadeType.ALL)
+   
+	/*@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="bid")
 	private BillingAddress billingAddress;
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="shipId")
-	private ShippingAddress shippingAddress;
+	private ShippingAddress shippingAddress;*/
 	
-	/*@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="authorityId")
-	private Authority authority;*/
+   @OneToOne(cascade=CascadeType.ALL)
+   @JoinColumn(name="users_id")
+   private Users users;
 	
+   @OneToOne(cascade=CascadeType.ALL)
+   @JoinColumn(name="billingaddress_id")
+   private BillingAddress billingAddress;
+
+   @OneToOne(cascade=CascadeType.ALL)
+   @JoinColumn(name="shippingaddress_id")
+   private ShippingAddress shippingAddress;
+   
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="cart_id")
 	private Cart cart;
@@ -101,33 +111,33 @@ public class Customer implements Serializable
 	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
 	}
+	
+	/*public String getUsername() {
+	return username;
+}
 
-	/*public Users getUsers() {
+public void setUsername(String username) {
+	this.username = username;
+}
+
+public String getPassword() {
+	return password;
+}
+
+public void setPassword(String password) {
+	this.password = password;
+}*/
+
+	public Users getUsers() {
 		return users;
 	}
 
 	public void setUsers(Users users) {
 		this.users = users;
-	}*/
+	}
 
 	public BillingAddress getBillingAddress() {
 		return billingAddress;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public void setBillingAddress(BillingAddress billingAddress) {
@@ -149,14 +159,6 @@ public class Customer implements Serializable
 	public void setCart(Cart cart) {
 		this.cart = cart;
 	}	
-	
-	/*public Authority getAuthority() {
-		return authority;
-	}
-	public void setAuthority(Authority authority) {
-		this.authority = authority;
-	}*/
-	
-	
+		
 	
 }

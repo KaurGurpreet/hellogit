@@ -1,9 +1,7 @@
 package com.themobilestore.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,7 +14,7 @@ public class Users
 {
    @Id
    @GeneratedValue(strategy=GenerationType.AUTO)
-	private int userid;
+	private int id;
    
    @NotEmpty(message="Please enter username")
    @Column(unique=true)
@@ -25,9 +23,7 @@ public class Users
 	private String password;
 	private boolean enabled;
 	
-	/*@OneToOne(mappedBy="users", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-	@OneToOne(mappedBy="users", cascade=CascadeType.ALL)*/
-	/*@OneToOne(mappedBy="users")*/
+	@OneToOne(mappedBy="users")
 	private Customer customer;
 	
 	public Customer getCustomer() {
@@ -36,11 +32,12 @@ public class Users
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-	public int getUserid() {
-		return userid;
+		
+	public int getId() {
+		return id;
 	}
-	public void setUserid(int userid) {
-		this.userid = userid;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getUsername() {
 		return username;

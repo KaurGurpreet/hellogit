@@ -1,7 +1,5 @@
 package com.themobilestore.dao;
 
-import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,10 +9,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.themobilestore.model.Authority;
-import com.themobilestore.model.BillingAddress;
 import com.themobilestore.model.Cart;
 import com.themobilestore.model.Customer;
-import com.themobilestore.model.ShippingAddress;
 import com.themobilestore.model.Users;
 
 @Repository
@@ -34,14 +30,16 @@ public class CustomerDaoImpl implements CustomerDao
 	{
 		
 		Users users = new Users();
-		users.setUserid(customer.getId());
-		users.setUsername(customer.getUsername());
+		users.setId(customer.getId());
+		/*users.setUsername(customer.getUsername());*/
+		users.setUsername(customer.getUsers().getUsername());
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		users.setPassword(encoder.encode(customer.getPassword()));
+		users.setPassword(customer.getUsers().getPassword());
+		/*users.setPassword(encoder.encode(customer.getPassword()));*/
 		users.setEnabled(true);
 		
 		Authority authority = new Authority();
-		authority.setUsername(customer.getUsername());
+		authority.setUsername(customer.getUsers().getUsername());
 		authority.setRole("ROLE_USER");
 		
 		Cart cart=new Cart();

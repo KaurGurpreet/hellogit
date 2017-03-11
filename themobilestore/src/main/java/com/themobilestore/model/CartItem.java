@@ -12,24 +12,24 @@ public class CartItem
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int ct_id;
+	private int id;
 	private int quantity;
 	private double totalPrice;
     
 	@ManyToOne
-	@JoinColumn(name="pid")
+	@JoinColumn(name="product_id")
 	private Product product;
 	
 	@ManyToOne
 	@JoinColumn(name="cart_id")
 	private Cart cart;
 	
-	public int getCt_id() {
-		return ct_id;
+	public int getId() {
+		return id;
 	}
 
-	public void setCt_id(int ct_id) {
-		this.ct_id = ct_id;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getQuantity() {

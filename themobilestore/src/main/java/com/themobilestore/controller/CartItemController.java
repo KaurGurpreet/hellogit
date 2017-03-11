@@ -39,9 +39,9 @@ public class CartItemController
 		return cartService.getCart(cart_id);
 	}
 
-	@RequestMapping(value="/addCartItem/{pid}",method=RequestMethod.POST)
+	@RequestMapping(value="/addCartItem/{productId}",method=RequestMethod.POST)
 	@ResponseStatus(value=HttpStatus.NO_CONTENT	)
-	public void addCartItem(@PathVariable(value="pid")int productId)
+	public void addCartItem(@PathVariable(value="productId")int productId)
 	{
 		User user= (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String username = user.getUsername();

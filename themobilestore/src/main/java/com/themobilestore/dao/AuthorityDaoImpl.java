@@ -20,7 +20,7 @@ public class AuthorityDaoImpl implements AuthorityDao {
 		session.saveOrUpdate(authority);
 		session.flush();
 		session.close();
-		System.out.println(authority.getAuthorityId());
+		System.out.println(authority.getId());
 		return authority;
 	}
 

@@ -28,7 +28,7 @@ public class CartController
 	String username=user.getUsername();
 	Customer customer=custService.getCustomerByUsername(username);
 	Cart cart=customer.getCart();
-	int cart_Id=cart.getCart_id();
+	int cart_Id=cart.getId();
 	model.addAttribute("cart_Id",cart_Id);
 	return "cart";
 }

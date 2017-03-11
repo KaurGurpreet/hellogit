@@ -18,13 +18,13 @@ public class Cart {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int cart_id;
+	private int id;
 	private double grandTotal;
 	@OneToOne
 	@JsonIgnore
 	private Customer customer;
 
-	@OneToMany(mappedBy="cart",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="cart",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<CartItem> cartItems;
 	
 	public List<CartItem> getCartItems() {
@@ -35,12 +35,12 @@ public class Cart {
 		this.cartItems = cartItems;
 	}
 
-	public int getCart_id() {
-		return cart_id;
+	public int getId() {
+		return id;
 	}
 
-	public void setCart_id(int cart_id) {
-		this.cart_id = cart_id;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public double getGrandTotal() {

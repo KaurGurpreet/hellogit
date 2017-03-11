@@ -2,13 +2,10 @@ package com.themobilestore.model;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class ShippingAddress implements Serializable
@@ -16,27 +13,19 @@ public class ShippingAddress implements Serializable
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-    private int shipId;
+    private int id;
     private String aptNo;
     private String streetName;
 	private String city;
     private String State;
     private String country;
     private String zipcode;
-    
-    /*@OneToOne(mappedBy="shippingAddress")*/
-   /* @OneToOne(mappedBy="shippingAddress", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-    private Customer customer;*/
-    
-    public ShippingAddress() {
-		// TODO Auto-generated constructor stub
+      
+	public int getId() {
+		return id;
 	}
-    public int getShipId() {
-		return shipId;
-	}
-	
-	public void setShipId(int shipId) {
-		this.shipId = shipId;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getAptNo() {
 		return aptNo;

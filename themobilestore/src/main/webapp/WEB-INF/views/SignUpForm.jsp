@@ -66,10 +66,10 @@
 					<div class="row">
 						<div class="col-xs-6 col-md-6">
 							<div class="form-group">
-								<form:label path="username">USERNAME</form:label>
-								<form:input path="username"></form:input>
+								<form:label path="users.username">USERNAME</form:label>
+								<form:input path="users.username"></form:input>
 								${duplicateUsername }
-								<form:errors path="username" cssStyle="color:#ff0000"></form:errors>	
+								<form:errors path="users.username" cssStyle="color:#ff0000"></form:errors>	
 							</div>
 						</div>
 						
@@ -77,9 +77,9 @@
 
 						<div class="col-xs-6 col-md-6">
 							<div class="form-group">
-								<form:label path="password">PASSWORD</form:label>
-								<form:input path="password" type="password"></form:input>
-								<form:errors path="password" cssStyle="color:#ff0000"></form:errors>
+								<form:label path="users.password">PASSWORD</form:label>
+								<form:input path="users.password" type="password"></form:input>
+								<form:errors path="users.password" cssStyle="color:#ff0000"></form:errors>
 								
 							</div>
 						</div>

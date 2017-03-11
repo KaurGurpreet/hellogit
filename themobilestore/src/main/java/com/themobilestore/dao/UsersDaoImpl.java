@@ -1,7 +1,5 @@
 package com.themobilestore.dao;
 
-import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -33,12 +31,12 @@ public class UsersDaoImpl implements UsersDao
 	}*/
 
 	public Users saveOrUpdate(Users users) {
-		System.out.println(users.getUserid());
+		System.out.println(users.getId());
 		Session session=sessionFactory.openSession();
 		session.saveOrUpdate(users);
 		session.flush();
 		session.close();
-		System.out.println(users.getUserid());
+		System.out.println(users.getId());
 		return users;
 	}
 

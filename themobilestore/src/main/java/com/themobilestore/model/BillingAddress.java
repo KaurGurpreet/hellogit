@@ -2,41 +2,31 @@ package com.themobilestore.model;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class BillingAddress implements Serializable
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-    private int bid;
+    private int id;
     private String aptNo;
     private String streetName;
 	private String city;
     private String State;
     private String country;
     private String zipcode;
-    
-    /*@OneToOne(mappedBy="billingAddress")*/
-    /*@OneToOne(mappedBy="billingAddress", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-    private Customer customer;*/
-    
-    public BillingAddress() {
-		// TODO Auto-generated constructor stub
+     
+	public int getId() {
+		return id;
 	}
-    public int getBid() {
-		return bid;
+	public void setId(int id) {
+		this.id = id;
 	}
-	
-	public void setBid(int bid) {
-		this.bid = bid;
-	}
+
 	public String getAptNo() {
 		return aptNo;
 	}
