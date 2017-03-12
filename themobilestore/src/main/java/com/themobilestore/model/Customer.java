@@ -67,11 +67,7 @@ public class Customer implements Serializable
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="cart_id")
 	private Cart cart;
-	
-	public Customer() {
-		// TODO Auto-generated constructor stub
-	}
-	
+		
 	public int getId() {
 		return id;
 	}

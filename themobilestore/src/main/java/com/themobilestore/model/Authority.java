@@ -12,7 +12,7 @@ public class Authority
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	@Column(unique=true)
+	/*@Column(unique=true)*/
     private String username;
     private String role;
     

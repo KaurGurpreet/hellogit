@@ -26,40 +26,34 @@ public class CustomerDaoImpl implements CustomerDao
 		System.out.println("CREATING INSTANCE FOR CUSTOMERDAOIMPL");
 	}
 	
-	public Customer saveCustomer(Customer customer) 
-	{
-		
-		Users users = new Users();
-		users.setId(customer.getId());
-		/*users.setUsername(customer.getUsername());*/
-		users.setUsername(customer.getUsers().getUsername());
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		users.setPassword(customer.getUsers().getPassword());
-		/*users.setPassword(encoder.encode(customer.getPassword()));*/
-		users.setEnabled(true);
+	public void saveCustomer(Customer customer) 
+	{	
+		//Assignment
+		String username=customer.getUsers().getUsername();
+		String password = customer.getUsers().getPassword();
+		String role="ROLE_USER";
 		
 		Authority authority = new Authority();
-		authority.setUsername(customer.getUsers().getUsername());
-		authority.setRole("ROLE_USER");
+		//set the values
+		authority.setUsername(username);
+		authority.setRole(role);	
+		
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		customer.getUsers().setPassword(encoder.encode(password));
+		customer.getUsers().setEnabled(true);
 		
 		Cart cart=new Cart();
 		customer.setCart(cart);
 		cart.setCustomer(customer);//update cart set customer_id=? , grandtotal=? where cart_id=?
 		
-		//customer.getAuthority().setRole("ROLE_USER");
-	   /*customer.getAuthority().setUsername(users.getUsername());*/
-		
-	   //customer.getUsers().setEnabled(true);
-	   //customer.getAuthority().setRole("ROLE_USER");
 		Session session=sessionFactory.openSession();
 		System.out.println(customer.getId());
 		session.save(customer);
-		session.saveOrUpdate(users);
 		session.saveOrUpdate(authority);
+		session.saveOrUpdate(cart);
 		session.flush();
 		session.close();
-		System.out.println(customer.getId());
-		return customer;
+		/*System.out.println(customer.getId());*/
 	}
 
 	public Customer getCustomerByUsername(String username)
@@ -68,7 +62,7 @@ public class CustomerDaoImpl implements CustomerDao
 		Query query=session.createQuery("from Users where username=?");
 		query.setString(0, username);
 		Users users=(Users)query.uniqueResult();
-		//com.niit.model.Users 
+		//com.themobilestore.model.Users 
 		Customer customer=users.getCustomer();
 		session.close();
 		return customer;

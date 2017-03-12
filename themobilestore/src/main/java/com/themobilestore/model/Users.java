@@ -17,7 +17,7 @@ public class Users
 	private int id;
    
    @NotEmpty(message="Please enter username")
-   @Column(unique=true)
+   /*@Column(unique=true)*/
 	private String username;
    @NotEmpty(message="Please enter password")
 	private String password;

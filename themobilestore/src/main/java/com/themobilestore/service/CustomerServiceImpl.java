@@ -1,6 +1,5 @@
 package com.themobilestore.service;
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.themobilestore.dao.CustomerDao;
@@ -17,9 +16,9 @@ public class CustomerServiceImpl implements CustomerService
 		System.out.println("CREATING INSTANCE FOR CUSTOMERSERVICEIMPL");
 	}
    
-	public Customer saveCustomer(Customer customer)
+	public void saveCustomer(Customer customer)
 	{
-		return customerDao.saveCustomer(customer);
+		 customerDao.saveCustomer(customer);
 	}
 	
 	public Customer getCustomerByUsername(String username)

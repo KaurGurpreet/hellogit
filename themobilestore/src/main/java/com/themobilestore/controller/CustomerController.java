@@ -15,7 +15,7 @@ import com.themobilestore.service.CustomerService;
 @Controller
 public class CustomerController {
 	@Autowired
-	private CustomerService custService;
+	private CustomerService customerService;
 
 	public CustomerController() {
 		System.out.println("CREATING INSTANCE FOR CUSTOMERCONTROLLER");
@@ -24,24 +24,24 @@ public class CustomerController {
 	@RequestMapping("/SignUp")
 	public String getSignUpForm(Model model)
 	{
-		model.addAttribute("customers", new Customer());
+		model.addAttribute("customerCommand", new Customer());
 		return "SignUpForm";
 	}
 
 	@RequestMapping("/addCustomer")
 	public String saveCustomer(@Valid @ModelAttribute("customerCommand") Customer customer, BindingResult result,
-			Model model) {
-		/*model.addAttribute("customer", custService.getAllCustomer());*/
+			Model model) 
+	{
 		if (result.hasErrors())
 			return "SignUpForm";
 		
 		try{
-		custService.saveCustomer(customer);
+		customerService.saveCustomer(customer);
 		}
 		catch(Exception e)
 		{
-        model.addAttribute("duplicateUsername", "Username already exists. Please enter different username");
-        System.out.println("Exception is " + e.getMessage());
+        /*model.addAttribute("duplicateUsername", "Username already exists. Please enter different username");
+        System.out.println("Exception is " + e.getMessage());*/
         return "SignUpForm";
 		}
 
