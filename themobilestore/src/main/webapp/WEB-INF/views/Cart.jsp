@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Cart</title>
 </head>
 <body>
 <div ng-app="app" ng-controller="ProductController">
@@ -16,7 +16,7 @@
 </tr>
 </thead>
 
-<tr ng-repeat="cartItem in  cart.cartItems">
+<tr ng-repeat="cartItem in cart.cartItems">
 <td>{{cartItem.product.name}}</td>
 <td>{{cartItem.quantity}}</td>
 <td>{{cartItem.totalPrice}}</td>

@@ -13,10 +13,10 @@ public class CartDaoImpl implements CartDao{
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public Cart getCart(int cart_id)
+	public Cart getCart(int cartId)
 	{
 		Session session= sessionFactory.openSession();
-		Cart cart=(Cart)session.get(Cart.class, cart_id);
+		Cart cart=(Cart)session.get(Cart.class, cartId);
 		session.close();
 		return cart;
 	}

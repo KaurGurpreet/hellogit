@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.themobilestore.model.Cart;
@@ -28,24 +27,24 @@ public class CartItemController
     @Autowired
 	private CartItemService cartItemService;
 	@Autowired
-	private CustomerService custService;
+	private CustomerService customerService;
 	@Autowired
 	private ProductService productService;
 	@Autowired
 	private CartService cartService;
 	
-	@RequestMapping("/{cart_id}")
-	public @ResponseBody Cart getCart(@PathVariable(value = "cart_id")int cart_id){
-		return cartService.getCart(cart_id);
-	}
+	/*@RequestMapping("/{cartid}")
+	public @ResponseBody Cart getCart(@PathVariable(value = "cartid")int cartid){
+		return cartService.getCart(cartid);
+	}*/
 
-	@RequestMapping(value="/addCartItem/{productId}",method=RequestMethod.POST)
+	@RequestMapping(value="/cart/addCartItem/{pid}",method=RequestMethod.POST)
 	@ResponseStatus(value=HttpStatus.NO_CONTENT	)
-	public void addCartItem(@PathVariable(value="productId")int productId)
+	public void addCartItem(@PathVariable(value="pid")int productId)
 	{
-		User user= (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String username = user.getUsername();
-		Customer customer=custService.getCustomerByUsername(username);//from Users where username=?
+		Customer customer=customerService.getCustomerByUsername(username);//from Users where username=?
 		Cart cart =customer.getCart();
 		List<CartItem> cartItems= cart.getCartItems();
 		
@@ -53,8 +52,8 @@ public class CartItemController
 		
 		for (int i = 0; i <cartItems.size(); i++) 
 		{
-			CartItem cartItem=cartItems.get(i);
-			Product p=cartItem.getProduct();
+			CartItem cartItem = cartItems.get(i);
+			Product p = cartItem.getProduct();
 			     //1    ==  1
 			if(p.getPid()==productId){
 				cartItem.setQuantity(cartItem.getQuantity() + 1);//increment the quantity

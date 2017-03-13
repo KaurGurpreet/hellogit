@@ -18,7 +18,7 @@ import com.themobilestore.service.CustomerService;
 public class CartController
 {
 	@Autowired
-	private CustomerService custService;
+	private CustomerService customerService;
     @Autowired
     private CartService cartService;
     
@@ -26,10 +26,10 @@ public class CartController
     public String getCartId(Model model){
 	User user=(User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	String username=user.getUsername();
-	Customer customer=custService.getCustomerByUsername(username);
+	Customer customer=customerService.getCustomerByUsername(username);
 	Cart cart=customer.getCart();
-	int cart_Id=cart.getId();
-	model.addAttribute("cart_Id",cart_Id);
+	int cartId=cart.getId();
+	model.addAttribute("cartId",cartId);
 	return "cart";
 }
 	@RequestMapping("/cart/getCart/{cartId}")

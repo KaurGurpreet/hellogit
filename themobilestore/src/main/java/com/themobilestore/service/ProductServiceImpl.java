@@ -28,12 +28,6 @@ public class ProductServiceImpl implements ProductService
 	{
 		return productDao.getAllProducts();
 	}
-
-	/*public Product getProductById(int pid) 
-	{
-		return productDao.getProductById(pid);
-		
-	}*/
 	
 	public Product getProductById(int pid) {
 		return productDao.getProductById(pid);

@@ -2,7 +2,7 @@ var app=angular.module("app",[])
 app.controller("ProductController",function($scope,$http){
 	$scope.addToCart=function(productId){
 		alert('Product Id = '+productId);
-		http.post('http://localhost:9012/themobilestore/addCartItem/'+ productId).success(function(){
+		$http.post('http://localhost:9012/themobilestore/cart/addCartItem/'+ productId).success(function(){
 			alert('Product successfully added to the cart')
 			})
         }
@@ -28,6 +28,13 @@ app.controller("ProductController",function($scope,$http){
     	 })
     	 }
      
+    	 $scope.calculateGrandTotal=function(){
+    		 var grandTotal=0.0;
+    		 for(var i=0;i<$scope.cart.cartItems.length;i++){
+    		 grandTotal=grandTotal+$scope.cart.cartItems[i].totalPrice;
+    		 }
+    		 return grandTotal;
+    		 }
      
 })
 
