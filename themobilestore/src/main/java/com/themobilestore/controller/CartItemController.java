@@ -6,16 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.themobilestore.model.Cart;
 import com.themobilestore.model.CartItem;
 import com.themobilestore.model.Customer;
 import com.themobilestore.model.Product;
+import com.themobilestore.model.Users;
 import com.themobilestore.service.CartItemService;
 import com.themobilestore.service.CartService;
 import com.themobilestore.service.CustomerService;
@@ -33,22 +36,39 @@ public class CartItemController
 	@Autowired
 	private CartService cartService;
 	
-	/*@RequestMapping("/{cartid}")
-	public @ResponseBody Cart getCart(@PathVariable(value = "cartid")int cartid){
-		return cartService.getCart(cartid);
-	}*/
-
-	@RequestMapping(value="/cart/addCartItem/{pid}",method=RequestMethod.POST)
+	/*@RequestMapping("/{id}")
+    public @ResponseBody Cart getCartById(@PathVariable(value = "id") int cartId){
+        return cartService.getCart(cartId);
+    }*/
+	
+	/*@RequestMapping(value="/cart/addCartItem/{pid}",method=RequestMethod.POST)
 	@ResponseStatus(value=HttpStatus.NO_CONTENT	)
-	public void addCartItem(@PathVariable(value="pid")int productId)
+	public void addCartItem(@PathVariable(value="pid")int productId, @AuthenticationPrincipal Users activeUser)
 	{
-		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String username = user.getUsername();
-		Customer customer=customerService.getCustomerByUsername(username);//from Users where username=?
-		Cart cart =customer.getCart();
-		List<CartItem> cartItems= cart.getCartItems();
-		
+		//Customer customer = customerService.getCustomerByUsername(activeUser.getUsername());
+		System.out.println(" username = "+activeUser.getUsername());
+		User user=
+	    (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		System.out.println(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+		String username=user.getUsername();
+		String username="gurpreet";
+		Customer customer=customerService.getCustomerByUsername(activeUser.getUsername());//from Users where username=?
+	    Cart cart =customer.getCart();
 		Product  product = productService.getProductById(productId);
+		List<CartItem> cartItems= cart.getCartItems();*/
+	
+	@RequestMapping(value="/cart/addCartItem/{pid}",method=RequestMethod.POST)
+	@ResponseStatus(value=HttpStatus.NO_CONTENT)
+	public void addCartItem(@PathVariable(value="pid") int productId){
+	User user=
+	(User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+	String username=user.getUsername();
+	Customer customer=customerService.getCustomerByUsername(username);//from Users where username=?
+	Cart cart=customer.getCart();
+	List<CartItem> cartItems= cart.getCartItems();
+
+	Product product = productService.getProductById(productId);
 		
 		for (int i = 0; i <cartItems.size(); i++) 
 		{

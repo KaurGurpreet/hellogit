@@ -58,6 +58,7 @@ public class CustomerDaoImpl implements CustomerDao
 
 	public Customer getCustomerByUsername(String username)
 	{
+		System.out.println("username from CustomerDaoImpl =" +username);
 		Session session=sessionFactory.openSession();
 		Query query=session.createQuery("from Users where username=?");
 		query.setString(0, username);

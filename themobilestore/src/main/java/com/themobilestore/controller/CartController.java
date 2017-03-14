@@ -30,10 +30,11 @@ public class CartController
 	Cart cart=customer.getCart();
 	int cartId=cart.getId();
 	model.addAttribute("cartId",cartId);
-	return "cart";
+	return "Cart";
 }
 	@RequestMapping("/cart/getCart/{cartId}")
 	public @ResponseBody Cart getCart(@PathVariable int cartId){
+		System.out.println("cart id in CartController is "+ cartId);
 		Cart cart=cartService.getCart(cartId);
 		return cart;
 	}	
