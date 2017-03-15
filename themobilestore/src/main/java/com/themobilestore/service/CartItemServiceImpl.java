@@ -17,7 +17,6 @@ public class CartItemServiceImpl implements CartItemService
 	public void addCartItem(CartItem cartItem)
 	{
 		cartItemDao.addCartItem(cartItem);
-
 	}
 
 	public CartItem getCartItem(int cartItemId) {

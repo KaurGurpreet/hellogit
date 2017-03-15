@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ include file="/WEB-INF/views/template/header.jsp" %>
+<%@ include file="/WEB-INF/views/template/header.jsp"%>
 <html>
-<head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cart</title>
@@ -19,53 +19,79 @@
 	overflow: hidden;
 	margin-top: 0;
 	margin-bottom: 0;
-} 
+}
 
-th
-  {
-   cursor:pointer;
-   text-align:center;
-   font-size: 20px;
-   background-color: #EFBBCC
-   /* #92A1CF; */
-  }
+.table th, .table td {
+	border: #800040 solid 1px !important;
+	text-align: center;
+}
 
+td {
+	background-color: white
+}
+
+th {
+	cursor: pointer;
+	text-align: center;
+	font-size: 20px;
+	background-color: #EFBBCC /* #92A1CF; */
+}
 </style>
 
-</head>
-<body>
+
 <div class="jumbotron text-center">
-<div ng-app="app" ng-controller="ProductController">
-<div ng-init="getCart(${cartId})">
-<table class="table table-striped">
-<thead>
-<tr>
-   <th>Name</th>
-   <th>Quantity</th>
-   <th>Total Price</th>
-   <th>Remove</th>
-   
-</tr>
-</thead>
+	
+	<div ng-app="app" ng-controller="ProductController">
+		<div ng-init="getCart(${cartId})">
+			<div class="container">
+            <br><br>
+				<h2>
+		           <u>Your Cart Items</u>
+	            </h2>
+	            
+	            <a href="#" ng-click="clearCart()"
+								class="btn btn-danger active pull-left"> 
+								<span class="glyphicon glyphicon-remove-sign"></span> Clear Cart</a>
+								
+				<a href="#" ng-click="" 
+				   class="btn btn-success active pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Check Out</a>
+	            
+				<br><br><br>
 
-<tr ng-repeat="cartItem in cart.cartItems">
-<td>{{cartItem.product.name}}</td>
-<td>{{cartItem.quantity}}</td>
-<td>{{cartItem.totalPrice}}</td>
-<td><a href="" class="label label-danger active" pull-left ng-click="removeFromCart.(cartItem.id)">
-<span class="glyphicon glyphicon-remove"></span>Remove</a></td>
-</tr>
+				<div class="table-responsive">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Quantity</th>
+								<th>Total Price</th>
+								<th>Remove</th>
 
-</table>
+							</tr>
+						</thead>
 
+						<tr ng-repeat="cartItem in cart.cartItems">
+							<td>{{cartItem.product.name}}</td>
+							<td>{{cartItem.quantity}}</td>
+							<td>{{cartItem.totalPrice}}</td>
+							<td><a href="#" ng-click="removeFromCart(cartItem.id)"> 
+							<!-- <span class="glyphicon glyphicon-remove"></span> --><span class="badge">Remove</span>
+							</a></td>
+						</tr>
+
+					</table>
+				</div>
+				<strong>Grand Total : Rs. {{calculateGrandTotal()}}</strong>
+			</div>
+			<br><br> <br><br>
+			<br><br> <br><br>
+			<br><br> <br><br>
+		</div>
+	</div>
 </div>
-</div>
-<br><br>
-<br><br>
-</div>
-<script src="<c:url value="/resources/js/angular.js" />"></script> 
+<script src="<c:url value="/resources/js/angular.js" />"></script>
 <script src="<c:url value="/resources/js/controller.js"></c:url>"></script>
 
 <%@ include file="template/footer.jsp"%>
-</body>
+
 </html>

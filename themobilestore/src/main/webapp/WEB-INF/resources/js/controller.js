@@ -15,8 +15,10 @@ app.controller("ProductController",function($scope,$http){
     	 }
                   
     	 $scope.removeFromCart=function(cartItemId){
+    		 $scope.cartItemId=cartItemId;
+    		 /*alert('cartItem Id = '+ cartItemId);*/
     	 console.log('cartitem to be removed is ' + cartItemId);
-    	 $http.put('http://localhost:9012/themobilestore/cart/removeCartItem/'+cartItemId).success(function(){
+    	 $http.post('http://localhost:9012/themobilestore/cart/removeCartItem/'+cartItemId).success(function(){
     	 $scope.getCart($scope.cartId)
     	 })
     	 }
