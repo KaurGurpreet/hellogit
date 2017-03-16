@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.themobilestore.model.Category;
 import com.themobilestore.model.Product;
+import com.themobilestore.model.Supplier;
 import com.themobilestore.service.CategoryService;
 import com.themobilestore.service.ProductService;
 import com.themobilestore.service.SupplierService;
@@ -175,6 +177,11 @@ public class ProductController {
 			return "EditProductForm";
 		}
 			
+		/*Category category = cse.getByName(product.getCategory().getCname());
+		product.setCategory(category);
+		Supplier supplier = (Supplier) sse.getSuppliers();
+		product.setSupplier(supplier);*/
+		
 		MultipartFile prodImage = product.getImage();
 		if (!prodImage.isEmpty())
 		{

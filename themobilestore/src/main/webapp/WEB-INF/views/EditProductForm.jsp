@@ -88,11 +88,21 @@ footer {
                                 out.println(c.id)
                                 out.println(c.categoryDetails);
                          -->
-						<c:forEach var="c" items="${categoryList }">
+					   <c:forEach var="c" items="${categoryList }">
 							<form:radiobutton path="category.cid" value="${c.cid }" />${c.cname }
                         </c:forEach>
 						<form:errors path="category" cssStyle="color:#ff0000"></form:errors>
-					</div>
+					</div> 
+					
+					<%-- <div class="form-group">
+                <label class="control-label" for="category.cname">Category</label>
+    <form:select path="category.cname">
+            <form:option value="" label="--- Select ---" />
+              <c:forEach items="${product.category.cname}" var="category">
+            <form:option value="${product.category.cname}"></form:option>
+            </c:forEach>        
+    </form:select> 
+</div> --%>
 
 					<div class="form-group">
 						<label for="supplier">Supplier</label>
@@ -122,6 +132,15 @@ footer {
 						</form:select>
 					<form:errors path="supplier" cssStyle="color:#ff0000"></form:errors> 
 					</div>  --%>
+					
+				<%-- <div class="form-group">
+                <label class="control-label" for="supplier.supname">Supplier</label>
+               <form:select path="supplier.supname">
+                <form:option value="" label="--- Select ---" />
+                <c:forEach items="${supplierList }" var="supplier">
+                <form:option value="${supplier.supname}"></form:option>
+               </c:forEach>        
+              </form:select> --%>
 					
 					 <div class="form-group">
 						<label for="image">Image</label>
