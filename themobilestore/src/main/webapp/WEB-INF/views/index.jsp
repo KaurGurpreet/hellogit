@@ -23,12 +23,13 @@
        </div>
       </div>
      <div class="item" id="slide2">
-      <img class="second-slide home-image" src="./resources/images/Mobile 4.jpg" alt="Second slide"> 
+      <!-- <img class="second-slide home-image" src="./resources/images/Mobile 4.jpg" alt="Second slide"> --> 
+      <img class="second-slide home-image" src="./resources/images/tmobile.jpg" alt="Second slide"> 
     <!--     <img src="./resources/images/image final.jpeg" alt="Product2">   -->
        <div class="container-fluid">
         <div class="carousel-caption">
-        <h2 align="right">TheMobileStore</h2>
-        <p align="right" id="htype1">One-Stop-Shop for all latest Smart Phones</p>
+        <!-- <h2 align="right">TheMobileStore</h2>
+        <p align="right" id="htype1">One-Stop-Shop for all latest Smart Phones</p> -->
         </div>
        </div>
       </div>
@@ -37,7 +38,7 @@
        <!--   <img src="./resources/images/mobile store 1.jpg" alt="Product3">  -->
        <div class="container-fluid">
         <div class="carousel-caption">
-        <h2 align="right">TheMobileStore</h2>
+        <!-- <h2 align="right">TheMobileStore</h2> -->
         <!-- <p align="right" id="htype1">One-Stop-Shop for all latest Smart Phones</p> -->
       </div>
      </div>
@@ -64,7 +65,8 @@
   <br>
    <div class="row">
       <div class="col-sm-4">
-      <img class="img-circle" src="./resources/images/new2.jpg" alt="New Products Image" width="140" height="140"/>
+      <img class="img-circle" src="./resources/images/newP.jpg" alt="New Products Image" width="140" height="140"/>
+      <!-- <img class="img-circle" src="./resources/images/new2.jpg" alt="New Products Image" width="140" height="140"/> -->
       <!-- <img src="images (1).jpeg"  class="img-circle" width="304" height="236" alt="Image">  -->
       <p id="htype2"><a href="#">New Products</a></p>
       </div>
@@ -74,7 +76,7 @@
       <p id="htype2"><a href="#">Used Products</a></p> 
       </div>
       <div class="col-sm-4">
-      <img class="img-circle" src="./resources/images/a1.jpeg" alt="Accessories Image" width="140" height="140"/>
+      <img class="img-circle" src="./resources/images/image final1.jpg" alt="Accessories Image" width="140" height="140"/>
       <!-- <img src="mobile store 2.jpg" class="img-circle" width="304" height="236" alt="Image"> -->
       <p id="htype2"><a href="#">Accessories</a></p> 
       </div>

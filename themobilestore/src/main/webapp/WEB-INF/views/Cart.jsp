@@ -48,7 +48,7 @@ th {
 				<h2>
 		           <u>Your Cart Items</u>
 	            </h2>
-	            
+	            <br><br>
 	            <a href="#" ng-click="clearCart()"
 								class="btn btn-danger active pull-left"> 
 								<span class="glyphicon glyphicon-remove-sign"></span> Clear Cart</a>
@@ -75,14 +75,23 @@ th {
 							<td>{{cartItem.quantity}}</td>
 							<td>{{cartItem.totalPrice}}</td>
 							<td><a href="#" ng-click="removeFromCart(cartItem.id)"> 
-							<!-- <span class="glyphicon glyphicon-remove"></span> --><span class="badge">Remove</span>
+							<!-- <span class="glyphicon glyphicon-remove"></span> -->
+							<!-- <span class="badge"><span class="glyphicon glyphicon-remove"></span></span> -->
+						    <span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span>
 							</a></td>
 						</tr>
+						
+						 <tr>
+						 <th></th>
+						 <th></th>
+						 <th>Grand Total</th>
+						 <th>{{calculateGrandTotal()}}</th>
+						 </tr>
 
 					</table>
 				</div>
-				<strong>Grand Total : Rs. {{calculateGrandTotal()}}</strong>
-			</div>
+				<!-- <strong>Grand Total : Rs. {{calculateGrandTotal()}}</strong> -->
+			</div> 
 			<br><br> <br><br>
 			<br><br> <br><br>
 			<br><br> <br><br>
@@ -91,7 +100,5 @@ th {
 </div>
 <script src="<c:url value="/resources/js/angular.js" />"></script>
 <script src="<c:url value="/resources/js/controller.js"></c:url>"></script>
-
 <%@ include file="template/footer.jsp"%>
-
 </html>
