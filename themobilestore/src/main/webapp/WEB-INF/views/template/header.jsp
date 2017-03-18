@@ -62,7 +62,7 @@
 
  <div class="navbar-wrapper"> 
    <!--  <div class="container"> --> 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse navbar-custom1">
      <div class="container-fluid">
        <div class="navbar-header">
          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false">

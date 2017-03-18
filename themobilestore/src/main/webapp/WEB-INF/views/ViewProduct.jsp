@@ -54,7 +54,8 @@
 <a href="#" ng-click="addToCart(${product.pid })"  class="btn btn-warning btn-lg active">
           <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a>
           <a href="<c:url value="/getAllProducts" />"  class="btn btn-success btn-lg active">Continue Shopping</a>
-          <a href="<c:url value="/cart/getCartId" />" class="btn btn-danger btn-lg active">
+          <%-- <a href="<c:url value="/cart/getCartId" />" class="btn btn-danger btn-lg active"> --%>
+          <a href="<c:url value="/cart/getCartId" />" class="btn btn-info btn-lg active">
           <span class="glyphicon glyphicon-hand-right"></span> View Cart</a>
 </div>
 </div>

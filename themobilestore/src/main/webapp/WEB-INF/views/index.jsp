@@ -1,6 +1,6 @@
 <%@ include file="/WEB-INF/views/template/header.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<link href="<c:url value="./resources/css/index.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/index.css" />" rel="stylesheet">
 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
