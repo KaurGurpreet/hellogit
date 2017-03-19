@@ -24,7 +24,8 @@ $(document).ready(function(){
     
    <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
     <c:url var="url" value="productform"></c:url>  
-    <a href="${url }" class="btn btn-primary btn-lg active pull-right" role="button">Add New Product</a>
+    <a href="${url }" class="btn btn-primary btn-lg pull-right" role="button">
+    <!-- <span class="glyphicon glyphicon-hand-right"></span> --> Add New Product</a>
    </c:if>	
     <br>
     <h2><strong><center><u>Our Product List</u></center></strong></h2>

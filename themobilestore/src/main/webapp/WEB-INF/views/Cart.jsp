@@ -50,11 +50,11 @@ th {
 	            </h2>
 	            <br><br>
 	            <a href="#" ng-click="clearCart()"
-								class="btn btn-danger active pull-left"> 
+								class="btn btn-danger pull-left"> 
 								<span class="glyphicon glyphicon-remove-sign"></span> Clear Cart</a>
 								
 				<a href="#" ng-click="" 
-				   class="btn btn-success active pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Check Out</a>
+				   class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Check Out</a>
 	            
 				<br><br><br>
 
@@ -76,21 +76,22 @@ th {
 							<td>{{cartItem.totalPrice}}</td>
 							<td><a href="#" ng-click="removeFromCart(cartItem.id)"> 
 							<!-- <span class="glyphicon glyphicon-remove"></span> -->
-							<!-- <span class="badge"><span class="glyphicon glyphicon-remove"></span></span> -->
-						    <span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span>
+							<!-- <span class="badge"> -->
+							<span class="glyphicon glyphicon-remove"></span></span>
+						    <!-- <span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span> -->
 							</a></td>
 						</tr>
 						
-						 <tr>
+						<!--  <tr>
 						 <th></th>
 						 <th></th>
 						 <th>Grand Total</th>
 						 <th>{{calculateGrandTotal()}}</th>
-						 </tr>
+						 </tr> -->
 
 					</table>
 				</div>
-				<!-- <strong>Grand Total : Rs. {{calculateGrandTotal()}}</strong> -->
+				 <strong>Grand Total : Rs. {{calculateGrandTotal()}}</strong> 
 			</div> 
 			<br><br> <br><br>
 			<br><br> <br><br>

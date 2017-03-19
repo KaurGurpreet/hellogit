@@ -2,19 +2,19 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<title>Add Supplier</title>
+<title>Add Category</title>
 
 <%@ include file="/WEB-INF/views/template/header.jsp" %>
 
 <style>
 
-footer 
+/* footer 
   {
       background-color: #f2f2f2;
       padding:15px;
       margin-top: 0;
       margin-bottom: 0;
-  }
+  } */
   
   .table td
   {

@@ -10,13 +10,13 @@
 
 <style>
 
-footer 
+/* footer 
   {
       background-color: #f2f2f2;
       padding:15px;
       margin-top: 0;
       margin-bottom: 0;
-  }
+  } */
   
   .table td
   {
