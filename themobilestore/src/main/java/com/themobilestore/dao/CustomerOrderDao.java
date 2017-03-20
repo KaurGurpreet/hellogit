@@ -1,9 +1,9 @@
 package com.themobilestore.dao;
 
-import com.themobilestore.model.Cart;
+import com.themobilestore.model.CustomerOrder;
 
 public interface CustomerOrderDao {
 	
-	public void addCustomerOrder(Cart cart);
+	public void addCustomerOrder(CustomerOrder customerOrder);
 
 }

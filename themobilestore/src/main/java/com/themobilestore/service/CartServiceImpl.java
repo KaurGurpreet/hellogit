@@ -1,5 +1,7 @@
 package com.themobilestore.service;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,14 @@ private CartDao cartDao;
 	
 	public Cart getCart(int cart_id) {
 		return cartDao.getCart(cart_id);
+	}
+
+	public void update(Cart cart) {
+		cartDao.update(cart);
+	}
+
+	public Cart validate(int cartId) throws IOException {
+		return cartDao.validate(cartId);
 	}
 
 }
