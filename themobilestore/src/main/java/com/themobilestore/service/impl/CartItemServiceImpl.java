@@ -1,4 +1,4 @@
-package com.themobilestore.service;
+package com.themobilestore.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.themobilestore.dao.CartItemDao;
 import com.themobilestore.model.Cart;
 import com.themobilestore.model.CartItem;
+import com.themobilestore.service.CartItemService;
 
 @Service
 public class CartItemServiceImpl implements CartItemService

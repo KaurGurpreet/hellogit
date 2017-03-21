@@ -1,4 +1,4 @@
-package com.themobilestore.dao;
+package com.themobilestore.dao.impl;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.themobilestore.dao.CartItemDao;
 import com.themobilestore.model.Cart;
 import com.themobilestore.model.CartItem;
 

@@ -1,5 +1,6 @@
 package com.themobilestore.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Supplier
+public class Supplier implements Serializable
 {
    @Id
    @GeneratedValue(strategy=GenerationType.AUTO)

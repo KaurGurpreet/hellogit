@@ -1,9 +1,11 @@
 package com.themobilestore.dao;
 
-import com.themobilestore.model.CustomerOrder;
+import com.themobilestore.model.Cart;
 
 public interface CustomerOrderDao {
 	
-	public void addCustomerOrder(CustomerOrder customerOrder);
+	public void addCustomerOrder(Cart cart);
+	
+	public double getCustomerOrderGrandTotal(int cartId);
 
 }

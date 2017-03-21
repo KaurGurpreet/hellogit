@@ -1,4 +1,4 @@
-package com.themobilestore.dao;
+package com.themobilestore.dao.impl;
 
 import java.io.IOException;
 
@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.themobilestore.dao.CartDao;
 import com.themobilestore.model.Cart;
 import com.themobilestore.service.CustomerOrderService;
 
@@ -44,7 +45,7 @@ public class CartDaoImpl implements CartDao{
 	public Cart validate(int cartId) throws IOException
 	{
 	Cart cart = getCart(cartId);
-	if(cart == null || cart.getCartItems().size()==0)
+	if(cart == null || cart.getCartItems().size()== 0)
 	{
 		throw new IOException(cartId + "");
 	}

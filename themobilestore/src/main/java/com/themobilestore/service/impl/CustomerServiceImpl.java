@@ -1,9 +1,10 @@
-package com.themobilestore.service;
+package com.themobilestore.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.themobilestore.dao.CustomerDao;
 import com.themobilestore.model.Customer;
+import com.themobilestore.service.CustomerService;
 
 @Service
 public class CustomerServiceImpl implements CustomerService 

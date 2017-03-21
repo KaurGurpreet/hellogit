@@ -1,4 +1,4 @@
-package com.themobilestore.dao;
+package com.themobilestore.dao.impl;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.themobilestore.dao.CustomerDao;
 import com.themobilestore.model.Authority;
 import com.themobilestore.model.Cart;
 import com.themobilestore.model.Customer;

@@ -1,4 +1,4 @@
-package com.themobilestore.service;
+package com.themobilestore.service.impl;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.themobilestore.dao.SupplierDao;
 import com.themobilestore.model.Supplier;
+import com.themobilestore.service.SupplierService;
 
 @Service
 public class SupplierServiceImpl implements SupplierService

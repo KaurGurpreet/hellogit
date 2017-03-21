@@ -1,4 +1,4 @@
-package com.themobilestore.service;
+package com.themobilestore.service.impl;
 
 import java.io.IOException;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.themobilestore.dao.CartDao;
 import com.themobilestore.model.Cart;
+import com.themobilestore.service.CartService;
 
 @Service
 public class CartServiceImpl implements CartService {

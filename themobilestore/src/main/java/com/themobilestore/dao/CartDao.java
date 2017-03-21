@@ -7,6 +7,6 @@ import com.themobilestore.model.Cart;
 public interface CartDao
 {
 Cart getCart(int cartId);
-void update(Cart cart);
+public void update(Cart cart);
 Cart validate(int cartId) throws IOException;
 }
