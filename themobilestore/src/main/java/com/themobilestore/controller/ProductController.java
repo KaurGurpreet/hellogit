@@ -176,11 +176,16 @@ public class ProductController {
 			System.out.println(result.getFieldError());
 			return "EditProductForm";
 		}
+		
+		System.out.println("Product Id in edit product method is "+product.getPid());
 			
-		/*Category category = cse.getByName(product.getCategory().getCname());
+		Category category = cse.getByName(product.getCategory().getCname());
 		product.setCategory(category);
-		Supplier supplier = (Supplier) sse.getSuppliers();
-		product.setSupplier(supplier);*/
+		Supplier supplier = sse.getByName(product.getSupplier().getSupname());
+		product.setSupplier(supplier);
+		
+		System.out.println("Product Id in edit product method after is "+product.getPid());
+		productService.saveProduct(product);
 		
 		MultipartFile prodImage = product.getImage();
 		if (!prodImage.isEmpty())

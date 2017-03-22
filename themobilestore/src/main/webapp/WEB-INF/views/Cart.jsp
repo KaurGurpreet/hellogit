@@ -83,16 +83,16 @@ th {
 							</a></td>
 						</tr>
 						
-						<!--  <tr>
+					     <tr>
 						 <th></th>
 						 <th></th>
 						 <th>Grand Total</th>
 						 <th>{{calculateGrandTotal()}}</th>
-						 </tr> -->
+						 </tr> 
 
 					</table>
 				</div>
-				 <strong>Grand Total : Rs. {{calculateGrandTotal()}}</strong> 
+				 <!-- <strong>Grand Total : Rs. {{calculateGrandTotal()}}</strong>  -->
 			</div> 
 			<br><br> <br><br>
 			<br><br> <br><br>

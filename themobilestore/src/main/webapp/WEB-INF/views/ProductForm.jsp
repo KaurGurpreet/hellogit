@@ -60,6 +60,17 @@ footer {
                         </c:forEach>
 						<form:errors path="category.cid" cssStyle="color:#ff0000"></form:errors>
 					</div>
+					
+			<%-- <div class="form-group">
+                <label class="control-label" for="category.cname">Category</label>
+                <form:select path="category.cname">
+                <form:option value="" label="--- Select ---" />
+                <c:forEach items="${categoryList }" var="category">
+                <form:option value="${category.cname}"></form:option>
+                </c:forEach>        
+                </form:select> 
+                <form:errors path="category.cname" cssStyle="color:#ff0000"></form:errors>
+             </div> --%>
 
 					<div class="form-group">
 						<label for="supplier">Supplier</label>

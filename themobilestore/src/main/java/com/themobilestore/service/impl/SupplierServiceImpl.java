@@ -20,15 +20,24 @@ public class SupplierServiceImpl implements SupplierService
 		return sdo.getSuppliers();
 	}
 
-	/*public Supplier get(String id)
+	public Supplier get(int id)
 	{
 		return sdo.get(id);
-	}*/
+	}
 
 	public Supplier saveOrUpdate(Supplier supplier)
 	{
 		return sdo.saveOrUpdate(supplier);
 		
+	}
+
+	public void delete(int id) {
+		sdo.delete(id);
+		
+	}
+
+	public Supplier getByName(String name) {
+		return sdo.getByName(name);
 	}
 
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.themobilestore.dao.CategoryDao;
 import com.themobilestore.model.Category;
+import com.themobilestore.model.Supplier;
 import com.themobilestore.service.CategoryService;
 
 @Service
@@ -23,16 +24,26 @@ public class CategoryServiceImpl implements CategoryService
 	}
 
 
-	/*public Supplier get(String id)
+	public Category get(int id)
 	{
-		return sdo.get(id);
-	}*/
+		return categoryDao.get(id);
+	}
 
 	public Category saveOrUpdate(Category category)
 	{
 		return categoryDao.saveOrUpdate(category);
 		
 	}
+
+	public void delete(int id) {
+	 
+		categoryDao.delete(id);
+		
+	}
 	
+   public Category getByName(String name) {
+		
+		return categoryDao.getByName(name);
+	}
 	
 }

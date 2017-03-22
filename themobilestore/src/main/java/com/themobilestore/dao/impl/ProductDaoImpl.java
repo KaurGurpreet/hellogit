@@ -27,7 +27,7 @@ public class ProductDaoImpl implements ProductDao {
   {
 		System.out.println(product.getPid());
 		Session session=sessionFactory.openSession();
-		session.save(product);
+		session.saveOrUpdate(product);
 		session.flush();
 		session.close();
 		System.out.println(product.getPid());

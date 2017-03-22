@@ -23,10 +23,17 @@ public class CategoryDaoImpl implements CategoryDao
 	
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	public CategoryDaoImpl(SessionFactory sessionFactory) {
+
+		this.sessionFactory = sessionFactory;
+
+	}
 
 	public List<Category> getCategories() {
 		Session session=sessionFactory.openSession();
 		Query query = session.createQuery("from Category");
+		@SuppressWarnings("unchecked")
 		List<Category> categories=query.list();
 		session.close();
 		return categories;
@@ -43,5 +50,43 @@ public class CategoryDaoImpl implements CategoryDao
 		return category;
 		
 	}
+	
+	public Category get(int id) {
+		String hql = "from Category where cid=?";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setInteger(0, id);
+		@SuppressWarnings("unchecked")
+		List<Category> categories = (List<Category>) query.list();
+		if (categories != null && !categories.isEmpty()) {
+			return categories.get(0);
+		}
+		else
+		{
+			return null;			
+		}
 
+     }
+	
+	public Category getByName(String name) {
+		String hql="from Category where cname=?";
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		query.setString(0, name);
+		@SuppressWarnings("unchecked")
+		List<Category> categories=(List<Category>) query.list();
+		if (categories != null && !categories.isEmpty()) {
+			return categories.get(0);
+		}
+		else
+		{
+			return null;			
+		}
+
+	}
+	
+	    public void delete(int id) {
+		Category CategoryToDelete = new Category();
+		CategoryToDelete.setCid(id);
+		sessionFactory.getCurrentSession().delete(CategoryToDelete);
+		
+	}
 }

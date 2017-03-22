@@ -8,5 +8,5 @@ public interface CartService
 {
 Cart getCart(int cart_id);
 public void update(Cart cart);
-Cart validate(int cartId) throws IOException;
+/*Cart validate(int cartId) throws IOException;*/
 }

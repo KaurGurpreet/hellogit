@@ -8,9 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.themobilestore.dao.SupplierDao;
-import com.themobilestore.model.Product;
 import com.themobilestore.model.Supplier;
 
 @Repository
@@ -25,14 +23,13 @@ public class SupplierDaoImpl implements SupplierDao
 		@Autowired
 		private SessionFactory sessionFactory;
 		
-		/*public SupplierDaoImpl(SessionFactory sessionFactory)
-		{
+		public SupplierDaoImpl(SessionFactory sessionFactory) {
 
 			this.sessionFactory = sessionFactory;
 
-		}*/
+		}
+				
 		
-		@SuppressWarnings("unchecked")
 		public List<Supplier> getSuppliers()
 		{
 			/*@SuppressWarnings("unchecked")
@@ -41,17 +38,18 @@ public class SupplierDaoImpl implements SupplierDao
 			
 			Session session=sessionFactory.openSession();
 			Query query=session.createQuery("from Supplier");
+			@SuppressWarnings("unchecked")
 			List<Supplier> suppliers=query.list();
 			session.close();
 			return suppliers;
 	    }
 		
-		/*public Supplier get(String id)
+		public Supplier get(int id)
 		{
 			String hql = "from Supplier where sid=?";
 			Query query = sessionFactory.openSession().createQuery(hql);
-			query.setString(0, id);
-			
+			query.setInteger(0, id);
+			@SuppressWarnings("unchecked")
 			List<Supplier> listSupplier = (List<Supplier>) query.list();
 			if (listSupplier != null && !listSupplier.isEmpty()) {
 				return listSupplier.get(0);
@@ -61,7 +59,7 @@ public class SupplierDaoImpl implements SupplierDao
 				return null;			
 			}
 
-		}*/
+		}
 		
 		public Supplier saveOrUpdate(Supplier supplier)
 		{
@@ -72,6 +70,31 @@ public class SupplierDaoImpl implements SupplierDao
 			session.close();
 			System.out.println(supplier.getSid());
 			return supplier;	
+		}
+		
+		public void delete(int id) {
+			Supplier SupplierToDelete = new Supplier();
+			SupplierToDelete.setSid(id);
+			sessionFactory.getCurrentSession().delete(SupplierToDelete);
+			
+		}
+		
+		public Supplier getByName(String name) {
+			String hql="from Supplier where supname=?";
+			Query query=sessionFactory.getCurrentSession().createQuery(hql);
+			query.setString(0, name);
+			
+			@SuppressWarnings("unchecked")
+			List<Supplier> listSupplier=(List<Supplier>) query.list();
+			if(listSupplier!=null && !listSupplier.isEmpty()){
+				
+				return listSupplier.get(0);
+			}
+			else{
+				
+				return null;
+			}
+			
 		}
 
 }
