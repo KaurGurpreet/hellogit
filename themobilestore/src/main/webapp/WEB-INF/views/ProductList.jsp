@@ -43,8 +43,10 @@ $(document).ready(function(){
         
         <th>Price</th>
         
-        <th>Category</th>
+        <th>Quantity</th>
         
+        <th>Category</th>
+                
         <th>View</th>
         
         <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
@@ -63,6 +65,7 @@ $(document).ready(function(){
 			<td>${p.name }</td>
 			<td>${p.description }</td>
 			<td>${p.price }</td>
+			<td>${p.quantity }
 			<td>${p.category.cname }</td>
             <!--  <td><img src="./resources/images/{{ product.path}}.jpg" class="img-thumbnail" alt="image" width="80" height="80"/></td> -->
             <!-- <td><a href="#">View More</a></td> -->

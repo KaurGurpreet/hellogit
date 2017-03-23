@@ -2,6 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <link href="<c:url value="/resources/css/index.css" />" rel="stylesheet">
 
+
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -23,8 +24,8 @@
        </div>
       </div>
      <div class="item" id="slide2">
-      <img class="second-slide home-image" src="./resources/images/Mobile 4.jpg" alt="Second slide">
-      <!-- <img class="second-slide home-image" src="./resources/images/tmobile.jpg" alt="Second slide"> --> 
+      <!-- <img class="second-slide home-image" src="./resources/images/Mobile 4.jpg" alt="Second slide"> -->
+      <img class="second-slide home-image" src="./resources/images/tmobile.jpg" alt="Second slide"> 
     <!--     <img src="./resources/images/image final.jpeg" alt="Product2">   -->
        <div class="container-fluid">
         <div class="carousel-caption">
@@ -65,20 +66,25 @@
   <br>
    <div class="row">
       <div class="col-sm-4">
-      <img class="img-circle" src="./resources/images/newP.jpg" alt="New Products Image" width="140" height="140"/>
+      <a class="btn btn-warning" href="<c:url value="/getAllProducts?searchCondition=New Products" />" role="button">
+      <img class="img-circle" src="./resources/images/newP.jpg" alt="New Products Image" width="140" height="140"/></a>
       <!-- <img class="img-circle" src="./resources/images/new2.jpg" alt="New Products Image" width="140" height="140"/> -->
       <!-- <img src="images (1).jpeg"  class="img-circle" width="304" height="236" alt="Image">  -->
-      <p id="htype2"><a href="#">New Products</a></p>
+      <!-- <p id="htype2"><a href="#">New Products</a></p> -->
+      <p id="htype2">New Products</p>
       </div>
       <div class="col-sm-4"> 
-      <img class="img-circle" src="./resources/images/used1.jpg" alt="Used Products Image" width="140" height="140"/>
+      <a class="btn btn-warning" href="<c:url value="/getAllProducts?searchCondition=Used Products" />" role="button">
+      <img class="img-circle" src="./resources/images/used1.jpg" alt="Used Products Image" width="140" height="140"/></a>
       <!-- <img src="images.jpeg" class="img-circle" width="304" height="236" alt="Image">  -->
-      <p id="htype2"><a href="#">Used Products</a></p> 
+      <!-- <p id="htype2"><a href="#">Used Products</a></p>  -->
+      <p id="htype2">Used Products</p>
       </div>
       <div class="col-sm-4">
-      <img class="img-circle" src="./resources/images/image final1.jpg" alt="Accessories Image" width="140" height="140"/>
+      <a class="btn btn-warning" href="<c:url value="/getAllProducts?searchCondition=Accesory" />" role="button">
+      <img class="img-circle" src="./resources/images/image final1.jpg" alt="Accessories Image" width="140" height="140"/></a>
       <!-- <img src="mobile store 2.jpg" class="img-circle" width="304" height="236" alt="Image"> -->
-      <p id="htype2"><a href="#">Accessories</a></p> 
+      <p id="htype2">Accessories</p> 
       </div>
   </div>
 </div>

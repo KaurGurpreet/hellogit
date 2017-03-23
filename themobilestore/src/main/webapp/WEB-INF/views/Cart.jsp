@@ -54,6 +54,9 @@ th {
 								class="btn btn-danger pull-left"> 
 								<span class="glyphicon glyphicon-remove-sign"></span> Clear Cart</a>
 								
+				<a href="<c:url value="/getAllProducts" />"  class="btn btn-warning active" role="button" >
+				<span class="glyphicon glyphicon-backward"></span> Continue Shopping</a> 
+								
 				<a href="<c:url value="/order/${cartId }"></c:url>"
 				   class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Check Out</a>
 	            
@@ -77,7 +80,7 @@ th {
 							<td>{{cartItem.totalPrice}}</td>
 							<td><a href="#" ng-click="removeFromCart(cartItem.id)"> 
 							<!-- <span class="glyphicon glyphicon-remove"></span> -->
-							<!-- <span class="badge"> -->
+						    <span class="badge"> 
 							<span class="glyphicon glyphicon-remove"></span></span>
 						    <!-- <span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span> -->
 							</a></td>
@@ -92,6 +95,8 @@ th {
 
 					</table>
 				</div>
+				<br/><br/>
+				<%-- <a href="<c:url value="/getAllProducts" />"  class="btn btn-info btn-lg pull-left">Continue Shopping</a> --%>
 				 <!-- <strong>Grand Total : Rs. {{calculateGrandTotal()}}</strong>  -->
 			</div> 
 			<br><br> <br><br>

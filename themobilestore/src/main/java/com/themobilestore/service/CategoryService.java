@@ -8,8 +8,8 @@ import com.themobilestore.model.Supplier;
 public interface CategoryService
 {
 	public Category saveOrUpdate(Category category);
-	public Category get(int id);
 	List<Category> getCategories();
+	public Category get(int id);
 	public void delete(int id);
 	public Category getByName(String name);
 }

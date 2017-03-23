@@ -1,7 +1,6 @@
 package com.themobilestore.model;
 
 import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -36,13 +35,13 @@ public class Product implements Serializable
 	   @ManyToOne
 	   @JoinColumn(name="cid")
 	   @JsonIgnore
-	   @NotNull(message="Category is mandatory")
+	   /*@NotNull(message="Category is mandatory")*/
 	   private Category category;
 	   
 	   @ManyToOne
 	   @JoinColumn(name = "sid")
 	   @JsonIgnore
-	   @NotNull(message="Supplier is mandatory")
+	   /*@NotNull(message="Supplier is mandatory")*/
 	    private Supplier supplier;
 	   
 	   @Transient 

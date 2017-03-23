@@ -15,6 +15,7 @@ import com.themobilestore.model.Product;
 @Repository
 @Transactional
 public class ProductDaoImpl implements ProductDao {
+	
   @Autowired
   private SessionFactory sessionFactory;
 	
@@ -22,6 +23,16 @@ public class ProductDaoImpl implements ProductDao {
     {
 		System.out.println("CREATING INSTANCE FOR PRODUCTDAOIMPL");
 	}
+  
+  public Product getProductById(int pid)
+  {
+  	Session session=sessionFactory.openSession();
+  	//select * from product where pid=34
+  	Product product=(Product)session.get(Product.class, pid);
+  	session.close();
+  	return product;
+
+  }
   
   public Product saveProduct(Product product)
   {
@@ -34,6 +45,17 @@ public class ProductDaoImpl implements ProductDao {
 		return product;
 	}
   
+  /*public void saveProduct(Product product)
+  {
+		System.out.println(product.getPid());
+		Session session=sessionFactory.openSession();
+		session.saveOrUpdate(product);
+		session.flush();
+		session.close();
+		System.out.println(product.getPid());
+	
+	}*/
+  
   public List<Product> getAllProducts()
   {
 		Session session=sessionFactory.openSession();
@@ -43,15 +65,8 @@ public class ProductDaoImpl implements ProductDao {
 		return products;
 	}
 
-public Product getProductById(int pid)
-{
-	Session session=sessionFactory.openSession();
-	//select * from product where pid=34
-	Product product=(Product)session.get(Product.class, pid);
-	session.close();
-	return product;
 
-}
+
 public void deleteProduct(int pid) {
 	Session session=sessionFactory.openSession();
 	//Make the object persistent[read the data from the table and add it to session]
@@ -62,13 +77,23 @@ public void deleteProduct(int pid) {
 	
 }
 
-public void updateProduct(Product product) {
+    /*public void updateProduct(Product product) {
 	Session session=sessionFactory.openSession();
 	System.out.println("Id of the product in dao is " + product.getPid());
-	session.update(product);
+	session.saveOrUpdate(product);
 	session.flush();
 	session.close();
 	
+}*/
+
+    public void updateProduct(Product product){
+    System.out.println("Id of the product in dao update method is " + product.getPid());
+    Session session = sessionFactory.openSession();
+    System.out.println("Id of the product in dao after opensession () of update method is " + product.getPid());
+    session.update(product);
+    //session.flush();
+    session.close();
+    System.out.println("Id of the product in dao end of update method is " + product.getPid());
 }
 
 }

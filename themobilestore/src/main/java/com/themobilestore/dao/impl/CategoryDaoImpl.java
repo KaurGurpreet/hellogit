@@ -53,7 +53,7 @@ public class CategoryDaoImpl implements CategoryDao
 	
 	public Category get(int id) {
 		String hql = "from Category where cid=?";
-		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		Query query = sessionFactory.openSession().createQuery(hql);
 		query.setInteger(0, id);
 		@SuppressWarnings("unchecked")
 		List<Category> categories = (List<Category>) query.list();
@@ -69,7 +69,7 @@ public class CategoryDaoImpl implements CategoryDao
 	
 	public Category getByName(String name) {
 		String hql="from Category where cname=?";
-		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		Query query=sessionFactory.openSession().createQuery(hql);
 		query.setString(0, name);
 		@SuppressWarnings("unchecked")
 		List<Category> categories=(List<Category>) query.list();
@@ -86,7 +86,7 @@ public class CategoryDaoImpl implements CategoryDao
 	    public void delete(int id) {
 		Category CategoryToDelete = new Category();
 		CategoryToDelete.setCid(id);
-		sessionFactory.getCurrentSession().delete(CategoryToDelete);
+		sessionFactory.openSession().delete(CategoryToDelete);
 		
 	}
 }

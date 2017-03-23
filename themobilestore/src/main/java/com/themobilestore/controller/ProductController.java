@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -110,7 +112,6 @@ public class ProductController {
 		Product product = productService.getProductById(pid);
 		model.addAttribute("product", product);
 	    return "ViewProduct";
-		/*return "ProductList";*/
 	}
 	
 	/*@RequestMapping("/viewProduct")
@@ -147,6 +148,7 @@ public class ProductController {
 	@RequestMapping("/deleteproduct/{pid}")
 	public String deleteProduct(@PathVariable int pid)
 	{
+		System.out.println("Product Id Controller = "+pid);
 		productService.deleteProduct(pid);
 		return "redirect:/getAllProducts";
 	}
@@ -167,25 +169,35 @@ public class ProductController {
 		return "EditProductForm";
 	}
 	
+	/*@ModelAttribute("product1")
+	public Product getProduct()
+	{
+		return new Product();
+	}*/
+	
 	@RequestMapping(value="/editProduct", method=RequestMethod.POST)
-	public String editProductDetails(@Valid @ModelAttribute("product") Product product, BindingResult result)
+	public String editProductDetails(@Valid @ModelAttribute("product") Product product, BindingResult result, Model model, HttpServletRequest request)
 	{
 		
-		if (result.hasErrors())
+		/*if (result.hasErrors())
 		{
 			System.out.println(result.getFieldError());
 			return "EditProductForm";
 		}
 		
 		System.out.println("Product Id in edit product method is "+product.getPid());
-			
+		
+		model.addAttribute("product", product);
+		model.addAttribute("categoryList", cse.getCategories());
+		model.addAttribute("supplierList", sse.getSuppliers());
+		 
 		Category category = cse.getByName(product.getCategory().getCname());
 		product.setCategory(category);
 		Supplier supplier = sse.getByName(product.getSupplier().getSupname());
 		product.setSupplier(supplier);
 		
 		System.out.println("Product Id in edit product method after is "+product.getPid());
-		productService.saveProduct(product);
+	    productService.saveProduct(product);
 		
 		MultipartFile prodImage = product.getImage();
 		if (!prodImage.isEmpty())
@@ -204,7 +216,33 @@ public class ProductController {
 				e.printStackTrace();
 			}
 		}
+		productService.updateProduct(product);*/
+		model.addAttribute(cse.getCategories());
+		model.addAttribute(sse.getSuppliers());
+		if (result.hasErrors())
+			return "EditProductForm";
 		productService.updateProduct(product);
+		
+
+		MultipartFile prodImage = product.getImage();
+		if (!prodImage.isEmpty())
+		{
+			Path paths = 
+				Paths.get("C:/Users/gurpr_000/git/hellogit/themobilestore/src/main/webapp/WEB-INF/resources/images/" + product.getPid() + ".jpg");
+			try
+			{
+				prodImage.transferTo(new File(paths.toString()));
+			} 
+			catch (IllegalStateException e)
+			{
+				e.printStackTrace();
+			} 
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
+
 		return "redirect:/getAllProducts";
 	}
 

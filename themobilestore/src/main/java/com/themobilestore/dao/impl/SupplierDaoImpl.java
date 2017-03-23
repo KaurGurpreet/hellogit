@@ -75,13 +75,13 @@ public class SupplierDaoImpl implements SupplierDao
 		public void delete(int id) {
 			Supplier SupplierToDelete = new Supplier();
 			SupplierToDelete.setSid(id);
-			sessionFactory.getCurrentSession().delete(SupplierToDelete);
+			sessionFactory.openSession().delete(SupplierToDelete);
 			
 		}
 		
 		public Supplier getByName(String name) {
 			String hql="from Supplier where supname=?";
-			Query query=sessionFactory.getCurrentSession().createQuery(hql);
+			Query query=sessionFactory.openSession().createQuery(hql);
 			query.setString(0, name);
 			
 			@SuppressWarnings("unchecked")

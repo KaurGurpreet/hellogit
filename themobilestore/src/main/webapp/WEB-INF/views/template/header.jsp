@@ -7,7 +7,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Project</title>
+  <title>My Mobile Store</title>
   
    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
@@ -71,12 +71,14 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="<c:url value="/" />">TheMobileStore</a>
+         <a class="navbar-brand" href="<c:url value="/" />">
+         <span class="glyphicon glyphicon-phone"></span> TheMobileStore</a>
        </div>
  
       <div class="collapse navbar-collapse" id="myNavbar"> 
         <ul class="nav navbar-nav">
-         <li class="active"><a href="<c:url value="/" />">Home</a></li>     
+         <li class="active"><a href="<c:url value="/" />">
+         <span class="glyphicon glyphicon-home"></span> Home</a></li>     
           <!--  <li><a href="Product">Products</a></li>  -->
          <li><a href="<c:url value="/getAllProducts" />">Products</a></li>
          
@@ -85,7 +87,7 @@
          <li><a href="<c:url value="/addSupplier" />">Supplier</a></li>
          </c:if>
          
-         <li><a href="<c:url value="/cart/getCartId"></c:url>">Cart</a></li>
+         <%-- <li><a href="<c:url value="/cart/getCartId"></c:url>">Cart</a></li>  --%>
          
          <li><a href="<c:url value="/AboutUs" />">About Us</a></li>
         </ul>
@@ -93,11 +95,18 @@
          
          <c:if test="${pageContext.request.userPrincipal.name != null}">
          <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
-         <li><a href="<c:url value="/j_spring_security_logout"/>">Logout</a></li>
+         <li><a href="<c:url value="/j_spring_security_logout"/>">
+         <span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
          
          <c:if test="${pageContext.request.userPrincipal.name == 'admin'}"> 
          <li><a href="<c:url value="/admin"/>">Admin</a></li> 
          </c:if> 
+         
+         <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+          <li><a href="<c:url value="/cart/getCartId" />">
+          <span class="glyphicon glyphicon-shopping-cart"></span> Your Cart</a></li>
+         </c:if>
+         
          </c:if>
          <c:if test="${pageContext.request.userPrincipal.name == null}">
          <li><a href="<c:url value="/login" />"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
