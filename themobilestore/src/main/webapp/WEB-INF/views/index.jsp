@@ -2,6 +2,15 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <link href="<c:url value="/resources/css/index.css" />" rel="stylesheet">
 
+<script>
+$(document).ready(function(){
+	var searchCondition='${searchCondition}';
+	$('.table').DataTable({
+		"lengthMenu":[[3,5,7,-1],[3,5,7,"All"]],
+		"oSearch":{"sSearch":searchCondition}
+	})
+});
+</script>
 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -81,7 +90,7 @@
       <p id="htype2">Used Products</p>
       </div>
       <div class="col-sm-4">
-      <a class="btn btn-warning" href="<c:url value="/getAllProducts?searchCondition=Accesory" />" role="button">
+      <a class="btn btn-warning" href="<c:url value="/getAllProducts?searchCondition=Accessory" />" role="button">
       <img class="img-circle" src="./resources/images/image final1.jpg" alt="Accessories Image" width="140" height="140"/></a>
       <!-- <img src="mobile store 2.jpg" class="img-circle" width="304" height="236" alt="Image"> -->
       <p id="htype2">Accessories</p> 

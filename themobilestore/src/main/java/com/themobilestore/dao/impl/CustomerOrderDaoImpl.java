@@ -21,12 +21,32 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	private CartService cartService;
-	
-	public void addCustomerOrder(Cart cart) {
+		
+	/*public void addCustomerOrder(Cart cart) {
         
-		CustomerOrder customerOrder=new CustomerOrder();
+		System.out.println(cart.getId());
+		
+		Session session = sessionFactory.openSession();
+		session.saveOrUpdate(cart);
+		session.flush();
+		session.close();
+		}*/
+		
+
+	public void addCustomerOrder(CustomerOrder customerOrder) {
+		System.out.println(customerOrder.getOrderId());
+		Session session = sessionFactory.openSession();
+        session.saveOrUpdate(customerOrder);
+        session.flush();
+        session.close();
+		
+	}
+}
+		
+		
+		
+		
+		/*CustomerOrder customerOrder=new CustomerOrder();
 		customerOrder.setCart(cart);
 		customerOrder.setCustomer(cart.getCustomer());
 		customerOrder.setBillingAddress(cart.getCustomer().getBillingAddress());
@@ -37,7 +57,7 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao {
 		session.flush();
 		session.close();
 		
-		/*//To update grandtotal in Cart table
+		//To update grandtotal in Cart table
 		List<CartItem> cartItems=cart.getCartItems();
 		double grandTotal=0.0;
 		for(CartItem cartItem:cartItems){
@@ -47,7 +67,7 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao {
 		//update cart set grandtotal=? where cartid=?
 		session.update(cart);
 		session.flush();
-		session.close();*/
+		session.close();
 	}
 
 	public double getCustomerOrderGrandTotal(int cartId)
@@ -69,8 +89,9 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao {
 		return grandTotal;
 		
 	}
-		
-	}
+	}*/
+
+
 	
 
 

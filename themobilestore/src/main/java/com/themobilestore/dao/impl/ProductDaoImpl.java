@@ -86,14 +86,18 @@ public void deleteProduct(int pid) {
 	
 }*/
 
-    public void updateProduct(Product product){
+    /*public void updateProduct(Product product){
     System.out.println("Id of the product in dao update method is " + product.getPid());
     Session session = sessionFactory.openSession();
     System.out.println("Id of the product in dao after opensession () of update method is " + product.getPid());
     session.update(product);
     //session.flush();
     session.close();
-    System.out.println("Id of the product in dao end of update method is " + product.getPid());
+    System.out.println("Id of the product in dao end of update method is " + product.getPid());*/
+
+public void updateProduct(Product product) {
+sessionFactory.openSession().update(product);
+
 }
 
 }

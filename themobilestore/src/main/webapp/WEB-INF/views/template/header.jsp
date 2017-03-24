@@ -62,7 +62,7 @@
 
  <div class="navbar-wrapper"> 
    <!--  <div class="container"> --> 
-    <nav class="navbar navbar-inverse navbar-custom1">
+    <nav class="navbar navbar-inverse navbar-custom1 navbar-fixed-top">
      <div class="container-fluid">
        <div class="navbar-header">
          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false">
@@ -103,7 +103,7 @@
          </c:if> 
          
          <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
-          <li><a href="<c:url value="/cart/getCartId" />">
+          <li><a href="<c:url value="/cart/getCartId" />"> <!--  Cart</a></li> -->
           <span class="glyphicon glyphicon-shopping-cart"></span> Your Cart</a></li>
          </c:if>
          

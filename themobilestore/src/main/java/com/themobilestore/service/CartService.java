@@ -6,7 +6,7 @@ import com.themobilestore.model.Cart;
 
 public interface CartService
 {
-Cart getCart(int cart_id);
+Cart getCart(int cartId);
 public void update(Cart cart);
 /*Cart validate(int cartId) throws IOException;*/
 }

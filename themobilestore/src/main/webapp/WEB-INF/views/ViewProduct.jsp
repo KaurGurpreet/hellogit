@@ -29,19 +29,22 @@
 <div class="container">
 <br><br>
 
-<div class="row">
+            <div class="row">
                 
                 <div class="col-md-5">
                     <img src="<c:url value="./../resources/images/${product.pid }.jpg" />" alt="image" style="width:100%"/>
                 </div>
                
-                 <div class="col-md-5">
-                    <p>Product Name: ${product.name}</p>
-                    <p>Description: ${product.description}</p>
-                    <p><strong>Category</strong>: ${product.category.cname}</p>
-                    <p><strong>Price</strong>: Rs. ${product.price}</p>
-                    
-		        </div>
+               <div class="col-md-5">
+               <p><strong>Product Name</strong> :  ${product.name}</p>
+               <p><strong>Description</strong>  :  ${product.description}</p>
+               <p><strong>Category</strong>     :  ${product.category.cname}</p>
+               <p><strong>Price</strong>        :  Rs. ${product.price}</p>
+               <p><strong>Quantity</strong>     :  ${product.quantity }</p>
+                
+
+               </div>
+               
 </div>
 <br><br>
 
@@ -62,6 +65,7 @@
 </div>
 <br>
 </div>
+<br/><br/>
 </div>
 <script src="<c:url value="/resources/js/angular.js" />"></script> 
 <script src="<c:url value="/resources/js/controller.js"></c:url>"></script>

@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="spring"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -22,21 +22,21 @@
 	margin-bottom: 0;
 }
 
-.table th, .table td {
-	border: #800040 solid 1px !important;
+  .table th, .table td {
+
 	text-align: center;
 }
 
 td {
-	background-color: white
-}
-
-th {
+	background-color: whitesmoke
+} 
+ 
+/*th {
 	cursor: pointer;
 	text-align: center;
 	font-size: 20px;
 	background-color: #EFBBCC /* #92A1CF; */
-}
+}*/
 </style>
 
 
@@ -57,36 +57,37 @@ th {
 				<a href="<c:url value="/getAllProducts" />"  class="btn btn-warning active" role="button" >
 				<span class="glyphicon glyphicon-backward"></span> Continue Shopping</a> 
 								
-				<a href="<c:url value="/order/${cartId }"></c:url>"
+				<a href="<spring:url value="/order/${cartId }"></spring:url>"
 				   class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Check Out</a>
 	            
 				<br><br><br>
-
+             <form>
 				<div class="table-responsive">
-					<table class="table table-bordered">
+					<!-- <table class="table table-bordered"> -->
+					 <table class="table table-striped table-hover"> 
 						<thead>
-							<tr>
+							<tr class="bg-success">
 								<th>Name</th>
-								<th>Quantity</th>
+								<th>Quantity</th>						
 								<th>Total Price</th>
 								<th>Remove</th>
 
 							</tr>
 						</thead>
-
+                      
 						<tr ng-repeat="cartItem in cart.cartItems">
 							<td>{{cartItem.product.name}}</td>
 							<td>{{cartItem.quantity}}</td>
 							<td>{{cartItem.totalPrice}}</td>
 							<td><a href="#" ng-click="removeFromCart(cartItem.id)"> 
 							<!-- <span class="glyphicon glyphicon-remove"></span> -->
-						    <span class="badge"> 
-							<span class="glyphicon glyphicon-remove"></span></span>
-						    <!-- <span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span> -->
+						    <!-- <span class="badge"> 
+							<span class="glyphicon glyphicon-remove"></span></span> -->
+						    <span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span>
 							</a></td>
 						</tr>
 						
-					     <tr>
+					     <tr class="bg-success">
 						 <th></th>
 						 <th></th>
 						 <th>Grand Total</th>
@@ -94,7 +95,9 @@ th {
 						 </tr> 
 
 					</table>
+					
 				</div>
+				</form>
 				<br/><br/>
 				<%-- <a href="<c:url value="/getAllProducts" />"  class="btn btn-info btn-lg pull-left">Continue Shopping</a> --%>
 				 <!-- <strong>Grand Total : Rs. {{calculateGrandTotal()}}</strong>  -->

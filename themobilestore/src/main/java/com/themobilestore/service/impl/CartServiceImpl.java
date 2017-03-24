@@ -15,8 +15,8 @@ public class CartServiceImpl implements CartService {
 @Autowired
 private CartDao cartDao;
 	
-	public Cart getCart(int cart_id) {
-		return cartDao.getCart(cart_id);
+	public Cart getCart(int cartId) {
+		return cartDao.getCart(cartId);
 	}
 
 	public void update(Cart cart) {

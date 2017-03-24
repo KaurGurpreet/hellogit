@@ -1,10 +1,13 @@
 package com.themobilestore.service;
 
-import com.themobilestore.model.Cart;
+import com.themobilestore.model.CustomerOrder;
 
 public interface CustomerOrderService
 {
-	public void addCustomerOrder(Cart cart);
+	/*public void addCustomerOrder(Cart cart);*/
 	
-	public double getCustomerOrderGrandTotal(int cartId);
+	void addCustomerOrder(CustomerOrder customerOrder);
+
+    double getCustomerOrderGrandTotal(int cartId);
+
 }

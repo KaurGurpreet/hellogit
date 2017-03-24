@@ -32,7 +32,7 @@ public class CustomerDaoImpl implements CustomerDao
 		//Assignment
 		String username=customer.getUsers().getUsername();
 		String password = customer.getUsers().getPassword();
-		String role="ROLE_USER";
+		String role="ROLE_ADMIN";
 		
 		Authority authority = new Authority();
 		//set the values

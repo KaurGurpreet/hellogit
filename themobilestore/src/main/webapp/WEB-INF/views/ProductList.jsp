@@ -6,7 +6,10 @@
 <title>Product List</title>
 
 <%@ include file="/WEB-INF/views/template/header.jsp" %>
-<link href="<c:url value="resources/css/products.css" />" rel="stylesheet">
+<%-- <link href="<c:url value="resources/css/products.css" />" rel="stylesheet"> --%>
+<script src="<c:url value="/resources/js/jquery-3.1.1.min.js" />"></script> 
+<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
 
 <script>
 $(document).ready(function(){
@@ -17,6 +20,17 @@ $(document).ready(function(){
 	})
 });
 </script>
+
+<style>
+.table th, .table td {
+
+	text-align: center;
+}
+
+td {
+	background-color: whitesmoke
+} 
+</style>
 </head>
 <div class="jumbotron">
     <div class="container">
@@ -31,27 +45,28 @@ $(document).ready(function(){
     <h2><strong><center><u>Our Product List</u></center></strong></h2>
      <br>
     <div class="table-responsive">
-    <table class="table table-bordered"> 
+   <!--  <table class="table table-bordered"> --> 
+   <table class="table table-striped table-hover">
     <thead>
-      <tr>
+      <tr class="bg-success">
         
-        <th>Image</th>
+        <th width="100">Image</th>
         
-        <th>Product Name</th>
+        <th width="100">Product Name</th>
         
-        <th>Description</th>
+        <th width="100">Description</th>
         
-        <th>Price</th>
+        <th width="100">Price</th>
         
-        <th>Quantity</th>
+        <th width="100">Quantity</th>
         
-        <th>Category</th>
+        <th width="100">Category</th>
                 
-        <th>View</th>
+        <th width="100">View</th>
         
         <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
-        <th>Delete</th>
-        <th>Edit</th>
+        <th width="100">Delete</th>
+        <th width="100">Edit</th>
         </c:if>
         
       </tr>
