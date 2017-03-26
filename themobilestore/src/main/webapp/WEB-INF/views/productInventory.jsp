@@ -1,4 +1,4 @@
-<%-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ include file="/WEB-INF/views/template/header.jsp" %>
 
@@ -46,8 +46,8 @@
             </c:forEach>
         </table>
 
-        <a href="<spring:url value="/admin/product/addProduct" />" class="btn btn-primary">Add Product</a>
+        <a href="<spring:url value="/productform" />" class="btn btn-primary">Add Product</a>
 </div>
 </div>
 </div>
-<%@ include file="/WEB-INF/views/template/footer.jsp" %> --%>
+<%@ include file="/WEB-INF/views/template/footer.jsp" %>

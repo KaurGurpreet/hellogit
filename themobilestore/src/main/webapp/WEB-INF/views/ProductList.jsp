@@ -7,18 +7,17 @@
 
 <%@ include file="/WEB-INF/views/template/header.jsp" %>
 <%-- <link href="<c:url value="resources/css/products.css" />" rel="stylesheet"> --%>
-<script src="<c:url value="/resources/js/jquery-3.1.1.min.js" />"></script> 
-<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-<link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
 
 <script>
-$(document).ready(function(){
-	var searchCondition='${searchCondition}';
-	$('.table').DataTable({
-		"lengthMenu":[[3,5,7,-1],[3,5,7,"All"]],
-		"oSearch":{"sSearch":searchCondition}
-	})
-});
+
+    $(document).ready(function(){
+        var searchCondition = '${searchCondition}';
+
+        $('.table').DataTable({
+            "lengthMenu": [[3,5,7, -1], [3,5,7, "All"]],
+            "oSearch" : {"sSearch": searchCondition}
+        });
+    });
 </script>
 
 <style>

@@ -40,7 +40,8 @@
      <script src="<c:url value="/resources/js/controller.js"></c:url>"></script> --%>
      
     <!-- JQuery -->
-     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+     <!-- <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script> -->
+      <script src="<c:url value="/resources/js/jquery-3.1.1.min.js" />"></script>
     <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
 
     <link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">

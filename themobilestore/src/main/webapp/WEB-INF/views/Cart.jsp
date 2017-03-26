@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -77,7 +78,11 @@ td {
                       
 						<tr ng-repeat="cartItem in cart.cartItems">
 							<td>{{cartItem.product.name}}</td>
-							<td>{{cartItem.quantity}}</td>
+							<!-- <td>{{cartItem.quantity}}</td> -->
+							<!-- <td>
+								<input type="number" class="form-control text-center" value="1">
+							</td> -->
+							<td><select><option>{{cartItem.quantity}}</option></select></td>
 							<td>{{cartItem.totalPrice}}</td>
 							<td><a href="#" ng-click="removeFromCart(cartItem.id)"> 
 							<!-- <span class="glyphicon glyphicon-remove"></span> -->

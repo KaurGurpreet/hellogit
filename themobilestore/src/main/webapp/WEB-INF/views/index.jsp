@@ -2,15 +2,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <link href="<c:url value="/resources/css/index.css" />" rel="stylesheet">
 
-<script>
-$(document).ready(function(){
-	var searchCondition='${searchCondition}';
-	$('.table').DataTable({
-		"lengthMenu":[[3,5,7,-1],[3,5,7,"All"]],
-		"oSearch":{"sSearch":searchCondition}
-	})
-});
-</script>
 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -75,7 +66,7 @@ $(document).ready(function(){
   <br>
    <div class="row">
       <div class="col-sm-4">
-      <a class="btn btn-warning" href="<c:url value="/getAllProducts?searchCondition=New Products" />" role="button">
+      <a class="btn btn-warning" href="<c:url value="/productList?searchCondition=New Product" />" role="button">
       <img class="img-circle" src="./resources/images/newP.jpg" alt="New Products Image" width="140" height="140"/></a>
       <!-- <img class="img-circle" src="./resources/images/new2.jpg" alt="New Products Image" width="140" height="140"/> -->
       <!-- <img src="images (1).jpeg"  class="img-circle" width="304" height="236" alt="Image">  -->
@@ -83,14 +74,14 @@ $(document).ready(function(){
       <p id="htype2">New Products</p>
       </div>
       <div class="col-sm-4"> 
-      <a class="btn btn-warning" href="<c:url value="/getAllProducts?searchCondition=Used Products" />" role="button">
+      <a class="btn btn-warning" href="<c:url value="/productList?searchCondition=Used Product" />" role="button">
       <img class="img-circle" src="./resources/images/used1.jpg" alt="Used Products Image" width="140" height="140"/></a>
       <!-- <img src="images.jpeg" class="img-circle" width="304" height="236" alt="Image">  -->
       <!-- <p id="htype2"><a href="#">Used Products</a></p>  -->
       <p id="htype2">Used Products</p>
       </div>
       <div class="col-sm-4">
-      <a class="btn btn-warning" href="<c:url value="/getAllProducts?searchCondition=Accessory" />" role="button">
+      <a class="btn btn-warning" href="<c:url value="/productList?searchCondition=Accessory" />" role="button">
       <img class="img-circle" src="./resources/images/image final1.jpg" alt="Accessories Image" width="140" height="140"/></a>
       <!-- <img src="mobile store 2.jpg" class="img-circle" width="304" height="236" alt="Image"> -->
       <p id="htype2">Accessories</p> 
