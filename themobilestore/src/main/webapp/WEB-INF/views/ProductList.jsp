@@ -27,7 +27,7 @@
 }
 
 td {
-	background-color: whitesmoke
+	background-color: whitesmoke;
 } 
 </style>
 </head>
@@ -35,11 +35,11 @@ td {
     <div class="container">
     
     
-   <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
-    <c:url var="url" value="productform"></c:url>  
+    <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
+    <c:url var="url" value="/admin/productform"></c:url>  
     <a href="${url }" class="btn btn-primary btn-lg pull-right" role="button">
     <span class="glyphicon glyphicon-hand-right"></span> Add New Product</a>
-   </c:if>	
+    </c:if>	 
     <br>
     <h2><strong><center><u>Our Product List</u></center></strong></h2>
      <br>
@@ -87,14 +87,14 @@ td {
                     <c:url var="url" value="/viewproduct/${p.pid }"></c:url>  
 					<a href="${url }"><span class="glyphicon glyphicon-info-sign"></span></a> 
 			</td>
-			<c:if test="${pageContext.request.userPrincipal.name == 'admin'}">	
+		    <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
 			<td>
-				    <c:url var="delete" value="/deleteproduct/${p.pid }"></c:url> 
+				    <c:url var="delete" value="/admin/deleteproduct/${p.pid }"></c:url> 
 					<a href="${delete }"><span class="glyphicon glyphicon-remove"></span></a>
 					
 			 </td>
 			 <td>	
-				    <c:url var="edit" value="/editform/${p.pid }"></c:url>
+				    <c:url var="edit" value="/admin/editform/${p.pid }"></c:url>
 					<a href="${edit }"><span class="glyphicon glyphicon-pencil"></span></a>
 			</td>
 			</c:if>

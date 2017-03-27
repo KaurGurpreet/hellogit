@@ -35,9 +35,9 @@ public class CategoryServiceImpl implements CategoryService
 		
 	}
 
-	public void delete(int id) {
+	public void delete(int cid) {
 	 
-		categoryDao.delete(id);
+		categoryDao.delete(cid);
 		
 	}
 	

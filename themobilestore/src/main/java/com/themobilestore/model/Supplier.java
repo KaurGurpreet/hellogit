@@ -24,8 +24,9 @@ public class Supplier implements Serializable
 	private String brand;
     private String supproduct;
 	
-    @OneToMany(mappedBy="supplier", cascade = CascadeType.ALL)
-	private List<Product> products;
+    /*@OneToMany(mappedBy="supplier", cascade = CascadeType.ALL, fetch = FetchType.EAGER)*/
+    @OneToMany(mappedBy="supplier")
+    private List<Product> products;
 	
 	public int getSid() {
 		return sid;

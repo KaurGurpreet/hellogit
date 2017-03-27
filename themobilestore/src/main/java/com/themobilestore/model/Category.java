@@ -22,7 +22,8 @@ public class Category implements Serializable
 	private String cname;
 	private int stock;
 	
-	@OneToMany(mappedBy="category", cascade = CascadeType.ALL)
+	/*@OneToMany(mappedBy="category", cascade = CascadeType.ALL, fetch = FetchType.EAGER)*/
+	@OneToMany(mappedBy="category")
 	@JsonIgnore
 	private List<Product> products;
 		

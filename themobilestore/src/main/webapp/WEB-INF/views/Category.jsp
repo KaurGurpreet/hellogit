@@ -18,26 +18,17 @@
   
   .table td
   {
-  border: #800040 solid 1px !important;
+  /* border: #800040 solid 1px !important; */
   background-color: white;
   text-align:center;
-  }
+   }
   
-  .table th, .table td
+  .table th
   {
-  border: #800040 solid 1px !important;
   text-align:center;
+  background-color: #d2f4d6;
   }
-  
-  th
-  {
-   cursor:pointer;
-   text-align:center;
-   font-size: 15px;
-   background-color: #EFBBCC;
-   /* #92A1CF; */
-  }
-  
+    
 </style>
    
 <div class="jumbotron text-center">
@@ -53,7 +44,7 @@
                  <td><form:hidden path="cid"/></td>
                </tr>
                 <tr>
-					<td><b>Category Name</b></td>
+					<td style="width: 120px"><b>Category Name</b></td>
 					<td><form:input path="cname" id="cname" required="true"/></td>
 					<td><form:errors path="cname" cssClass="error">Name</form:errors></td>
 				</tr>
@@ -69,23 +60,29 @@
 </table>
 </div>
 </form:form>
+<br/>
 <h2><strong><u>Category List</u></strong></h2>
- <table class="table table-bordered table-striped" id="table">
+<!--  <table class="table table-bordered table-striped" id="table"> -->
+<br/>
+<table class="table table-striped table-hover">
 				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Stock Details</th>
-					<!-- <th width="80">Edit</th>
-					<th width="80">Delete</th> -->
+					<th width="80">ID</th>
+					<th width="100">Name</th>
+					<th width="120">Stock Details</th>
+				    <th width="80">Edit</th>
+					<th width="80">Delete</th>
 				</tr>
 				<tbody>
 					<c:forEach var="c" items="${categoryList}">
 						<tr>
 							<td>${c.cid}</td>
 							<td>${c.cname}</td>
-							<td>${c.stock}</td>
-						<!-- <td><a href="<c:url value="/admin/supplier/edit/${sup.sid}" />"><span class="glyphicon glyphicon-pencil">Edit</span></a></td>
-							<td><a href="<c:url value="/admin/supplier/remove/${sup.sid}" />"><span class="glyphicon glyphicon-trash">Delete</span></a></td> --> 
+							<td>${c.stock}</td> 
+						    <td><a href="<c:url value="/category/edit/${c.cid}" />">
+					        <span class="glyphicon glyphicon-pencil">Edit</span></a></td>
+					        <td><a href="<c:url value="/category/remove/${c.cid }" />">
+					        <span class="glyphicon glyphicon-trash">Delete</span></a></td>
+						
 						</tr>
 					</c:forEach>
 				</tbody>

@@ -1,27 +1,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <%@ include file="template/header.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Edit Product Form</title>
 
-<%-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
-
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-
-<script src="<c:url value="/js/bootstrap.min.js" />"></script>  --%>
-
 <style>
 .jumbotron {
 	position: relative;
-	background: url("./../resources/images/bg5.jpg") no-repeat center;
+	background: url("../../resources/images/bg5.jpg") no-repeat center;
 	color: black;
 	width: 100%;
 	height: 100%;
@@ -42,8 +31,8 @@
 		<div
 			class="col-xs-6 col-sm-4 col-md-6 col-sm-offset-4 col-md-offset-3 well">
 			<div class="container"><br><br>
-				<c:url value="/editProduct" var="url"></c:url>
-				<form:form action="${url }" method="post" commandName="product" enctype="multipart/form-data" >
+				<c:url value="/admin/editProduct/${pid }" var="url"></c:url>
+				<form:form action="${url }" method="post" commandName="productCommand" enctype="multipart/form-data" >
 
 					<div class="form-group">
 						<label for="pid">Product ID</label>

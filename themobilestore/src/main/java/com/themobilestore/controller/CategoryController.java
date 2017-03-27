@@ -1,17 +1,14 @@
 package com.themobilestore.controller;
 
-import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.themobilestore.model.Category;
 import com.themobilestore.service.CategoryService;
 
@@ -26,14 +23,6 @@ public class CategoryController
 			System.out.println("CREATING INSTANCE FOR CATEGORYCONTROLLER");
 		}
 		
-			
-		/*@RequestMapping("/addCategory")
-		public String list(Model model) {
-			List<Category> list = cse.getCategories();
-			model.addAttribute("category",list);
-			return new ModelAndView("supplier", "Supplier", list);
-			return "Category";
-		}*/
 		
 		@RequestMapping("/addCategory")
 		public String getCategory(Model model) 
@@ -49,29 +38,6 @@ public class CategoryController
 		{
 			return new Category();
 		}
-
-		/*@RequestMapping(value = "/category/add", method = RequestMethod.POST)
-		public String addProduct(@ModelAttribute("categorycommand") Category c, BindingResult result) {
-
-			if (result.hasErrors()) 
-			{
-				return "addCategory";
-			}
-			
-			System.out.println(c.getCid());
-			
-			cse.saveOrUpdate(c);
-
-			return "redirect:/addCategory";
-		}*/
-		
-		/*@RequestMapping("/category/add")
-		public String getCategories(Model model)
-		{
-			List<Category> categories = cse.getCategories();
-			model.addAttribute("categoryList", categories);
-			return "redirect:/addCategory";
-		}*/
 
 		
 		@RequestMapping("/category/add")
@@ -90,6 +56,21 @@ public class CategoryController
 			return "redirect:/addCategory";
 		}
 		
+		@RequestMapping("/category/remove/{cid}")
+		public String deleteCategory(@PathVariable("cid") int cid, ModelMap model) throws Exception {
+
+			try {
+				cse.delete(cid);
+				model.addAttribute("message", "Successfully deleted");
+			} catch (Exception e) {
+				model.addAttribute("message", e.getMessage());
+				e.printStackTrace();
+				return "redirect:/error";
+			}
+			// redirectAttrs.addFlashAttribute(arg0, arg1)
+			/*return "redirect:/admin/addCategory";*/
+			return "redirect:/addCategory";
+		}
 		
 }
 

@@ -1,5 +1,7 @@
 package com.themobilestore.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -69,6 +71,22 @@ public class CustomerDaoImpl implements CustomerDao
 		session.close();
 		return customer;
 		
+	}
+
+	public Customer getCustomerById(int id) {
+	        Session session = sessionFactory.openSession();
+	        Customer customer = (Customer)session.get(Customer.class, id);
+	        session.close();
+	        return customer;
+	    }
+
+
+	public List<Customer> getAllCustomers() {
+		Session session = sessionFactory.openSession();
+        Query query = session.createQuery("from Customer");
+        List<Customer> customerList = query.list();
+
+        return customerList;
 	}
 	
 }

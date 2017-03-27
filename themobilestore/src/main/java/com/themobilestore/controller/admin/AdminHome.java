@@ -1,4 +1,4 @@
-/*package com.themobilestore.controller.admin;
+package com.themobilestore.controller.admin;
 
 import java.util.List;
 
@@ -31,19 +31,18 @@ public class AdminHome
     @RequestMapping("/productInventory")
     public String productInventory(Model model){
         List<Product> products = productService.getAllProducts();
-        model.addAttribute("products", products);
+        model.addAttribute("productList", products);
 
         return "productInventory";
     }
 
     @RequestMapping("/customer")
     public String customerManagerment(Model model){
-
-        List<Customer> customerList = customerService.getAllCustomers();
+       List<Customer> customerList = customerService.getAllCustomers();
         model.addAttribute("customerList", customerList);
 
         return "customerManagement";
     }
 
 
-}*/
+}

@@ -4,12 +4,18 @@
 <%@ page isELIgnored="false"%>
 
 <style>
-footer {
-	background-color: #f2f2f2;
-	padding: 15px;
+.jumbotron {
+	position: relative;
+	background: url("../resources/images/bg5.jpg") no-repeat center;
+	color: black;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	overflow: hidden;
 	margin-top: 0;
 	margin-bottom: 0;
 }
+
 </style>
 
 <div class="jumbotron text-center">
@@ -20,8 +26,8 @@ footer {
 	<div class="row">
 		<div class="col-xs-6 col-sm-4 col-md-6 col-sm-offset-4 col-md-offset-3 well">
 			<div class="container">
-				<c:url value="addProduct" var="url"></c:url>
-				<form:form action="${url }" commandName="product" enctype="multipart/form-data">
+				<c:url value="/admin/addProduct" var="url"></c:url>
+				<form:form action="${url }" commandName="productCommand" enctype="multipart/form-data">
 				
 					<div class="form-group">
 						<label for="pid"></label>

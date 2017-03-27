@@ -11,5 +11,5 @@ public interface ProductService
 	List<Product> getAllProducts();
 	Product getProductById(int pid);
 	void deleteProduct(int pid);
-	void updateProduct(Product product);
+	void editProduct(Product product);
 }

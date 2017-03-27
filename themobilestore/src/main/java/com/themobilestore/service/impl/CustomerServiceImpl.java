@@ -1,5 +1,7 @@
 package com.themobilestore.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.themobilestore.dao.CustomerDao;
@@ -25,6 +27,15 @@ public class CustomerServiceImpl implements CustomerService
 	public Customer getCustomerByUsername(String username)
 	{
 		return customerDao.getCustomerByUsername(username);
+	}
+
+	public List<Customer> getAllCustomers() {
+		
+		return customerDao.getAllCustomers();
+	}
+
+	public Customer getCustomerById(int id) {
+		return customerDao.getCustomerById(id);
 	}
 
 }

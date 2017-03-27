@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.themobilestore.dao.CategoryDao;
 import com.themobilestore.model.Category;
+import com.themobilestore.model.Product;
 
 @Repository
 @Transactional
@@ -83,10 +84,14 @@ public class CategoryDaoImpl implements CategoryDao
 
 	}
 	
-	    public void delete(int id) {
-		Category CategoryToDelete = new Category();
-		CategoryToDelete.setCid(id);
-		sessionFactory.openSession().delete(CategoryToDelete);
-		
-	}
+	
+	public void delete(int cid) {
+		Session session=sessionFactory.openSession();
+		//Make the object persistent[read the data from the table and add it to session]
+		Category category = (Category)session.get(Category.class, cid);
+		session.delete(category);
+		session.flush();
+		session.close();
+	}		
+
 }

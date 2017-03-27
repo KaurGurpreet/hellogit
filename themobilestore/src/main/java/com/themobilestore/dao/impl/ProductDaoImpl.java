@@ -38,7 +38,7 @@ public class ProductDaoImpl implements ProductDao {
   {
 		System.out.println(product.getPid());
 		Session session=sessionFactory.openSession();
-		session.saveOrUpdate(product);
+		session.save(product);
 		session.flush();
 		session.close();
 		System.out.println(product.getPid());
@@ -56,11 +56,22 @@ public class ProductDaoImpl implements ProductDao {
 	
 	}*/
   
+        public void editProduct(Product product) {
+        System.out.println(product.getPid());
+		Session session=sessionFactory.openSession();
+		System.out.println("Id of the product in dao is " + product.getPid());
+		session.update(product);
+		session.flush();
+		session.close();
+		
+	}
+  
   public List<Product> getAllProducts()
   {
 		Session session=sessionFactory.openSession();
 		Query query=session.createQuery("from Product");
 		List<Product> products=query.list();
+		session.flush();
 		session.close();
 		return products;
 	}
@@ -72,19 +83,13 @@ public void deleteProduct(int pid) {
 	//Make the object persistent[read the data from the table and add it to session]
 	Product product=(Product)session.get(Product.class, pid);
 	session.delete(product);
+	session.clear();
 	session.flush();
 	session.close();
 	
 }
 
-    /*public void updateProduct(Product product) {
-	Session session=sessionFactory.openSession();
-	System.out.println("Id of the product in dao is " + product.getPid());
-	session.saveOrUpdate(product);
-	session.flush();
-	session.close();
-	
-}*/
+    
 
     /*public void updateProduct(Product product){
     System.out.println("Id of the product in dao update method is " + product.getPid());
@@ -95,9 +100,9 @@ public void deleteProduct(int pid) {
     session.close();
     System.out.println("Id of the product in dao end of update method is " + product.getPid());*/
 
-public void updateProduct(Product product) {
+/*public void updateProduct(Product product) {
 sessionFactory.openSession().update(product);
 
-}
+}*/
 
 }
