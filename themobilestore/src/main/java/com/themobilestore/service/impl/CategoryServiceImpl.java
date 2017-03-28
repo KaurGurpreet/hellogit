@@ -24,10 +24,10 @@ public class CategoryServiceImpl implements CategoryService
 	}
 
 
-	public Category get(int id)
+	/*public Category get(int id)
 	{
 		return categoryDao.get(id);
-	}
+	}*/
 
 	public Category saveOrUpdate(Category category)
 	{
@@ -35,7 +35,7 @@ public class CategoryServiceImpl implements CategoryService
 		
 	}
 
-	public void delete(int cid) {
+	/*public void delete(int cid) {
 	 
 		categoryDao.delete(cid);
 		
@@ -44,6 +44,6 @@ public class CategoryServiceImpl implements CategoryService
    public Category getByName(String name) {
 		
 		return categoryDao.getByName(name);
-	}
+	}*/
 	
 }

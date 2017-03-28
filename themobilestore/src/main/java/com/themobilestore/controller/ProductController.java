@@ -28,7 +28,6 @@ import com.themobilestore.service.ProductService;
 import com.themobilestore.service.SupplierService;
 
 @Controller
-/*@RequestMapping("/admin")*/
 public class ProductController {
 	@Autowired
 	private ProductService productService;

@@ -21,11 +21,11 @@ public class CartItem implements Serializable
 	private double totalPrice;
     
 	@ManyToOne
-	@JoinColumn(name="product_id")
+	@JoinColumn
 	private Product product;
 	
 	@ManyToOne
-	@JoinColumn(name="cart_id")
+	@JoinColumn
 	@JsonIgnore
 	private Cart cart;
 	

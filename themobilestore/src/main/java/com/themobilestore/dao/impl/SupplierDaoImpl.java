@@ -15,19 +15,19 @@ import com.themobilestore.model.Supplier;
 @Transactional
 public class SupplierDaoImpl implements SupplierDao
 {
+	@Autowired
+	private SessionFactory sessionFactory;
+	
 	public SupplierDaoImpl()
 	{
 		System.out.println("CREATING INSTANCE FOR SUPPLIERDAOIMPL");
 	}
 		
-		@Autowired
-		private SessionFactory sessionFactory;
-		
-		public SupplierDaoImpl(SessionFactory sessionFactory) {
+		/*public SupplierDaoImpl(SessionFactory sessionFactory) {
 
 			this.sessionFactory = sessionFactory;
 
-		}
+		}*/
 				
 		
 		public List<Supplier> getSuppliers()
@@ -44,7 +44,7 @@ public class SupplierDaoImpl implements SupplierDao
 			return suppliers;
 	    }
 		
-		public Supplier get(int id)
+		/*public Supplier get(int id)
 		{
 			String hql = "from Supplier where sid=?";
 			Query query = sessionFactory.openSession().createQuery(hql);
@@ -59,7 +59,7 @@ public class SupplierDaoImpl implements SupplierDao
 				return null;			
 			}
 
-		}
+		}*/
 		
 		public Supplier saveOrUpdate(Supplier supplier)
 		{
@@ -72,14 +72,14 @@ public class SupplierDaoImpl implements SupplierDao
 			return supplier;	
 		}
 		
-		public void delete(int id) {
+		/*public void delete(int id) {
 			Supplier SupplierToDelete = new Supplier();
 			SupplierToDelete.setSid(id);
 			sessionFactory.openSession().delete(SupplierToDelete);
 			
-		}
+		}*/
 		
-		public Supplier getByName(String name) {
+		/*public Supplier getByName(String name) {
 			String hql="from Supplier where supname=?";
 			Query query=sessionFactory.openSession().createQuery(hql);
 			query.setString(0, name);
@@ -95,6 +95,6 @@ public class SupplierDaoImpl implements SupplierDao
 				return null;
 			}
 			
-		}
+		}*/
 
 }

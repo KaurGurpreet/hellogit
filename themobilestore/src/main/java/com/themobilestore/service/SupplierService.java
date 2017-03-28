@@ -8,11 +8,11 @@ public interface SupplierService
 {
 	public List<Supplier> getSuppliers();
 	
-	public Supplier get(int id);
+	/*public Supplier get(int id);*/
 	
 	public Supplier saveOrUpdate(Supplier supplier);
 	
-	public void delete(int id);
+	/*public void delete(int id);
 	
-	public Supplier getByName(String name);
+	public Supplier getByName(String name);*/
 }

@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Supplier implements Serializable
 {
@@ -26,6 +28,7 @@ public class Supplier implements Serializable
 	
     /*@OneToMany(mappedBy="supplier", cascade = CascadeType.ALL, fetch = FetchType.EAGER)*/
     @OneToMany(mappedBy="supplier")
+    @JsonIgnore
     private List<Product> products;
 	
 	public int getSid() {

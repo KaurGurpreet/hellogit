@@ -12,6 +12,6 @@ public interface ProductDao
   List<Product> getAllProducts();
   Product getProductById(int pid);
   void deleteProduct(int pid);
-  void editProduct(Product product);
+  Product editProduct(Product product);
 	
 }

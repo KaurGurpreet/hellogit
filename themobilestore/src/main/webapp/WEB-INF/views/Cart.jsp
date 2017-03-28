@@ -40,6 +40,18 @@ td {
 }*/
 </style>
 
+<script>
+
+    $(document).ready(function(){
+        var searchCondition = '${searchCondition}';
+
+        $('.table').DataTable({
+            "lengthMenu": [[3,5,7, -1], [3,5,7, "All"]],
+            "oSearch" : {"sSearch": searchCondition}
+        });
+    });
+</script>
+
 
 <div class="jumbotron text-center">
 	

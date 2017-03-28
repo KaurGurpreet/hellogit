@@ -8,13 +8,17 @@
 
 <style>
 
-/* footer 
-  {
-      background-color: #f2f2f2;
-      padding:15px;
-      margin-top: 0;
-      margin-bottom: 0;
-  } */
+/* .jumbotron {
+	position: relative;
+	background: url("../resources/images/bg5.jpg") no-repeat center;
+	color: black;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	overflow: hidden;
+	margin-top: 0;
+	margin-bottom: 0;
+} */
   
   .table td
   {
@@ -78,7 +82,7 @@
 							<td>${c.cid}</td>
 							<td>${c.cname}</td>
 							<td>${c.stock}</td> 
-						    <td><a href="<c:url value="/category/edit/${c.cid}" />">
+						    <td><a href="<c:url value="/category/edit/${c.cid }" />">
 					        <span class="glyphicon glyphicon-pencil">Edit</span></a></td>
 					        <td><a href="<c:url value="/category/remove/${c.cid }" />">
 					        <span class="glyphicon glyphicon-trash">Delete</span></a></td>

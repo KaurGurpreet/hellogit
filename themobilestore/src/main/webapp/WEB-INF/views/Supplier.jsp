@@ -10,13 +10,17 @@
 
 <style>
 
-/* footer 
-  {
-      background-color: #f2f2f2;
-      padding:15px;
-      margin-top: 0;
-      margin-bottom: 0;
-  } */
+/* .jumbotron {
+	position: relative;
+	background: url("../resources/images/bg5.jpg") no-repeat center;
+	color: black;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	overflow: hidden;
+	margin-top: 0;
+	margin-bottom: 0;
+} */
   
   .table td
   {
@@ -25,19 +29,17 @@
   text-align:center;
   }
   
+  .table td
+  {
+  /* border: #800040 solid 1px !important; */
+  background-color: white;
+  text-align:center;
+   }
+  
   .table th
   {
-  border: #800040 solid 1px !important;
   text-align:center;
-  }
-  
-  th
-  {
-   cursor:pointer;
-   text-align:center;
-   font-size: 15px;
-   background-color: #EFBBCC; 
-   /* #92A1CF; */
+  background-color: #d2f4d6;
   }
   
 </style>
@@ -89,8 +91,9 @@
 </table>
 </div>
 </form:form>
+<br/><br/>
 <h2><strong><u>Supplier List</u></strong></h2>
- <table class="table table-bordered table-striped" id="table">
+ <table class="table table-striped table-hover">
 				<tr>
 					<th width="60">ID</th>
 					<th width="100">Name</th>
@@ -99,8 +102,8 @@
 					<th width="80">Email</th>
 					<th width="80">Brand</th>
 					<th width="80">Product</th>
-					<!-- <th width="80">Edit</th>
-					<th width="80">Delete</th> -->
+				    <th width="80">Edit</th>
+					<th width="80">Delete</th> 
 				</tr>
 				<tbody>
 					<c:forEach var="sup" items="${supplierList}">
@@ -112,8 +115,8 @@
 							<td>${sup.supemail}</td>
 							<td>${sup.brand}</td>
 							<td>${sup.supproduct}</td>
-						<!-- <td><a href="<c:url value="/admin/supplier/edit/${sup.sid}" />"><span class="glyphicon glyphicon-pencil">Edit</span></a></td>
-							<td><a href="<c:url value="/admin/supplier/remove/${sup.sid}" />"><span class="glyphicon glyphicon-trash">Delete</span></a></td> --> 
+						    <td><a href="<c:url value="/admin/supplier/edit/${sup.sid}" />"><span class="glyphicon glyphicon-pencil">Edit</span></a></td>
+							<td><a href="<c:url value="/admin/supplier/remove/${sup.sid}" />"><span class="glyphicon glyphicon-trash">Delete</span></a></td>  
 						</tr>
 					</c:forEach>
 				</tbody>

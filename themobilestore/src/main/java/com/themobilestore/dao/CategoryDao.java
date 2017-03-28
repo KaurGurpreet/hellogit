@@ -10,9 +10,9 @@ public interface CategoryDao
 	
 	List<Category> getCategories();
 	
-	public Category get(int id);
+	/*public Category get(int id);
 	
 	public Category getByName(String name);
 	
-    public void delete(int cid);
+    public void delete(int cid);*/
 }

@@ -12,6 +12,7 @@ import com.themobilestore.model.Supplier;
 import com.themobilestore.service.SupplierService;
 
 @Controller
+/*@RequestMapping("/admin")*/
 public class SupplierController
 {   
    @Autowired
@@ -21,11 +22,6 @@ public class SupplierController
 		System.out.println("CREATING INSTANCE FOR SUPPLIERCONTROLLER");
 	}
 	
-	/*@RequestMapping(value = "/addSupplier", method = RequestMethod.GET)
-	public ModelAndView list() {
-		List<Supplier> list = sse.list();
-		return new ModelAndView("supplier", "Supplier", list);
-	}*/
 	
 	@RequestMapping("/addSupplier")
 	public String getSupplier(Model model) 
@@ -56,10 +52,5 @@ public class SupplierController
 		return "redirect:/addSupplier";
 	}
 	
-	/*@RequestMapping("/getAllProducts")
-	public String getAllProducts(Model model){
-		List<Product> products=productService.getAllProducts();
-		//Assigning list of products to model attribute products
-		model.addAttribute("productList",products);
-		return "ProductList";*/
+	
 }

@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.themobilestore.dao.CategoryDao;
 import com.themobilestore.model.Category;
-import com.themobilestore.model.Product;
 
 @Repository
 @Transactional
@@ -25,11 +24,11 @@ public class CategoryDaoImpl implements CategoryDao
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public CategoryDaoImpl(SessionFactory sessionFactory) {
+	/*public CategoryDaoImpl(SessionFactory sessionFactory) {
 
 		this.sessionFactory = sessionFactory;
 
-	}
+	}*/
 
 	public List<Category> getCategories() {
 		Session session=sessionFactory.openSession();
@@ -52,7 +51,7 @@ public class CategoryDaoImpl implements CategoryDao
 		
 	}
 	
-	public Category get(int id) {
+	/*public Category get(int id) {
 		String hql = "from Category where cid=?";
 		Query query = sessionFactory.openSession().createQuery(hql);
 		query.setInteger(0, id);
@@ -92,6 +91,6 @@ public class CategoryDaoImpl implements CategoryDao
 		session.delete(category);
 		session.flush();
 		session.close();
-	}		
+	}*/		
 
 }

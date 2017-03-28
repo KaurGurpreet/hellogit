@@ -13,6 +13,7 @@ import com.themobilestore.model.Category;
 import com.themobilestore.service.CategoryService;
 
 @Controller
+/*@RequestMapping("/admin")*/
 public class CategoryController
 {   
 	   @Autowired
@@ -56,7 +57,7 @@ public class CategoryController
 			return "redirect:/addCategory";
 		}
 		
-		@RequestMapping("/category/remove/{cid}")
+		/*@RequestMapping("/category/remove/{cid}")
 		public String deleteCategory(@PathVariable("cid") int cid, ModelMap model) throws Exception {
 
 			try {
@@ -68,10 +69,17 @@ public class CategoryController
 				return "redirect:/error";
 			}
 			// redirectAttrs.addFlashAttribute(arg0, arg1)
-			/*return "redirect:/admin/addCategory";*/
+			return "redirect:/admin/addCategory";
 			return "redirect:/addCategory";
 		}
 		
+		@RequestMapping("/category/edit/{cid }")
+		public String editProduct(@PathVariable("cid") int cid, Model model) {
+			System.out.println("editCategory");
+			model.addAttribute("categorycommand", cse.get(cid));
+			model.addAttribute("categoryList", cse.getCategories());
+			return "addCategory";
+		}*/
 }
 
 

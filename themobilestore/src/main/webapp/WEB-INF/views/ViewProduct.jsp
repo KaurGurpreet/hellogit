@@ -52,6 +52,7 @@
                         <c:set var="url" value="/admin/productform" />
                    </c:if> --%>
 
+<c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
 <div class="container" ng-controller="ProductController">
  <%-- <c:url value="/addCartItem/${product.pid }" var="url"></c:url> --%>
 <a href="#" ng-click="addToCart(${product.pid })"  class="btn btn-warning btn-lg">
@@ -62,6 +63,7 @@
            <a href="<c:url value="/cart/getCartId" />" class="btn btn-primary btn-lg active"> 
           <span class="glyphicon glyphicon-hand-right"></span> View Cart</a>
 </div>
+</c:if>
 </div>
 <br>
 </div>

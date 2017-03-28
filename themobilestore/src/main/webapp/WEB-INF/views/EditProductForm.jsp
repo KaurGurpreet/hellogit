@@ -32,7 +32,7 @@
 			class="col-xs-6 col-sm-4 col-md-6 col-sm-offset-4 col-md-offset-3 well">
 			<div class="container"><br><br>
 				<c:url value="/admin/editProduct/${pid }" var="url"></c:url>
-				<form:form action="${url }" method="post" commandName="productCommand" enctype="multipart/form-data" >
+				<form:form action="${url }" commandName="product1" enctype="multipart/form-data" method="post">
 
 					<div class="form-group">
 						<label for="pid">Product ID</label>
@@ -86,38 +86,20 @@
 						 </c:forEach>
 						<form:errors path="supplier.sid" cssStyle="color:#ff0000"></form:errors>
 					</div>
-					
-					<%-- <div class="form-group">
-						<label for="supplier.supname">Supplier</label> 
-						 <form:select path="supplier.supname">
-						    <form:option value="None">--Select Supplier--</form:option>
-						     <form:options var="sup" items="${supplierList }" />  
-						 </form:select>
-					     <form:errors path="supplier.supname" cssStyle="color:#ff0000"></form:errors> 
-					     </div> --%>
-
-				    <%-- <div class="form-group">
-						<label for="supplier">Supplier</label> 
-						 <form:select path="supplier">
-						    <form:option value="None">--Select Supplier--</form:option>
-						     
-						     <c:forEach var="sup" items="${supplierList }">
-							 <form:options value="${sup.supname }" /> 
-							 </c:forEach> 
-						</form:select>
-					<form:errors path="supplier" cssStyle="color:#ff0000"></form:errors> 
-					</div>  --%>
-					
-			 
-					
+								
 					 <div class="form-group">
 						<label for="image">Image</label>
 						<center>
 							<form:input path="image" type="file" />
 						</center>
 					</div>
-
-					<input type="submit" value="Edit Product" class="btn btn-primary">
+					
+					<div class="form-group">
+                    <label for="singlebutton"></label>
+                      <button id="submit" name="submit" class="btn btn-primary">Edit Product</button>
+                   </div>
+                     
+					<!--  <input type="submit" value="Edit Product" class="btn btn-primary"> -->
 				<br>
 				<br>
 			</form:form>

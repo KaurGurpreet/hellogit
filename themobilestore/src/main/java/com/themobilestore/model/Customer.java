@@ -53,19 +53,19 @@ public class Customer implements Serializable
 	private ShippingAddress shippingAddress;*/
 	
    @OneToOne(cascade=CascadeType.ALL)
-   @JoinColumn(name="users_id")
+   @JoinColumn(name="id")
    private Users users;
 	
    @OneToOne(cascade=CascadeType.ALL)
-   @JoinColumn(name="billingaddress_id")
+   @JoinColumn(name="id")
    private BillingAddress billingAddress;
 
    @OneToOne(cascade=CascadeType.ALL)
-   @JoinColumn(name="shippingaddress_id")
+   @JoinColumn(name="id")
    private ShippingAddress shippingAddress;
    
 	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="cart_id")
+	@JoinColumn(name="id")
 	private Cart cart;
 		
 	public int getId() {

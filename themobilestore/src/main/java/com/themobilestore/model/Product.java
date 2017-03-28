@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -19,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
+@Table(name="product")
 public class Product implements Serializable
 {
 	@Id
@@ -36,16 +38,12 @@ public class Product implements Serializable
 	   
 	   @ManyToOne
 	   @JoinColumn(name="cid")
-	   @JsonIgnore
-	   /*@NotNull(message="Category is mandatory")*/
 	   private Category category;
 	   
 	   @ManyToOne
 	   @JoinColumn(name = "sid")
-	   @JsonIgnore
-	   /*@NotNull(message="Supplier is mandatory")*/
-	    private Supplier supplier;
-	   
+	   private Supplier supplier;
+	    
 	   @Transient 
 	   private MultipartFile image;
 	   
