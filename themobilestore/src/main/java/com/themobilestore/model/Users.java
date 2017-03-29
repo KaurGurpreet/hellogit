@@ -16,7 +16,7 @@ public class Users implements Serializable
 {
    @Id
    @GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private int usersId;
    
    @NotEmpty(message="Please enter username")
    /*@Column(unique=true)*/
@@ -35,11 +35,11 @@ public class Users implements Serializable
 		this.customer = customer;
 	}
 		
-	public int getId() {
-		return id;
+	public int getUsersId() {
+		return usersId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setUsersId(int usersId) {
+		this.usersId = usersId;
 	}
 	public String getUsername() {
 		return username;

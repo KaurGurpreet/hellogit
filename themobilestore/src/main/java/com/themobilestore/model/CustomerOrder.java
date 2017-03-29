@@ -17,19 +17,19 @@ public class CustomerOrder implements Serializable
 	private int OrderId;
 	
 	@OneToOne
-	@JoinColumn
+	@JoinColumn(name="custId")
 	private Customer customer;
 	
 	@OneToOne
-	@JoinColumn
+	@JoinColumn(name="bid")
 	private BillingAddress billingAddress;
 	
 	@OneToOne
-	@JoinColumn
+	@JoinColumn(name="shippingAddressId")
 	private ShippingAddress shippingAddress;
 	
 	@OneToOne
-	@JoinColumn
+	@JoinColumn(name="cartId")
 	private Cart cart;
 
 	public int getOrderId() {

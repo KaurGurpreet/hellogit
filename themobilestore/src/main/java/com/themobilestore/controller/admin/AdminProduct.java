@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +27,12 @@ import com.themobilestore.service.SupplierService;
 @Controller
 @RequestMapping("/admin")
 public class AdminProduct {
+	
+	Logger logger = Logger.getLogger(AdminProduct.class);
+	
+	public AdminProduct(){
+		logger.debug("CREATING INSTANCE FOR ADMINPRODUCT");
+	}
 	
 	@Autowired
     private ProductService productService;
@@ -124,15 +131,18 @@ public class AdminProduct {
 		return new Product();
 	}
 	
-	@RequestMapping(value="/editProduct/{pid }",method=RequestMethod.POST)
+	@RequestMapping(value="/editProduct",method=RequestMethod.POST)
 	public String editProductDetails(@Valid @ModelAttribute("product1") Product product, BindingResult result, HttpServletRequest request,Model model)
 	{
+		logger.debug("==============================================================");
+		
+		/*model.addAttribute(productService.getAllProducts());*/
 		model.addAttribute(cse.getCategories());
 		model.addAttribute(sse.getSuppliers());
 		if (result.hasErrors())
 			return "EditProductForm";
 		productService.editProduct(product);//(product);
-		
+		logger.debug("==========After editing the product ============");
 
 		MultipartFile prodImage = product.getImage();
 		if (!prodImage.isEmpty())

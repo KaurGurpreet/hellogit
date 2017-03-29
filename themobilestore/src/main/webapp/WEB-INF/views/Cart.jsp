@@ -31,13 +31,7 @@
 td {
 	background-color: whitesmoke
 } 
- 
-/*th {
-	cursor: pointer;
-	text-align: center;
-	font-size: 20px;
-	background-color: #EFBBCC /* #92A1CF; */
-}*/
+
 </style>
 
 <script>
@@ -91,12 +85,8 @@ td {
 						<tr ng-repeat="cartItem in cart.cartItems">
 							<td>{{cartItem.product.name}}</td>
 							<td>{{cartItem.quantity}}</td>
-							<!-- <td>
-								<input type="number" class="form-control text-center" value="1">
-							</td> -->
-							<!-- <td><select><option>{{cartItem.quantity}}</option></select></td> -->
 							<td>{{cartItem.totalPrice}}</td>
-							<td><a href="#" ng-click="removeFromCart(cartItem.id)"> 
+							<td><a href="#" ng-click="removeFromCart(cartItem.cartItemId)"> 
 							<!-- <span class="glyphicon glyphicon-remove"></span> -->
 						    <!-- <span class="badge"> 
 							<span class="glyphicon glyphicon-remove"></span></span> -->

@@ -31,7 +31,7 @@
 		<div
 			class="col-xs-6 col-sm-4 col-md-6 col-sm-offset-4 col-md-offset-3 well">
 			<div class="container"><br><br>
-				<c:url value="/admin/editProduct/${pid }" var="url"></c:url>
+				<c:url value="/admin/editProduct" var="url"></c:url>
 				<form:form action="${url }" commandName="product1" enctype="multipart/form-data" method="post">
 
 					<div class="form-group">

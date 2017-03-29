@@ -90,7 +90,7 @@
          <li><a href="<c:url value="/addSupplier" />">Supplier</a></li>
         </c:if> 
          
-         <li><a href="<c:url value="/cart/getCartId"></c:url>">Cart</a></li>
+         <%-- <li><a href="<c:url value="/cart/getCartId"></c:url>">Cart</a></li> --%>
          
          <li><a href="<c:url value="/AboutUs" />">About Us</a></li>
         </ul>
@@ -105,10 +105,10 @@
          <li><a href="<c:url value="/admin"/>">Admin</a></li> 
          </c:if> 
          
-         <%-- <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+         <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
           <li><a href="<c:url value="/cart/getCartId" />"> <!--  Cart</a></li> -->
           <span class="glyphicon glyphicon-shopping-cart"></span> Your Cart</a></li>
-         </c:if> --%>
+         </c:if>
          
          </c:if>
          <c:if test="${pageContext.request.userPrincipal.name == null}">

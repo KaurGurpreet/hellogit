@@ -59,7 +59,7 @@ public class ProductDaoImpl implements ProductDao {
         public Product editProduct(Product product) {
         //System.out.println(product.getPid());
         	System.out.println("Id of the product in dao is " + product.getPid());
-		Session session=sessionFactory.getCurrentSession();
+		Session session=sessionFactory.openSession();
 		
 		session.update(product);//update(product);
 		session.flush();

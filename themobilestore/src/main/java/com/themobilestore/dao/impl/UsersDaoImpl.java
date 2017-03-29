@@ -33,12 +33,12 @@ public class UsersDaoImpl implements UsersDao
 	}*/
 
 	public Users saveOrUpdate(Users users) {
-		System.out.println(users.getId());
+		System.out.println(users.getUsersId());
 		Session session=sessionFactory.openSession();
 		session.saveOrUpdate(users);
 		session.flush();
 		session.close();
-		System.out.println(users.getId());
+		System.out.println(users.getUsersId());
 		return users;
 	}
 

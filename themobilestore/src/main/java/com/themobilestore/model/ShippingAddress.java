@@ -13,19 +13,19 @@ public class ShippingAddress implements Serializable
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-    private int id;
+    private int shippingAddressId;
     private String aptNo;
     private String streetName;
 	private String city;
     private String State;
     private String country;
     private String zipcode;
-      
-	public int getId() {
-		return id;
+    
+	public int getShippingAddressId() {
+		return shippingAddressId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setShippingAddressId(int shippingAddressId) {
+		this.shippingAddressId = shippingAddressId;
 	}
 	public String getAptNo() {
 		return aptNo;

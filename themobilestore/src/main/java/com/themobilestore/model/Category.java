@@ -23,7 +23,7 @@ public class Category implements Serializable
 	private int stock;
 	
 	/*@OneToMany(mappedBy="category", cascade = CascadeType.ALL, fetch = FetchType.EAGER)*/
-	@OneToMany(mappedBy="category")
+	@OneToMany(mappedBy="category", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
 	@JsonIgnore
 	private List<Product> products;
 		

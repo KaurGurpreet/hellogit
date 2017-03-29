@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -19,10 +20,11 @@ public class Cart implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private int cartId;
 	private double grandTotal;
 	@OneToOne
 	@JsonIgnore
+	@JoinColumn(name = "custId")
 	private Customer customer;
 
 	@OneToMany(mappedBy="cart",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
@@ -36,12 +38,12 @@ public class Cart implements Serializable{
 		this.cartItems = cartItems;
 	}
 
-	public int getId() {
-		return id;
+	public int getCartId() {
+		return cartId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
 	}
 
 	public double getGrandTotal() {

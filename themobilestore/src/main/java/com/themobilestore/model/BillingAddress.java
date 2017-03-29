@@ -12,7 +12,7 @@ public class BillingAddress implements Serializable
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-    private int id;
+    private int bid;
     private String aptNo;
     private String streetName;
 	private String city;
@@ -20,13 +20,12 @@ public class BillingAddress implements Serializable
     private String country;
     private String zipcode;
      
-	public int getId() {
-		return id;
+	public int getBid() {
+		return bid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setBid(int bid) {
+		this.bid = bid;
 	}
-
 	public String getAptNo() {
 		return aptNo;
 	}

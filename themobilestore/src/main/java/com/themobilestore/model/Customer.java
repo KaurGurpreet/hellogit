@@ -19,7 +19,7 @@ public class Customer implements Serializable
 {
    @Id
    @GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private int custId;
    @NotEmpty(message="Please enter firstname")
    
 	private String firstname;
@@ -33,47 +33,29 @@ public class Customer implements Serializable
    @NotEmpty(message="Please enter phone number")
    @Length(max=10,min=10)
 	private String phonenumber;
-   
-   /*@NotEmpty(message="Please enter username")
-   @Column(unique=true)
-	private String username;
-   @NotEmpty(message="Please enter password")
-   	private String password;*/
-	
-	/*@OneToOne
-	@JoinColumn(name="userid")
-	private Users users;*/
-   
-	/*@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="bid")
-	private BillingAddress billingAddress;
-	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="shipId")
-	private ShippingAddress shippingAddress;*/
 	
    @OneToOne(cascade=CascadeType.ALL)
-   @JoinColumn(name="id")
+   @JoinColumn(name="usersId")
    private Users users;
 	
    @OneToOne(cascade=CascadeType.ALL)
-   @JoinColumn(name="id")
+   @JoinColumn(name="bid")
    private BillingAddress billingAddress;
 
    @OneToOne(cascade=CascadeType.ALL)
-   @JoinColumn(name="id")
+   @JoinColumn(name="shippingAddressId")
    private ShippingAddress shippingAddress;
    
 	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="id")
+	@JoinColumn(name="cartId")
 	private Cart cart;
 		
-	public int getId() {
-		return id;
+	public int getCustId() {
+		return custId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setCustId(int custId) {
+		this.custId = custId;
 	}
 
 	public String getFirstname() {

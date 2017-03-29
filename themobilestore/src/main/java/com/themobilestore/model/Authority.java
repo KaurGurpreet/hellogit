@@ -13,18 +13,17 @@ public class Authority implements Serializable
 {
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private int aid;
 	/*@Column(unique=true)*/
     private String username;
     private String role;
-    
-	public int getId() {
-		return id;
+    	
+	public int getAid() {
+		return aid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setAid(int aid) {
+		this.aid = aid;
 	}
-	
 	public String getUsername() {
 		return username;
 	}

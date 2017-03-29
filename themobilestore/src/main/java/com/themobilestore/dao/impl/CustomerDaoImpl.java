@@ -50,7 +50,7 @@ public class CustomerDaoImpl implements CustomerDao
 		cart.setCustomer(customer);//update cart set customer_id=? , grandtotal=? where cart_id=?
 		
 		Session session=sessionFactory.openSession();
-		System.out.println(customer.getId());
+		System.out.println("Customer Id is "+customer.getCustId());
 		session.save(customer);
 		session.saveOrUpdate(authority);
 		session.saveOrUpdate(cart);

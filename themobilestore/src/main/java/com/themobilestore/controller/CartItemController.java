@@ -60,15 +60,15 @@ public class CartItemController
 	@RequestMapping(value="/cart/addCartItem/{pid}",method=RequestMethod.POST)
 	@ResponseStatus(value=HttpStatus.NO_CONTENT)
 	public void addCartItem(@PathVariable(value="pid") int productId){
-	User user=
-	(User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	User user=(User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
 	String username=user.getUsername();
 	Customer customer=customerService.getCustomerByUsername(username);//from Users where username=?
 	Cart cart=customer.getCart();
+	Product product = productService.getProductById(productId);
 	List<CartItem> cartItems= cart.getCartItems();
 
-	Product product = productService.getProductById(productId);
+	/*Product product = productService.getProductById(productId);*/
 		
 		for (int i = 0; i <cartItems.size(); i++) 
 		{
