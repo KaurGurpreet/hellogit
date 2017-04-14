@@ -12,7 +12,7 @@ public interface CategoryDao
 	
 	/*public Category get(int id);
 	
-	public Category getByName(String name);
+	public Category getByName(String name);*/
 	
-    public void delete(int cid);*/
+    public void delete(int cid);
 }

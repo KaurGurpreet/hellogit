@@ -1,5 +1,5 @@
 package com.themobilestore.dao.impl;
-/*package com.themobilestore.dao;
+
 
 import java.util.List;
 
@@ -9,6 +9,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.themobilestore.dao.BillingDao;
 import com.themobilestore.model.BillingAddress;
 
 
@@ -48,4 +50,3 @@ public class BillingDaoImpl implements BillingDao
 	
 	
 }
-*/

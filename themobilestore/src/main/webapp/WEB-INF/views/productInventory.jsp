@@ -68,6 +68,8 @@ td {
         <th width="100">Quantity</th>
         
         <th width="100">Category</th>
+        
+        <th width="100">Supplier</th>
                 
         <th width="100">View</th>
         
@@ -94,6 +96,7 @@ td {
 			<td>${pd.price }</td>
 			<td>${pd.quantity }
 			<td>${pd.category.cname }</td>
+			<td>${pd.supplier.supname }</td>
             <td>
                     <c:url var="url" value="/viewproduct/${pd.pid }"></c:url>  
 					<a href="${url }"><span class="glyphicon glyphicon-info-sign"></span></a> 

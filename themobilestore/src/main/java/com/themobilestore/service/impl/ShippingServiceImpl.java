@@ -1,5 +1,4 @@
 package com.themobilestore.service.impl;
-/*package com.themobilestore.service;
 
 import java.util.List;
 
@@ -8,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.themobilestore.dao.ShippingDao;
 import com.themobilestore.model.ShippingAddress;
+import com.themobilestore.service.ShippingService;
 
 @Service
 public class ShippingServiceImpl implements ShippingService {
@@ -24,4 +24,3 @@ public class ShippingServiceImpl implements ShippingService {
 	}
 
 }
-*/

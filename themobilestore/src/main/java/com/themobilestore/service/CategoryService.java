@@ -9,6 +9,6 @@ public interface CategoryService
 	public Category saveOrUpdate(Category category);
 	List<Category> getCategories();
 	/*public Category get(int id);
-	public void delete(int cid);
 	public Category getByName(String name);*/
+	public void delete(int cid);
 }

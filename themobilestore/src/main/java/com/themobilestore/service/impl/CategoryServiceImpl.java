@@ -23,27 +23,15 @@ public class CategoryServiceImpl implements CategoryService
 		return categoryDao.getCategories();
 	}
 
-
-	/*public Category get(int id)
-	{
-		return categoryDao.get(id);
-	}*/
-
 	public Category saveOrUpdate(Category category)
 	{
 		return categoryDao.saveOrUpdate(category);
 		
 	}
-
-	/*public void delete(int cid) {
-	 
+	
+	public void delete(int cid) {
+		 
 		categoryDao.delete(cid);
 		
 	}
-	
-   public Category getByName(String name) {
-		
-		return categoryDao.getByName(name);
-	}*/
-	
 }

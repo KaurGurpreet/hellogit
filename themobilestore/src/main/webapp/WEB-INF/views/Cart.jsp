@@ -81,7 +81,8 @@ td {
 
 							</tr>
 						</thead>
-                      
+                        
+                        <tbody>
 						<tr ng-repeat="cartItem in cart.cartItems">
 							<td>{{cartItem.product.name}}</td>
 							<td>{{cartItem.quantity}}</td>
@@ -93,14 +94,16 @@ td {
 						    <span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span>
 							</a></td>
 						</tr>
+						</tbody>
 						
+						<thead>
 					     <tr class="bg-success">
 						 <th></th>
 						 <th></th>
 						 <th>Grand Total</th>
 						 <th>{{calculateGrandTotal()}}</th>
 						 </tr> 
-
+                        </thead>
 					</table>
 					
 				</div>

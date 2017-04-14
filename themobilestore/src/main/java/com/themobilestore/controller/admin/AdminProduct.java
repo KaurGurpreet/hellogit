@@ -28,11 +28,11 @@ import com.themobilestore.service.SupplierService;
 @RequestMapping("/admin")
 public class AdminProduct {
 	
-	Logger logger = Logger.getLogger(AdminProduct.class);
-	
-	public AdminProduct(){
-		logger.debug("CREATING INSTANCE FOR ADMINPRODUCT");
-	}
+//	Logger logger = Logger.getLogger(AdminProduct.class);
+//	
+//	public AdminProduct(){
+//		logger.debug("CREATING INSTANCE FOR ADMINPRODUCT");
+//	}
 	
 	@Autowired
     private ProductService productService;
@@ -89,8 +89,6 @@ public class AdminProduct {
 				e.printStackTrace();
 			}
 		}
-
-		/*return "redirect:/getAllProducts";*/
 		
 		return "redirect:/admin/productInventory";
 	}
@@ -100,7 +98,6 @@ public class AdminProduct {
 	{
 		System.out.println("Product Id Controller = "+pid);
 		productService.deleteProduct(pid);
-		/*return "redirect:/getAllProducts";*/
 		
 		return "redirect:/admin/productInventory";
 	}
@@ -112,37 +109,32 @@ public class AdminProduct {
 	@RequestMapping("/editform/{pid}")
 	public String editProductForm(@PathVariable int pid, Model model) {
 		System.out.println("Product Id Controller = "+pid);
-		
-		/*Product product = productService.getProductById(pid);*/
-		/*System.out.println("Product called after service  = "+ product.getPid());*/
-		
+				
 		model.addAttribute("product1", productService.getProductById(pid));
 		System.out.println("Product id in editform = " +pid);
-		/*model.addAttribute("product",productService.getProductById(pid));*/
 		model.addAttribute("categoryList", cse.getCategories());
 		model.addAttribute("supplierList", sse.getSuppliers());
-		/*model.addAttribute("productList", productService.getAllProducts());*/
+
 		return "EditProductForm";
 	}
 
-	@ModelAttribute("product1")
-	public Product abc()
-	{
-		return new Product();
-	}
 	
-	@RequestMapping(value="/editProduct",method=RequestMethod.POST)
-	public String editProductDetails(@Valid @ModelAttribute("product1") Product product, BindingResult result, HttpServletRequest request,Model model)
+	@RequestMapping(value="/editProduct/{pid}", method=RequestMethod.POST)
+	public String editProductDetails(@Valid @ModelAttribute("product1") Product product,  BindingResult result,@PathVariable("pid") String pid,Model model)
 	{
-		logger.debug("==============================================================");
 		
-		/*model.addAttribute(productService.getAllProducts());*/
-		model.addAttribute(cse.getCategories());
-		model.addAttribute(sse.getSuppliers());
+		/*logger.debug("=======================INSIDE EDITPRODUCTDETAILS METHOD=======================================");*/
+		
+		System.out.println("product id  path variable = "+pid);
+		System.out.println("Product Id in edit product method is "+product.getPid());
+		
 		if (result.hasErrors())
+		{
+			System.out.println(result.getFieldError());
 			return "EditProductForm";
+		}	
 		productService.editProduct(product);//(product);
-		logger.debug("==========After editing the product ============");
+		/*logger.debug("=============After editing the product ============");*/
 
 		MultipartFile prodImage = product.getImage();
 		if (!prodImage.isEmpty())
@@ -167,36 +159,6 @@ public class AdminProduct {
 		
 		return "redirect:/admin/productInventory";
 		
-/*		if (result.hasErrors())
-		{
-			System.out.println(result.getFieldError());
-			return "EditProductForm";
-		}
-		
-		System.out.println("Product Id in edit product method is "+product.getPid());
-
-		MultipartFile prodImage = product.getImage();
-		if (!prodImage.isEmpty())
-		{
-			Path paths = 
-				Paths.get("C:/Users/gurpr_000/git/hellogit/themobilestore/src/main/webapp/WEB-INF/resources/images/" + product.getPid() + ".jpg");
-			try
-			{
-				prodImage.transferTo(new File(paths.toString()));
-			} 
-			catch (IllegalStateException e)
-			{
-				e.printStackTrace();
-			} catch (IOException e)
-			{
-				e.printStackTrace();
-			}
-		}
-		
-        productService.editProduct(product);
-		return "redirect:/getAllProducts";
-        
-        return "redirect:/admin/productInventory";*/
 	}
 
 }

@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ include file="template/header.jsp"%>
+<%@ page isELIgnored="false" %>
 <html>
 
 <meta charset="utf-8">
@@ -31,13 +32,13 @@
 		<div
 			class="col-xs-6 col-sm-4 col-md-6 col-sm-offset-4 col-md-offset-3 well">
 			<div class="container"><br><br>
-				<c:url value="/admin/editProduct" var="url"></c:url>
+				<c:url value="/admin/editProduct/${pid }" var="url"></c:url>
 				<form:form action="${url }" commandName="product1" enctype="multipart/form-data" method="post">
 
 					<div class="form-group">
 						<label for="pid">Product ID</label>
 						<form:input path="pid" class="form-control" disabled="true" />
-						<form:errors path="pid" cssStyle="color:#ff0000"></form:errors>
+						<%-- <form:errors path="pid" cssStyle="color:#ff0000"></form:errors> --%>
 					</div>
 
 
@@ -65,7 +66,7 @@
 						<form:errors path="quantity" cssStyle="color:#ff0000"></form:errors>
 					</div>
 
-					<div class="form-group">
+				 <div class="form-group">
 						<label for="category">Category</label>
 						<!-- List<Category> c =model.getAttribute("categories");
                                 out.println(c.id)

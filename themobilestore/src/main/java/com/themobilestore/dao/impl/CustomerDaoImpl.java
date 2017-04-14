@@ -41,6 +41,12 @@ public class CustomerDaoImpl implements CustomerDao
 		authority.setUsername(username);
 		authority.setRole(role);	
 		
+		Users users =new Users();
+		users.setUsersId(customer.getCustId());
+		users.setUsername(username);
+		customer.getUsers();
+		customer.setUsers(users);
+		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		customer.getUsers().setPassword(encoder.encode(password));
 		customer.getUsers().setEnabled(true);
@@ -49,11 +55,17 @@ public class CustomerDaoImpl implements CustomerDao
 		customer.setCart(cart);
 		cart.setCustomer(customer);//update cart set customer_id=? , grandtotal=? where cart_id=?
 		
-		Session session=sessionFactory.openSession();
+		customer.getBillingAddress().setCustomer(customer);
+        customer.getShippingAddress().setCustomer(customer);
+        
+        Session session=sessionFactory.openSession();
+        session.saveOrUpdate(customer.getBillingAddress());
+        session.saveOrUpdate(customer.getShippingAddress());
 		System.out.println("Customer Id is "+customer.getCustId());
-		session.save(customer);
+		session.saveOrUpdate(users);
 		session.saveOrUpdate(authority);
 		session.saveOrUpdate(cart);
+		session.saveOrUpdate(customer);
 		session.flush();
 		session.close();
 		/*System.out.println(customer.getId());*/

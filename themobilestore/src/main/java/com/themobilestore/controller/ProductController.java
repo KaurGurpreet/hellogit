@@ -114,16 +114,19 @@ public class ProductController {
 	    return "ViewProduct";
 	}
 	
-	
 	@RequestMapping("/productList")
+
     public String getProductByCategory(@RequestParam("searchCondition") String searchCondition, Model model){
+
         List<Product> products = productService.getAllProducts();
+
         model.addAttribute("productList", products);
+
         model.addAttribute("searchCondition", searchCondition);
 
         return "ProductList";
+
     }
-	
 		
 	/*@RequestMapping("/deleteproduct/{pid}")
 	public String deleteProduct(@PathVariable int pid)

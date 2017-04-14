@@ -60,6 +60,8 @@ td {
         <th width="100">Quantity</th>
         
         <th width="100">Category</th>
+        
+        <th width="100">Supplier</th>
                 
         <th width="100">View</th>
         
@@ -81,6 +83,7 @@ td {
 			<td>${p.price }</td>
 			<td>${p.quantity }
 			<td>${p.category.cname }</td>
+			<td>${p.supplier.supname }</td>
             <!--  <td><img src="./resources/images/{{ product.path}}.jpg" class="img-thumbnail" alt="image" width="80" height="80"/></td> -->
             <!-- <td><a href="#">View More</a></td> -->
             <td>

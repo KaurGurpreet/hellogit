@@ -44,22 +44,6 @@ public class SupplierDaoImpl implements SupplierDao
 			return suppliers;
 	    }
 		
-		/*public Supplier get(int id)
-		{
-			String hql = "from Supplier where sid=?";
-			Query query = sessionFactory.openSession().createQuery(hql);
-			query.setInteger(0, id);
-			@SuppressWarnings("unchecked")
-			List<Supplier> listSupplier = (List<Supplier>) query.list();
-			if (listSupplier != null && !listSupplier.isEmpty()) {
-				return listSupplier.get(0);
-			}
-			else
-			{
-				return null;			
-			}
-
-		}*/
 		
 		public Supplier saveOrUpdate(Supplier supplier)
 		{
@@ -72,29 +56,5 @@ public class SupplierDaoImpl implements SupplierDao
 			return supplier;	
 		}
 		
-		/*public void delete(int id) {
-			Supplier SupplierToDelete = new Supplier();
-			SupplierToDelete.setSid(id);
-			sessionFactory.openSession().delete(SupplierToDelete);
-			
-		}*/
-		
-		/*public Supplier getByName(String name) {
-			String hql="from Supplier where supname=?";
-			Query query=sessionFactory.openSession().createQuery(hql);
-			query.setString(0, name);
-			
-			@SuppressWarnings("unchecked")
-			List<Supplier> listSupplier=(List<Supplier>) query.list();
-			if(listSupplier!=null && !listSupplier.isEmpty()){
-				
-				return listSupplier.get(0);
-			}
-			else{
-				
-				return null;
-			}
-			
-		}*/
 
 }

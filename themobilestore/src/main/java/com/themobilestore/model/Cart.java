@@ -22,6 +22,7 @@ public class Cart implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int cartId;
 	private double grandTotal;
+	
 	@OneToOne
 	@JsonIgnore
 	@JoinColumn(name = "custId")

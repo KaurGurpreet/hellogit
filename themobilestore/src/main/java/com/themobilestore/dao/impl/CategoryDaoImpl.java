@@ -49,40 +49,7 @@ public class CategoryDaoImpl implements CategoryDao
 		System.out.println(category.getCid());
 		return category;
 		
-	}
-	
-	/*public Category get(int id) {
-		String hql = "from Category where cid=?";
-		Query query = sessionFactory.openSession().createQuery(hql);
-		query.setInteger(0, id);
-		@SuppressWarnings("unchecked")
-		List<Category> categories = (List<Category>) query.list();
-		if (categories != null && !categories.isEmpty()) {
-			return categories.get(0);
-		}
-		else
-		{
-			return null;			
-		}
-
-     }
-	
-	public Category getByName(String name) {
-		String hql="from Category where cname=?";
-		Query query=sessionFactory.openSession().createQuery(hql);
-		query.setString(0, name);
-		@SuppressWarnings("unchecked")
-		List<Category> categories=(List<Category>) query.list();
-		if (categories != null && !categories.isEmpty()) {
-			return categories.get(0);
-		}
-		else
-		{
-			return null;			
-		}
-
-	}
-	
+	}	
 	
 	public void delete(int cid) {
 		Session session=sessionFactory.openSession();
@@ -91,6 +58,6 @@ public class CategoryDaoImpl implements CategoryDao
 		session.delete(category);
 		session.flush();
 		session.close();
-	}*/		
+	}
 
 }

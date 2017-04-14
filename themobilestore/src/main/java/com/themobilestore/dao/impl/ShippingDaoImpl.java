@@ -1,5 +1,4 @@
 package com.themobilestore.dao.impl;
-/*package com.themobilestore.dao;
 
 import java.util.List;
 
@@ -9,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.themobilestore.dao.ShippingDao;
 import com.themobilestore.model.ShippingAddress;
 
 @Repository
@@ -32,13 +33,13 @@ public class ShippingDaoImpl implements ShippingDao {
 	}
 
 	public ShippingAddress saveOrUpdate(ShippingAddress shipping) {
-		System.out.println(shipping.getShipId());
+		System.out.println(shipping.getShippingAddressId());
 		Session session=sessionFactory.openSession();
 		session.saveOrUpdate(shipping);
 		session.flush();
 		session.close();
-		System.out.println(shipping.getShipId());
+		System.out.println(shipping.getShippingAddressId());
 		return shipping;
 	}
 
-}*/
+}

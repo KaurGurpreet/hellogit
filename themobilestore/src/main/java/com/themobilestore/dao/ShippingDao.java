@@ -1,4 +1,4 @@
-/*package com.themobilestore.dao;
+package com.themobilestore.dao;
 
 import java.util.List;
 
@@ -10,4 +10,4 @@ public interface ShippingDao
 	List<ShippingAddress> getShipping();
 	public ShippingAddress saveOrUpdate (ShippingAddress shipping);
 	
-}*/
+}

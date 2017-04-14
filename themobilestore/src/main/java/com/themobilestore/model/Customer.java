@@ -14,6 +14,8 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Customer implements Serializable
 {
@@ -34,20 +36,21 @@ public class Customer implements Serializable
    @Length(max=10,min=10)
 	private String phonenumber;
 	
-   @OneToOne(cascade=CascadeType.ALL)
+   @OneToOne
    @JoinColumn(name="usersId")
    private Users users;
 	
-   @OneToOne(cascade=CascadeType.ALL)
+   @OneToOne
    @JoinColumn(name="bid")
    private BillingAddress billingAddress;
 
-   @OneToOne(cascade=CascadeType.ALL)
+   @OneToOne
    @JoinColumn(name="shippingAddressId")
    private ShippingAddress shippingAddress;
    
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name="cartId")
+	@JsonIgnore
 	private Cart cart;
 		
 	public int getCustId() {

@@ -27,7 +27,7 @@ public class Supplier implements Serializable
     private String supproduct;
 	
     /*@OneToMany(mappedBy="supplier", cascade = CascadeType.ALL, fetch = FetchType.EAGER)*/
-    @OneToMany(mappedBy="supplier")
+    @OneToMany(mappedBy="supplier", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Product> products;
 	
@@ -95,5 +95,9 @@ public class Supplier implements Serializable
 		this.products = products;
 	}
 
+	/*@Override
+	public String toString() {
+		return this.supname + " " + this.supname;
+	}*/
 	
 }
