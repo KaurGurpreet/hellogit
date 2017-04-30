@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.themobilestore.dao.CategoryDao;
 import com.themobilestore.model.Category;
 
+
 @Repository
 @Transactional
 public class CategoryDaoImpl implements CategoryDao
@@ -58,6 +59,23 @@ public class CategoryDaoImpl implements CategoryDao
 		session.delete(category);
 		session.flush();
 		session.close();
+	}
+
+	public Category editCategory(Category category) {
+		System.out.println("Id of the category in dao is " + category.getCid());
+		Session session=sessionFactory.openSession();
+		
+		session.update(category);//update(product);
+		session.flush();
+		session.close();
+		return category;
+	}
+
+	public Category get(int id) {
+		Session session=sessionFactory.openSession();
+		Category category=(Category)session.get(Category.class, id);
+	  	session.close();
+	  	return category;
 	}
 
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.themobilestore.dao.CartDao;
 import com.themobilestore.dao.CustomerOrderDao;
 import com.themobilestore.model.Cart;
 import com.themobilestore.model.CartItem;
@@ -21,6 +22,9 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	@Autowired
+	private CartDao cartDao;
 		
 	/*public void addCustomerOrder(Cart cart) {
         
@@ -39,14 +43,30 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao {
         session.saveOrUpdate(customerOrder);
         session.flush();
         session.close();
+		}
+	
+	public double getCustomerOrderGrandTotal(int cartId)
+	{
+		double grandTotal=0;
 		
+		Cart cart = cartDao.getCart(cartId);
+		List<CartItem> cartItems = cart.getCartItems();
+		
+		for(CartItem item:cartItems )
+		{
+			grandTotal += item.getTotalPrice();
+		}
+		return grandTotal;
 	}
 }
 		
 		
 		
 		
-		/*CustomerOrder customerOrder=new CustomerOrder();
+		
+
+
+      /*CustomerOrder customerOrder=new CustomerOrder();
 		customerOrder.setCart(cart);
 		customerOrder.setCustomer(cart.getCustomer());
 		customerOrder.setBillingAddress(cart.getCustomer().getBillingAddress());

@@ -18,7 +18,9 @@
             <p class="lead">Customer Details:</p>
         </div>
 
-        <form:form commandName="order" class="form-horizontal">
+        <%-- <form:form commandName="order" class="form-horizontal"> --%>
+        
+        <form:form modelAttribute="order" class="form-horizontal">
 
         <h3>Basic Info:</h3>
 

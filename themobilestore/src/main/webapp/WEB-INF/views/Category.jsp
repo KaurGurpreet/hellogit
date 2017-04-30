@@ -82,16 +82,19 @@
 							<td>${c.cid}</td>
 							<td>${c.cname}</td>
 							<td>${c.stock}</td> 
-						    <td><a href="<c:url value="/category/edit/${c.cid }" />">
-					        <span class="glyphicon glyphicon-pencil">Edit</span></a></td>
+						    <td><a href="<c:url value="/editCategoryForm/${c.cid}" />">
+					        <span class="glyphicon glyphicon-pencil"></span></a></td>
 					        <td><a href="<c:url value="/category/remove/${c.cid }" />">
-					        <span class="glyphicon glyphicon-trash">Delete</span></a></td>
+					        <span class="glyphicon glyphicon-trash"></span></a></td>
 						
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-</div>
+
+ </div>
+ <br><br><br><br>
+
 </div>
 
 <%@ include file="/WEB-INF/views/template/footer.jsp" %> 

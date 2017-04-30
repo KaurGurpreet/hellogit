@@ -34,4 +34,12 @@ public class CategoryServiceImpl implements CategoryService
 		categoryDao.delete(cid);
 		
 	}
+
+	public Category editCategory(Category category) {
+		return categoryDao.editCategory(category);
+	}
+
+	public Category get(int id) {
+		return categoryDao.get(id); 
+	}
 }

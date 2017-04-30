@@ -23,8 +23,8 @@ private CartDao cartDao;
 		cartDao.update(cart);
 	}
 
-	/*public Cart validate(int cartId) throws IOException {
+	public Cart validate(int cartId) throws IOException {
 		return cartDao.validate(cartId);
-	}*/
+	}
 
 }

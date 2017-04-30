@@ -7,7 +7,7 @@ public interface CustomerOrderService
 	/*public void addCustomerOrder(Cart cart);*/
 	
 	void addCustomerOrder(CustomerOrder customerOrder);
-
-    double getCustomerOrderGrandTotal(int cartId);
+    
+    public double getCustomerOrderGrandTotal(int cartId);
 
 }

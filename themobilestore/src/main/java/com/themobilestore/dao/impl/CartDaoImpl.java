@@ -25,22 +25,16 @@ public class CartDaoImpl implements CartDao{
 	public Cart getCart(int cartId)
 	{
 		System.out.println("Cart id in CartDaoImpl "+cartId);
-		Session session=sessionFactory.openSession();
+		/*Session session=sessionFactory.openSession();
 		Cart cart=(Cart)session.get(Cart.class, cartId);
 		session.close();
-		return cart;
+		return cart;*/
+		
+		Session session=sessionFactory.openSession();
+		return (Cart) session.get(Cart.class, cartId);
 	}
 	
-	public void update(Cart cart) {
-		int cartId = cart.getCartId();
-		double grandTotal = customerOrderService.getCustomerOrderGrandTotal(cartId);
-		cart.setGrandTotal(grandTotal);
-		
-		Session session = sessionFactory.openSession();
-		session.saveOrUpdate(cart);
-		session.flush();
-		session.close();	
-	}
+	
 
 	public Cart validate(int cartId) throws IOException
 	{
@@ -53,6 +47,19 @@ public class CartDaoImpl implements CartDao{
 		return cart;
 	}
 
+	public void update(Cart cart)
+	{
+		int cartId = cart.getCartId();
+		double grandTotal = customerOrderService.getCustomerOrderGrandTotal(cartId);
+		cart.setGrandTotal(grandTotal);
+		
+		Session session = sessionFactory.openSession();
+		/*session.saveOrUpdate(cart);
+		session.flush();*/
+		
+		session.merge(cart);
+		session.close();	
+	}
 	
 
 }

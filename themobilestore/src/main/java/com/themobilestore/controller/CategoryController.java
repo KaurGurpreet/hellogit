@@ -1,5 +1,10 @@
 package com.themobilestore.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +14,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.themobilestore.model.Category;
+import com.themobilestore.model.Product;
 import com.themobilestore.service.CategoryService;
 
 @Controller
@@ -80,6 +89,32 @@ public class CategoryController
 			model.addAttribute("categoryList", cse.getCategories());
 			return "addCategory";
 		}*/
+		
+		@RequestMapping("/editCategoryForm/{cid}")
+		public String editCategoryForm(@PathVariable int cid, Model model) {
+			System.out.println("Category Id in Category Controller = " + cid);
+					
+			model.addAttribute("categorycommand", cse.get(cid));
+			System.out.println("Category id in editCategoryForm = " + cid);
+			model.addAttribute("categoryList", cse.getCategories());
+			return "EditCategoryForm";
+		}
+		
+		@RequestMapping(value="/editCategory/{cid}", method=RequestMethod.POST)
+		public String editCategoryDetails(@Valid @ModelAttribute("categorycommand") Category category,  BindingResult result,@PathVariable("cid") int cid, Model model)
+		{
+			System.out.println("Category Id in edit category method is "+ category.getCid());
+			
+			if (result.hasErrors())
+			{
+				System.out.println(result.getFieldError());
+				return "EditCategoryForm";
+			}	
+			cse.editCategory(category);
+
+			return "redirect:/addCategory";
+			
+		}
 }
 
 

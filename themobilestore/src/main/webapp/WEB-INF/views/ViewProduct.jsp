@@ -1,4 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>
 <%@ include file="template/header.jsp"%>
 <html>
 <meta charset="utf-8">
@@ -45,25 +47,56 @@
 
                </div>
                
-</div>
+          </div>
 <br><br>
 
                   <%--  <c:if test="${role='ROLE_ADMIN'}">
                         <c:set var="url" value="/admin/productform" />
                    </c:if> --%>
-
-<c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+                   
+                   <%-- <c:set var = "role" scope="page" value="${param.role}" />
+                    <c:set var = "url" scope="page" value="/getAllProducts" />
+                    <c:if test="${role='admin'}">
+                        <c:set var="url" scope="page" value="/admin/productInventory" />
+                    </c:if> --%>
+                    
+<c:if test="${pageContext.request.userPrincipal.name != null}">
 <div class="container" ng-controller="ProductController">
- <%-- <c:url value="/addCartItem/${product.pid }" var="url"></c:url> --%>
+        <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+        <c:url value="/addCartItem/${product.pid }" var="url"></c:url>
+        <a href="#" ng-click="addToCart(${product.pid })"  class="btn btn-warning btn-lg">
+        <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a>
+        </c:if>          
+               
+        <%-- <c:if test="${pageContext.request.userPrincipal.name == 'admin'}"> --%>
+         <a href="<c:url value="/getAllProducts" />"  class="btn btn-success btn-lg active">
+         <span class="glyphicon glyphicon-backward"></span> View More Products</a>
+         <%-- </c:if>  --%>
+         
+          <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+          <%-- <a href="<c:url value="/cart/getCartId" />" class="btn btn-danger btn-lg"> --%>
+           <a href="<c:url value="/cart/getCartId" />" class="btn btn-primary btn-lg active"> 
+          <span class="glyphicon glyphicon-hand-right"></span> View Cart</a> 
+          </c:if>
+  </div>  
+</c:if>
+
+
+<%-- <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+<div class="container" ng-controller="ProductController">
+ <c:url value="/addCartItem/${product.pid }" var="url"></c:url>
 <a href="#" ng-click="addToCart(${product.pid })"  class="btn btn-warning btn-lg">
           <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a>
+          
           <a href="<c:url value="/getAllProducts" />"  class="btn btn-success btn-lg active">
           <span class="glyphicon glyphicon-backward"></span> Continue Shopping</a>
-          <%-- <a href="<c:url value="/cart/getCartId" />" class="btn btn-danger btn-lg"> --%>
+          
+          <a href="<c:url value="/cart/getCartId" />" class="btn btn-danger btn-lg">
            <a href="<c:url value="/cart/getCartId" />" class="btn btn-primary btn-lg active"> 
           <span class="glyphicon glyphicon-hand-right"></span> View Cart</a>
 </div>
-</c:if>
+ </c:if> --%>
+ 
 </div>
 <br>
 </div>

@@ -8,7 +8,8 @@ public interface CategoryService
 {
 	public Category saveOrUpdate(Category category);
 	List<Category> getCategories();
-	/*public Category get(int id);
-	public Category getByName(String name);*/
+	public Category get(int id);
+	/*public Category getByName(String name);*/
 	public void delete(int cid);
+	Category editCategory(Category category);
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.themobilestore.dao.SupplierDao;
+import com.themobilestore.model.Category;
 import com.themobilestore.model.Supplier;
 
 @Repository
@@ -54,6 +55,33 @@ public class SupplierDaoImpl implements SupplierDao
 			session.close();
 			System.out.println(supplier.getSid());
 			return supplier;	
+		}
+
+		public void delete(int id) {
+			Session session=sessionFactory.openSession();
+			//Make the object persistent[read the data from the table and add it to session]
+			Supplier supplier = (Supplier)session.get(Supplier.class,id);
+			session.delete(supplier);
+			session.flush();
+			session.close();
+			
+		}
+
+		public Supplier get(int id) {
+			Session session=sessionFactory.openSession();
+			Supplier supplier=(Supplier)session.get(Supplier.class, id);
+		  	session.close();
+		  	return supplier;
+		}
+
+		public Supplier editSupplier(Supplier supplier) {
+			System.out.println("Id of the supplier in dao is " + supplier.getSid());
+			Session session=sessionFactory.openSession();
+			
+			session.update(supplier);//update(product);
+			session.flush();
+			session.close();
+			return supplier;
 		}
 		
 

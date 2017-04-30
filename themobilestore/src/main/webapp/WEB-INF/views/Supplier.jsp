@@ -115,8 +115,8 @@
 							<td>${sup.supemail}</td>
 							<td>${sup.brand}</td>
 							<td>${sup.supproduct}</td>
-						    <td><a href="<c:url value="/admin/supplier/edit/${sup.sid}" />"><span class="glyphicon glyphicon-pencil">Edit</span></a></td>
-							<td><a href="<c:url value="/admin/supplier/remove/${sup.sid}" />"><span class="glyphicon glyphicon-trash">Delete</span></a></td>  
+						    <td><a href="<c:url value="/supplier/edit/${sup.sid}" />"><span class="glyphicon glyphicon-pencil"></span></a></td>
+							<td><a href="<c:url value="/supplier/remove/${sup.sid}" />"><span class="glyphicon glyphicon-trash"></span></a></td>  
 						</tr>
 					</c:forEach>
 				</tbody>
