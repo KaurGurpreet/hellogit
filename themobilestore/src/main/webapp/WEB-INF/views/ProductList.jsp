@@ -1,4 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
@@ -69,6 +71,8 @@ td {
         <th width="100">Delete</th>
         <th width="100">Edit</th>
         </c:if>
+        <th width="100">Fav Product</th>
+        
         
       </tr>
     </thead>
@@ -84,12 +88,16 @@ td {
 			<td>${p.quantity }
 			<td>${p.category.cname }</td>
 			<td>${p.supplier.supname }</td>
+			
             <!--  <td><img src="./resources/images/{{ product.path}}.jpg" class="img-thumbnail" alt="image" width="80" height="80"/></td> -->
             <!-- <td><a href="#">View More</a></td> -->
             <td>
                     <c:url var="url" value="/viewproduct/${p.pid }"></c:url>  
 					<a href="${url }"><span class="glyphicon glyphicon-info-sign"></span></a> 
 			</td>
+			
+			<td><a href="<spring:url value="/product/favorite/${p.pid }" />"><img src="<c:url value="/resources/images/fav.png" />" /></a></td>
+			
 		    <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
 			<td>
 				    <c:url var="delete" value="/admin/deleteproduct/${p.pid }"></c:url> 
@@ -100,7 +108,9 @@ td {
 				    <c:url var="edit" value="/admin/editform/${p.pid }"></c:url>
 					<a href="${edit }"><span class="glyphicon glyphicon-pencil"></span></a>
 			</td>
+
 			</c:if>
+			
 		   </tr>
        </c:forEach>     
     </tbody>   

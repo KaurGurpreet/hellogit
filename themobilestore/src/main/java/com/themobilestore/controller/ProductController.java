@@ -1,28 +1,21 @@
 package com.themobilestore.controller;
 
-import java.io.File;
+
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-
-import com.themobilestore.model.Category;
 import com.themobilestore.model.Product;
-import com.themobilestore.model.Supplier;
 import com.themobilestore.service.CategoryService;
 import com.themobilestore.service.ProductService;
 import com.themobilestore.service.SupplierService;
@@ -37,6 +30,9 @@ public class ProductController {
 
 	@Autowired
 	private SupplierService sse;
+	
+	@Autowired
+	private JavaMailSender mailSender;
 
 	public ProductController() {
 		System.out.println("CREATING INSTANCE FOR PRODUCTCONTROLLER");
@@ -127,7 +123,46 @@ public class ProductController {
         return "ProductList";
 
     }
+	
+	@RequestMapping("/product/favorite/{pid}")
+    public String viewSendMailPage(@PathVariable int pid, Model model) throws IOException{
+    	Product product = productService.getProductById(pid);
+        model.addAttribute("product", product);
+
+        return "sendMail";
+    }
+    @RequestMapping(value="/product/sendEmail", method=RequestMethod.POST)
+    public String sendMail(HttpServletRequest request)
+    {
+    	try
+		{
+		String recipientAddress = request.getParameter("recipient");
+		String subject = request.getParameter("subject");
+		String message = request.getParameter("message");
 		
+		// prints debug info
+		System.out.println("To: " + recipientAddress);
+		System.out.println("Subject: " + subject);
+		System.out.println("Message: " + message);
+		
+		// creates a simple e-mail object
+		SimpleMailMessage email = new SimpleMailMessage();
+		email.setTo(recipientAddress);
+		email.setSubject(subject);
+		email.setText(message);
+		
+		// sends the e-mail
+		mailSender.send(email);
+		
+		
+		}
+		catch(Exception ex)
+		{
+			System.out.println("Exception = "+ex);
+		}
+		return "Success";
+    }
+	
 	/*@RequestMapping("/deleteproduct/{pid}")
 	public String deleteProduct(@PathVariable int pid)
 	{

@@ -5,8 +5,7 @@
 <div class="jumbotron">
 	<div class="container">
 		<div class="row">
-			<div
-				class="col-xs-4 col-sm-3 col-md-5 col-sm-offset-4 col-md-offset-4 well well-lg">
+			<div class="col-xs-4 col-sm-3 col-md-5 col-sm-offset-4 col-md-offset-4 well well-lg">
 
 				<h2>
 					<center>

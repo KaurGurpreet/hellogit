@@ -9,65 +9,81 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Collect Shipping Detail</title>
 </head>
-<body>
 
-<div class="container-wrapper">
-<div class="container">
-<div class="page-header">
-<h1>Cutomer</h1>
+<div class="jumbotron text-center">
+    <div class="container">
+    <div class="row">
+        <div class="page-header">
+<p class="lead"><h1>Customer Details:</h1></p>
 
-
-<p class="lead">Customer Details:</p>
+<!-- <p class="lead">Customer Details:</p> -->
 </div>
 
 <form:form commandName="order" class="form-horizontal">
 
-<h3>Shipping Address:</h3>
+<div class="row">
 
+<h2><u>Shipping Address:</u></h2><br>
+
+<div class="col-xs-6 col-md-6">
 <div class="form-group">
 <label for="shippingStreet">Street Name</label>
 <form:input path="cart.customer.shippingAddress.streetName" id="shippingStreet" class="form-Control" />
 </div>
-
-<div class="form-group">
-<label for="shippingApartmentNumber">Apartment Number</label>
-<form:input path="cart.customer.shippingAddress.apartmentNumber" id="shippingApartmentNumber" class="form-Control" />
 </div>
 
+<div class="col-xs-6 col-md-6">
+<div class="form-group">
+<label for="shippingApartmentNumber">Apt No.</label>
+<form:input path="cart.customer.shippingAddress.aptNo" id="shippingApartmentNumber" class="form-Control" />
+</div>
+</div>
+
+<div class="col-xs-6 col-md-6">
 <div class="form-group">
 <label for="shippingCity">City</label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <form:input path="cart.customer.shippingAddress.city" id="shippingCity" class="form-Control" />
 </div>
-
-<div class="form-group">
-<label for="shippingState">State</label>
-<form:input path="cart.customer.shippingAddress.state" id="shippingState" class="form-Control" />
 </div>
 
+<div class="col-xs-6 col-md-6">
 <div class="form-group">
-<label for="shippingCountry">Country</label>
+<label for="shippingState">State</label>&nbsp;&nbsp;&nbsp;
+<form:input path="cart.customer.shippingAddress.State" id="shippingState" class="form-Control" />
+</div>
+</div>
+
+<div class="col-xs-6 col-md-6">
+<div class="form-group">
+<label for="shippingCountry">Country</label>&nbsp;&nbsp;&nbsp;&nbsp;
 <form:input path="cart.customer.shippingAddress.country" id="shippingCountry" class="form-Control" />
 </div>
+</div>
 
+<div class="col-xs-6 col-md-6">
 <div class="form-group">
 <label for="shippingZip">Zipcode</label>
 <form:input path="cart.customer.shippingAddress.zipcode" id="shippingZip" class="form-Control" />
 </div>
+</div>
 
+</div>
 <input type="hidden" name="_flowExecutionKey" />
 
 <br/><br/>
 
-<button class="btn btn-default" name="_eventId_backToCollectCustomerInfo">Back</button>
+<button class="btn btn-warning" name="_eventId_backToCollectCustomerInfo">Back</button>
 
-<input type="submit" value="Next" class="btn btn-default" name="_eventId_shippingDetailCollected" />
+<input type="submit" value="Next" class="btn btn-success" name="_eventId_shippingDetailCollected" />
 
-<button class="btn btn-default" name="_eventId_cancel">Cancel</button>
+<button class="btn btn-danger" name="_eventId_cancel">Cancel</button>
 
 </form:form>
 </div>
 </div>
-</body>
+<br/><br/>
+</div>
 <%@ include file="/WEB-INF/views/template/footer.jsp" %>
 
 </html>
